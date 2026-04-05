@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Briefcase, Check, TrendingUp, Target, BarChart, Smartphone, FileText, Users, ArrowRight, Megaphone, Globe, Search } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function Immobilienmakler() {
   const jsonLd = {
@@ -32,7 +33,7 @@ export default function Immobilienmakler() {
                   Exklusivmandate gewinnen. Leads automatisieren.
                 </h1>
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem', lineHeight: 1.6 }}>
-                  Als Makler, der einem Bauträger einen digitalen 3D Wohnungsfinder anbieten kann, 
+                  Als Makler, der einem Bauträger ein System mit AI-Rendering, Surroundings-Maps und automatisiertem Cloud-CRM bieten kann, 
                   heben Sie sich drastisch von der Konkurrenz ab. Das sichert Ihnen Alleinaufträge.
                 </p>
                 <div className="flex gap-4" style={{ flexWrap: 'wrap' }}>
@@ -139,6 +140,9 @@ export default function Immobilienmakler() {
               </div>
            </div>
         </section>
+
+        {/* 8 CORE FEATURES GRID */}
+        <CoreFeaturesGrid />
 
         {/* TESTIMONIALS */}
         <Testimonials variant="dark" />

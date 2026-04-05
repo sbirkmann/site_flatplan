@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Features from "@/components/sections/Features";
 import Showcase from "@/components/sections/Showcase";
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function Vorteile() {
             um den Verkaufsprozess von Neubauprojekten zu beschleunigen und zu vereinfachen.
           </p>
         </section>
+        <CoreFeaturesGrid />
         <Features />
         <Showcase />
       </div>

@@ -11,8 +11,8 @@ export default function UeberUns() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "Über Investora Commercial | flatplan.de",
-    "description": "Investora Commercial entwickelt interaktive 3D Wohnungsfinder für den deutschen Immobilienmarkt. Erfahren Sie mehr über unser Team und unsere Mission."
+    "name": "Über Immowoo | flatplan.de",
+    "description": "Immowoo entwickelt interaktive 3D Wohnungsfinder für den deutschen Immobilienmarkt. Erfahren Sie mehr über unser Team und unsere Mission."
   };
 
   return (
@@ -30,7 +30,7 @@ export default function UeberUns() {
                Wir machen Architektur erlebbar.
              </h1>
              <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: 1.6 }}>
-               Investora Commercial verbindet Immobilienkompetenz mit Software-Engineering. 
+               Immowoo verbindet Immobilienkompetenz mit Software-Engineering. 
                Unser Ziel: Den Neubauvertrieb in der DACH-Region nachhaltig digitalisieren.
              </p>
           </div>

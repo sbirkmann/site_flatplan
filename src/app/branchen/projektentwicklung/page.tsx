@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Compass, Check, TrendingUp, Building2, BarChart, Layers, FileText, Users, ArrowRight, Target, ShieldCheck } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function Projektentwicklung() {
   const jsonLd = {
@@ -33,7 +34,7 @@ export default function Projektentwicklung() {
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem', lineHeight: 1.6 }}>
                   Als Projektentwickler stehen Sie vor einer einzigartigen Herausforderung: 
                   Sie müssen ein Produkt verkaufen, das noch nicht existiert. 
-                  Unser 3D Wohnungsfinder macht Ihre Vision greifbar.
+                  Unser 3D Wohnungsfinder mit interaktiven Surroundings, Architekturparametern und KI-Shadowing macht Ihre Vision greifbar.
                 </p>
                 <div className="flex gap-4" style={{ flexWrap: 'wrap' }}>
                    <Link href="/kontakt" className="btn btn-primary btn-lg" style={{ textTransform: 'uppercase' }}>
@@ -93,6 +94,9 @@ export default function Projektentwicklung() {
               </div>
            </div>
         </section>
+
+        {/* 8 CORE FEATURES GRID */}
+        <CoreFeaturesGrid />
 
         {/* USE CASES */}
         <section className="section bg-soft border-b">

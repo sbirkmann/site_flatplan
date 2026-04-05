@@ -1,30 +1,45 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://flatplan.de',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: 'https://flatplan.de/vorteile',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-       url: 'https://flatplan.de/impressum',
-       lastModified: new Date(),
-       changeFrequency: 'yearly',
-       priority: 0.1,
-    },
-    {
-       url: 'https://flatplan.de/datenschutz',
-       lastModified: new Date(),
-       changeFrequency: 'yearly',
-       priority: 0.1,
-    },
+  const baseUrl = 'https://flatplan.de';
+
+  const routes = [
+    '',
+    '/features',
+    '/preise',
+    '/kontakt',
+    '/faq',
+    '/vorteile',
+    '/referenzen',
+    '/ueber-uns',
+    '/impressum',
+    '/datenschutz',
+    '/agb',
+
+    // Branchen
+    '/branchen/bautraeger',
+    '/branchen/immobilienmakler',
+    '/branchen/projektentwicklung',
+
+    // Funktionen
+    '/funktionen/3d-grundrisse',
+    '/funktionen/integrationen',
+    '/funktionen/lead-generierung',
+    '/funktionen/pdf-expose',
+
+    // Use Cases
+    '/use-cases/neubauvertrieb',
+    '/use-cases/virtuelle-besichtigung',
+
+    // Blog
+    '/blog',
+    '/wissen/glossar'
   ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === '' ? 'weekly' : 'monthly',
+    priority: route === '' ? 1.0 : (route === '/features' || route.startsWith('/branchen') ? 0.9 : 0.8),
+  }));
 }

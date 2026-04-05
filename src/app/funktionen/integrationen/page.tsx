@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Share2, RefreshCw, Smartphone, ListChecks, CheckCircle, Database } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function Integrationen() {
   const jsonLd = {
@@ -15,7 +16,7 @@ export default function Integrationen() {
     "description": "flatplan.de integriert sich nahtlos in onOffice, FIO, Propstack, EMPRO und Immoprofessional. Automatisieren Sie Ihren Neubauvertrieb zu 100%.",
     "publisher": {
       "@type": "Organization",
-      "name": "Investora Commercial"
+      "name": "Immowoo"
     }
   };
 
@@ -128,6 +129,9 @@ export default function Integrationen() {
               </div>
            </div>
         </section>
+
+        {/* 8 CORE FEATURES GRID */}
+        <CoreFeaturesGrid />
 
         {/* TESTIMONIALS */}
         <Testimonials variant="light" />

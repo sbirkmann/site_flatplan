@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Camera, Clock, Globe, ArrowRight, ShieldCheck, Check } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function VirtuelleBesichtigung() {
   const jsonLd = {
@@ -130,6 +131,8 @@ export default function VirtuelleBesichtigung() {
               </div>
            </div>
         </section>
+
+        <CoreFeaturesGrid />
 
       </main>
       <Footer />

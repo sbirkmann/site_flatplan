@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { FileText, Download, Check, Settings, Printer, Database } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function PdfExpose() {
   const jsonLd = {
@@ -93,6 +94,8 @@ export default function PdfExpose() {
               </div>
            </div>
         </section>
+
+        <CoreFeaturesGrid />
 
       </main>
       <Footer />

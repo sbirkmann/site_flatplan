@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Database, MousePointer2, Settings2, BarChart2, Mails, Lock } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function LeadGenerierung() {
   const jsonLd = {
@@ -75,6 +76,8 @@ export default function LeadGenerierung() {
               </div>
            </div>
         </section>
+
+        <CoreFeaturesGrid />
 
       </main>
       <Footer />

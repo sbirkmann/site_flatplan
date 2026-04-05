@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { MonitorPlay, Box, ZoomIn, Info, Check } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function Grundrisse() {
   const jsonLd = {
@@ -61,7 +62,7 @@ export default function Grundrisse() {
            <div className="container prose" style={{ maxWidth: '80ch' }}>
               <div className="badge">Detailwissen</div>
               <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Technische Anforderungen & BIM Integration</h2>
-              <p>Unser 3D Wohnungsfinder Team bei Investora Commercial arbeitet nahtlos mit Ihren Architekten zusammen. Für ein perfektes Rendering benötigen wir lediglich Standard-Baupläne (DWG, DXF) oder im Optimalfall <strong>BIM Modelle</strong> (IFC-Daten). Wir extrudieren alle Wände, Fenster und Dachschrägen millimetergenau.</p>
+              <p>Unser 3D Wohnungsfinder Team bei Immowoo arbeitet nahtlos mit Ihren Architekten zusammen. Für ein perfektes Rendering benötigen wir lediglich Standard-Baupläne (DWG, DXF) oder im Optimalfall <strong>BIM Modelle</strong> (IFC-Daten). Wir extrudieren alle Wände, implementieren AI Shadow Rendering und bauen die Umgebung nach.</p>
               
               <h3 style={{ fontSize: '1.5rem', marginTop: '3rem', marginBottom: '1.5rem' }}>Texturierung und fotorealistische Renderings</h3>
               <p>Nach Aufbau der Rohstruktur überziehen unsere 3D-Artists das gesamte Modell mit hochauflösenden Texturen. Von der korrekten Fassadenklinker-Farbe bis zu den authentischen Parkettmustern in den Wohnzimmern: Das <strong>Immobilienmarketing</strong> profitiert von einer Detailtreue, die bei Kunden echte Emotionen auslöst.</p>
@@ -73,6 +74,8 @@ export default function Grundrisse() {
               </div>
            </div>
         </section>
+
+        <CoreFeaturesGrid />
 
       </main>
       <Footer />

@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Target, TrendingUp, Presentation, Users, CheckCircle, BarChart } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function Neubauvertrieb() {
   const jsonLd = {
@@ -106,6 +107,8 @@ export default function Neubauvertrieb() {
               </div>
            </div>
         </section>
+
+        <CoreFeaturesGrid />
 
       </main>
       <Footer />

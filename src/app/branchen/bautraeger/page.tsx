@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import SEO from "@/components/SEO";
 import Link from 'next/link';
 import { Building2, Check, TrendingUp, ShieldCheck, BarChart, Layers, FileText, Users, ArrowRight } from 'lucide-react';
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 
 export default function Bautraeger() {
   const jsonLd = {
@@ -33,7 +34,7 @@ export default function Bautraeger() {
                 </h1>
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem', lineHeight: 1.6 }}>
                   Als Bauträger wissen Sie: Die finanzierende Bank will Sicherheit sehen. Unser 3D Wohnungsfinder 
-                  generiert qualifizierte Reservierungen, bevor der erste Spaten gestochen wird.
+                  generiert qualifizierte Reservierungen dank KI-Optimierung und Echtzeit-Tracking, lange bevor der erste Spaten gestochen wird.
                 </p>
                 <div className="flex gap-4" style={{ flexWrap: 'wrap' }}>
                    <Link href="/kontakt" className="btn btn-primary btn-lg" style={{ textTransform: 'uppercase' }}>
@@ -117,30 +118,8 @@ export default function Bautraeger() {
            </div>
         </section>
 
-        {/* FEATURES DEEP DIVE */}
-        <section className="section bg-white border-b">
-           <div className="container max-w-4xl mx-auto text-center mb-12 animate-up">
-              <h2>Was der Flatfinder für Bauträger leistet</h2>
-           </div>
-           <div className="container grid grid-2" style={{ gap: '1.5rem' }}>
-              {[
-                { icon: <Layers size={32} color="var(--accent-primary)" />, title: 'Interaktive 3D-Gebäudeansicht', desc: 'Nutzer erkunden Ihre Anlage in Echtzeit. Fassadenfarben, Balkonperspektiven, Grünanlagen – alles visuell erlebbar, und das vor dem Spatenstich.' },
-                { icon: <BarChart size={32} color="var(--accent-primary)" />, title: 'Intelligente Filtersuche', desc: 'Käufer filtern nach Zimmeranzahl, Quadratmetern, Budget, Etage und Ausrichtung. Unpassende Einheiten werden im Modell ausgegraut.' },
-                { icon: <FileText size={32} color="var(--accent-primary)" />, title: 'Dynamische PDF-Exposés', desc: 'Auf Knopfdruck erstellt das System ein professionelles PDF mit 3D-Grundriss, Kaufpreis, Lageplan und Ihrem CI. Immer aktuell.' },
-                { icon: <ShieldCheck size={32} color="var(--accent-primary)" />, title: 'Live-Verfügbarkeiten', desc: 'Verkaufte oder reservierte Wohnungen werden in Echtzeit aus Ihrem CRM synchronisiert und im 3D-Modell farblich markiert.' },
-                { icon: <Users size={32} color="var(--accent-primary)" />, title: 'Lead-Qualifizierung', desc: 'Jede Anfrage enthält die exakte Wunscheinheit. Kein Rätselraten, keine kalten Anrufe. Ihr Vertrieb arbeitet ausschließlich mit warmen Leads.' },
-                { icon: <TrendingUp size={32} color="var(--accent-primary)" />, title: 'Analytics Dashboard', desc: 'Sehen Sie in Echtzeit, welche Wohnungen am meisten betrachtet werden. Optimieren Sie Ihre Preisstrategie datengetrieben.' },
-              ].map((f, i) => (
-                <div key={i} className="card animate-up" style={{ animationDelay: `${i * 80}ms`, display: 'flex', gap: '1.5rem', alignItems: 'flex-start', padding: '2.5rem' }}>
-                   <div style={{ flexShrink: 0, marginTop: '4px' }}>{f.icon}</div>
-                   <div>
-                      <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>{f.title}</h3>
-                      <p style={{ margin: 0, fontSize: '1rem' }}>{f.desc}</p>
-                   </div>
-                </div>
-              ))}
-           </div>
-        </section>
+        {/* 8 CORE FEATURES GRID */}
+        <CoreFeaturesGrid />
 
         {/* TESTIMONIALS */}
         <Testimonials variant="dark" />
