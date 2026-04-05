@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://flatplan.de'),
   title: "flatplan.de | 3D Wohnungsfinder & Digitales Immobilienmarketing",
-  description: "Entdecken Sie den interaktiven 3D Wohnungsfinder für Ihr Neubauprojekt. Optimiert für Bauträger und Vermarkter.",
+  description: "Der interaktive 3D Wohnungsfinder für die Neubauvermarktung. Virtuelle 3D-Rundgänge, interaktiver Wohnungsnavigator, Online-Exposés und KI-Assistenz für Bauträger und Makler.",
   verification: {
     google: "bpJ2DiIH1PxIhuL_ZejfuBQMhhCfFQlal6QK9UD2ZQw",
   },

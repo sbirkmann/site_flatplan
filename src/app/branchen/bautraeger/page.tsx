@@ -124,6 +124,33 @@ export default function Bautraeger() {
         {/* TESTIMONIALS */}
         <Testimonials variant="dark" />
 
+        {/* BAUTRÄGER BENEFITS */}
+        <section className="section bg-soft border-b" style={{ padding: '6rem 0' }}>
+           <div className="container grid grid-2 items-center">
+              <div className="animate-up">
+                 <h2 className="mb-6">Kalkulierbarer Vertriebsbaustein statt Sonderlösung</h2>
+                 <p className="mb-4">Wir entwickeln flatplan als skalierbare Lösung exklusiv für Projektentwickler und Bauträger. Ein verlässlicher Baustein für Wohnanlagen jeder Größe, ganz ohne die Risiken aufwendiger Eigenentwicklungen oder starrer Insellösungen.</p>
+                 <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Planbare Betriebskosten:</strong> Volle Transparenz über die gesamte Laufzeit inklusive Hosting, Updates und Support.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Hohe Kosteneffizienz:</strong> Perfekt für große Bauvorhaben, da die Kosten bei vielen Wohneinheiten nicht linear mitwachsen.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>KI-Assistent zur Vorqualifizierung:</strong> Digitale Begleitung beantwortet Routinefragen (Finanzierung, Lage) im Vorfeld.</li>
+                    <li><strong>Zentrale Datenhoheit:</strong> Steuern Sie Verfügbarkeiten in Echtzeit und behalten Sie stets den Überblick über Ihre Projekte.</li>
+                 </ul>
+              </div>
+              <div className="animate-up delay-100" style={{ paddingLeft: '2rem' }}>
+                 <div style={{ background: 'white', padding: '2.5rem', borderRadius: '16px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-xl)' }}>
+                    <h3 style={{ fontSize: '1.3rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><ShieldCheck color="var(--accent-primary)" size={24} /> Ihre Vorteile</h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>Keine Lead-Provisionen</span>
+                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>100% DSGVO-konform</span>
+                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>Kurze Time-to-Market</span>
+                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>CSV-Massenimport</span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+
         {/* SEO CONTENT */}
         <section className="section bg-white border-b">
            <div className="container prose animate-up">

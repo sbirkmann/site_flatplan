@@ -60,9 +60,10 @@ export default function Features() {
                  <h2 className="mb-4" style={{ fontSize: '2.5rem', color: 'white' }}>3D & Visuelle Erlebnisse</h2>
                  <p className="mb-6" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem' }}>Das Herzstück der Plattform. Interaktive 3D-Rundgänge, fluide Navigation und klickbare dynamische Grundrisse auf allen Achsen.</p>
                  <ul style={{ listStyle: 'none', padding: 0 }}>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} /> <span style={{ color: '#ccc' }}><strong>Dynamische Grundrisse</strong> – Raum- und Ebenen-Navigation</span></li>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} /> <span style={{ color: '#ccc' }}><strong>Auto-Tours</strong> – Automatisch generierte, geführte Touren</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 color="var(--accent-primary)" size={20} /> <span style={{ color: '#ccc' }}><strong>Annotationen</strong> – Präzises Einzeichnen von Polygonen & POIs</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Interaktiver 360° Gebäudeviewer</strong> – Flüssige Steuerung mit Hover-Feedback und Live-Status (Verfügbar, Reserviert).</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Dynamische Grundrisse</strong> – Raum- und Ebenen-Navigation inklusive Anzeige der Himmelsrichtung.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Auto-Tours & Medien</strong> – Geführtes Erlebnis mit nahtloser Einbindung von Renderings und Videos.</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Annotationen</strong> – Präzises Einzeichnen von Polygonen & POIs im Modell.</span></li>
                  </ul>
               </div>
            </div>
@@ -79,9 +80,10 @@ export default function Features() {
                  <h2 className="mb-4" style={{ fontSize: '2.5rem' }}>KI & Automatisierung</h2>
                  <p className="mb-6" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}>Systeme, die mittdenken. Sparen Sie Stunden an manueller Arbeit durch automatisierte Bildoptimierung und intelligente Schattenberechnungen.</p>
                  <ul style={{ listStyle: 'none', padding: 0 }}>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><Zap color="var(--accent-primary)" size={20} /> <span><strong>AI Shadow Rendering:</strong> Erzeugt Depth- & Normal-Maps für realistische Schatten.</span></li>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><Zap color="var(--accent-primary)" size={20} /> <span><strong>Bildoptimierung:</strong> Systemseitige Skalierung für maximale Performance.</span></li>
-                    <li className="flex items-start gap-3"><Zap color="var(--accent-primary)" size={20} /> <span><strong>Content Generation:</strong> KI-gestützte Exposé-Texte.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><Zap color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span><strong>AI Shadow Rendering:</strong> Erzeugt Depth- & Normal-Maps für realistische Schatten.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><Zap color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span><strong>Digitale Assistenz:</strong> KI-Begleitung klärt Vorlieben in natürlicher Sprache und empfiehlt passende Einheiten.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><Zap color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span><strong>Bildoptimierung:</strong> Systemseitige Skalierung für maximale Performance (auch bei 500+ Einheiten).</span></li>
+                    <li className="flex items-start gap-3"><Zap color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span><strong>Content Generation:</strong> KI-gestützte Exposé-Texte und smarte Vorqualifizierung.</span></li>
                  </ul>
               </div>
               <div className="animate-up delay-100">
@@ -134,9 +136,10 @@ export default function Features() {
                  <h2 className="mb-4" style={{ fontSize: '2rem' }}>Immobilien & Projektmanagement</h2>
                  <p className="mb-4">Zentrale Projektverwaltung von Bauvorhaben. Gliedern Sie komplexe Gebäude in Etagen und einzelne Wohneinheiten auf.</p>
                  <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)' }}>
-                    <li style={{ marginBottom: '0.5rem' }}>Live-Verfügbarkeiten (Einheiten-Status)</li>
-                    <li style={{ marginBottom: '0.5rem' }}>Strukturierte Datenblätter je Apartment</li>
-                    <li>Projekt-Duplizierung für schnelles Klonen</li>
+                    <li style={{ marginBottom: '0.5rem' }}>Zentrale Datenpflege & Live-Status (Verfügbar, Reserviert)</li>
+                    <li style={{ marginBottom: '0.5rem' }}>Echtzeit-Wohnungsnavigator mit Mehrkriterien-Filtern (Preis, Fläche, Zimmer)</li>
+                    <li style={{ marginBottom: '0.5rem' }}>CSV-Import für Massenanlage oder Updates</li>
+                    <li>Rollenbasierter Admin-Bereich & Projekt-Duplizierung</li>
                  </ul>
               </div>
 
@@ -149,7 +152,8 @@ export default function Features() {
                  <p className="mb-4">Verkaufen Sie nicht nur vier Wände, sondern den Kontext. Interaktive Surroundings-Map pro Projekt.</p>
                  <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)' }}>
                     <li style={{ marginBottom: '0.5rem' }}>Visualisierung von Infrastruktur (POIs)</li>
-                    <li>Berechnung von Isochronen (Erreichbarkeiten via Fußweg, Fahrrad, Auto)</li>
+                    <li style={{ marginBottom: '0.5rem' }}>Berechnung von Isochronen (Fußweg, Fahrrad, Auto)</li>
+                    <li>Lagekarten mit DSGVO-Switch (Google Maps Consent)</li>
                  </ul>
               </div>
 
@@ -184,9 +188,10 @@ export default function Features() {
                  <h2 className="mb-4" style={{ fontSize: '2.5rem' }}>Lead-Gen & System CRM</h2>
                  <p className="mb-6" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem' }}>Vollautomatisierte PDF-Exposés für Endbenutzer und intelligente Lead-Routings im Hintergrund. Jede Einheit generiert ihre eigenen Dokumente on-the-fly.</p>
                  <ul style={{ listStyle: 'none', padding: 0 }}>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} /> <span style={{ color: '#ccc' }}><strong>Public Showcases:</strong> Conversion-optimierte Projektseiten `/p/{'{project}'}`</span></li>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} /> <span style={{ color: '#ccc' }}><strong>Automatisierte Exposés:</strong> PDF-Download in Echtzeit</span></li>
-                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} /> <span style={{ color: '#ccc' }}><strong>Integriertes CRM:</strong> Adressbuch, Projekt-Zuweisung und Status-Tracking</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Online-Exposés:</strong> Projektseiten mit Galerien, Grundrissen und Videos.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Automatisierte PDF-Exposés:</strong> Download in Echtzeit ohne Medienbruch.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Smart Contact Forms:</strong> Spam-Schutz (Honeypot, Rate Limits) & Adressbuch.</span></li>
+                    <li className="flex items-start gap-3" style={{ marginBottom: '1rem' }}><CheckCircle2 color="var(--accent-primary)" size={20} style={{flexShrink: 0}} /> <span style={{ color: '#ccc' }}><strong>Termin-Integration:</strong> Calendly oder Microsoft Bookings für direkte Buchungen.</span></li>
                  </ul>
               </div>
            </div>
@@ -216,9 +221,10 @@ export default function Features() {
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Analytics, Tracking & Sicherheit</h3>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Echtzeit-Statistiken zu Besucherzahlen und Klickverhalten. Ein lückenloses Activity-Log sorgt für absolute Transparenz.</p>
                     <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)' }}>
-                       <li>Integriertes Tracking-Dashboard</li>
-                       <li>Globale Suche über Projekte hinweg</li>
-                       <li>Team- & Rechtemanagement (Mandanten)</li>
+                       <li style={{ marginBottom: '0.5rem' }}>Auswertung von Klicks, Exposé-Downloads & Tour-Starts</li>
+                       <li style={{ marginBottom: '0.5rem' }}>Conversion Funnels & Kontaktanfragen pro Stunde/Tag</li>
+                       <li style={{ marginBottom: '0.5rem' }}>Sichere Authentifizierung, Session Handling & Brute-Force-Schutz</li>
+                       <li>Team-verwaltung (Mandanten) & optional Google Analytics</li>
                     </ul>
                 </div>
             </div>
