@@ -108,7 +108,7 @@ export default function Bautraeger() {
                 { num: '3', title: 'Leads empfangen', desc: 'Interessenten filtern, staunen und fragen an. Jeder Lead enthält die exakte Wunscheinheit, Zimmerzahl und Kontaktdaten. Ihr Vertrieb ruft nur noch warme Leads an.' },
               ].map((s, i) => (
                 <div key={i} className="card animate-up" style={{ animationDelay: `${i * 100}ms`, position: 'relative', borderColor: i === 2 ? 'var(--accent-primary)' : 'var(--border-light)' }}>
-                   <span style={{ fontSize: '5rem', fontWeight: 800, color: 'var(--bg-secondary)', position: 'absolute', top: '-10px', left: '1.5rem', lineHeight: 1 }}>{s.num}</span>
+                   <span style={{ fontSize: '5rem', fontWeight: 800, color: 'rgba(227, 0, 15, 0.08)', position: 'absolute', top: '-10px', left: '1.5rem', lineHeight: 1 }}>{s.num}</span>
                    <div style={{ position: 'relative', zIndex: 1, paddingTop: '2rem' }}>
                       <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{s.title}</h3>
                       <p style={{ margin: 0, fontSize: '1rem' }}>{s.desc}</p>

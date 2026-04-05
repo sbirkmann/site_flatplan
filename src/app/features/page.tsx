@@ -26,7 +26,7 @@ export default function Features() {
         <section className="bg-dark text-white" style={{ padding: '8rem 0 6rem 0', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 0%, rgba(227, 0, 15, 0.15), transparent 70%)', zIndex: 1 }}></div>
           <div className="container max-w-4xl mx-auto text-center animate-up" style={{ position: 'relative', zIndex: 2 }}>
-             <div className="badge badge-outline" style={{ borderColor: 'rgba(255,255,255,0.2)', color: '#fff' }}><Layers size={16} style={{ marginRight: '8px' }}/> Neues Feature-Set</div>
+             <div className="badge" style={{ background: 'rgba(227, 0, 15, 0.15)', color: 'var(--accent-primary)', border: '1px solid var(--accent-primary)' }}><Layers size={16} style={{ marginRight: '8px' }}/> Neues Feature-Set</div>
              <h1 style={{ marginBottom: '2rem', marginTop: '1rem', fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                Acht Dimensionen <br/><span style={{ color: 'var(--accent-primary)' }}>Perfekten Vertriebs.</span>
              </h1>
@@ -88,8 +88,34 @@ export default function Features() {
                  <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-light)', padding: '3rem', borderRadius: '16px', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '350px' }}>
                     <h3 style={{ marginBottom: '1rem', textAlign: 'center', fontSize: '1.5rem' }}>Dynamic Shadow Matrix</h3>
                     <p style={{ textAlign: 'center', fontSize: '1.05rem', color: 'var(--text-secondary)' }}>Echtzeitsimulation auf Basis unserer neuronalen Depth-Maps.</p>
-                    <div style={{ marginTop: '2rem', height: '200px', background: '#e0e0e0', borderRadius: '8px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-                       AI Simulation Placeholder
+                    <div style={{ marginTop: '2rem', height: '220px', background: '#0a0a0a', borderRadius: '12px', border: '1px solid var(--border-light)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                       {/* Grid Background */}
+                       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.15, backgroundImage: 'linear-gradient(var(--accent-primary) 1px, transparent 1px), linear-gradient(90deg, var(--accent-primary) 1px, transparent 1px)', backgroundSize: '30px 30px', backgroundPosition: 'center center' }}></div>
+                       
+                       {/* Animated Scan Line */}
+                       <div style={{ position: 'absolute', top: 0, left: '-10%', width: '120%', height: '100%', background: 'linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.2), transparent)', animation: 'scanLine 3s infinite linear' }}></div>
+                       
+                       <style dangerouslySetInnerHTML={{ __html: `
+                         @keyframes scanLine {
+                           0% { transform: translateX(-100%); }
+                           100% { transform: translateX(100%); }
+                         }
+                         @keyframes pulseDot {
+                           0% { opacity: 0.5; transform: scale(0.9); box-shadow: 0 0 0 0 rgba(227, 0, 15, 0.4); }
+                           50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 20px 5px rgba(227, 0, 15, 0.2); }
+                           100% { opacity: 0.5; transform: scale(0.9); box-shadow: 0 0 0 0 rgba(227, 0, 15, 0); }
+                         }
+                       `}} />
+
+                       <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
+                          <div style={{ width: '64px', height: '64px', borderRadius: '50%', border: '2px solid rgba(227, 0, 15, 0.5)', background: 'rgba(10, 10, 10, 0.8)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'pulseDot 2.5s infinite ease-in-out' }}>
+                             <SunMedium size={32} color="var(--accent-primary)" />
+                          </div>
+                          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                             <span style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: 'var(--accent-primary)', background: 'rgba(227, 0, 15, 0.1)', border: '1px solid rgba(227, 0, 15, 0.2)', padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.05em' }}>CALCULATING_DEPTH</span>
+                             <span style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#aaa', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.05em' }}>RAYTRACE_98%</span>
+                          </div>
+                       </div>
                     </div>
                  </div>
               </div>
@@ -152,8 +178,8 @@ export default function Features() {
               </div>
               <div className="animate-up delay-100" style={{ paddingLeft: '2.5rem' }}>
                  <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
-                    <div className="badge badge-outline" style={{ borderColor: 'rgba(255,255,255,0.2)', color: '#fff' }}>05 / Sales</div>
-                    <div className="badge badge-outline" style={{ borderColor: 'rgba(255,255,255,0.2)', color: '#fff' }}>06 / CRM</div>
+                    <div className="badge" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)' }}>05 / Sales</div>
+                    <div className="badge" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)' }}>06 / CRM</div>
                  </div>
                  <h2 className="mb-4" style={{ fontSize: '2.5rem' }}>Lead-Gen & System CRM</h2>
                  <p className="mb-6" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem' }}>Vollautomatisierte PDF-Exposés für Endbenutzer und intelligente Lead-Routings im Hintergrund. Jede Einheit generiert ihre eigenen Dokumente on-the-fly.</p>
@@ -204,7 +230,7 @@ export default function Features() {
               <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Nutzen Sie das volle Potenzial.</h2>
               <p className="mb-8" style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}>Das Komplettsystem für Ihren nächsten Projektabverkauf.</p>
               <Link href="/kontakt" className="btn btn-primary btn-lg" style={{ textTransform: 'uppercase' }}>
-                 Jetzt Setup Kontaktieren
+                 Jetzt Zukunft buchen
               </Link>
            </div>
         </section>
