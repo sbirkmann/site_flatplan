@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="KI-Assistent verbunden mit Wohnungsfinder-Daten">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5a00" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ff5a00" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f1f5f9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="315" r="360" fill="url(#glow)"/>
+  <g stroke="#334155" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="140" x2="1200" y2="140"/>
+    <line x1="0" y1="490" x2="1200" y2="490"/>
+  </g>
+
+  <!-- connection lines: assistant hub to data cards -->
+  <g stroke="#ff5a00" stroke-width="3" fill="none" opacity="0.85">
+    <path d="M 560 300 C 470 300 430 220 340 205"/>
+    <path d="M 560 330 C 470 340 430 410 340 425"/>
+    <path d="M 640 300 C 730 300 770 210 860 195"/>
+    <path d="M 640 330 C 730 340 770 420 860 435"/>
+  </g>
+  <g fill="#ff5a00">
+    <circle cx="340" cy="205" r="6"/>
+    <circle cx="340" cy="425" r="6"/>
+    <circle cx="860" cy="195" r="6"/>
+    <circle cx="860" cy="435" r="6"/>
+  </g>
+  <!-- data pulses on the lines -->
+  <g fill="#ffffff">
+    <circle cx="455" cy="248" r="4"/>
+    <circle cx="452" cy="384" r="4"/>
+    <circle cx="748" cy="242" r="4"/>
+    <circle cx="750" cy="392" r="4"/>
+  </g>
+
+  <!-- central AI hub -->
+  <circle cx="600" cy="315" r="86" fill="#0f172a" stroke="#ff5a00" stroke-width="4"/>
+  <circle cx="600" cy="315" r="106" fill="none" stroke="#ff5a00" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="600" cy="315" r="126" fill="none" stroke="#ff5a00" stroke-width="1" opacity="0.2"/>
+  <!-- sparkle -->
+  <path d="M 600 262 L 613 302 L 653 315 L 613 328 L 600 368 L 587 328 L 547 315 L 587 302 Z" fill="#ff5a00"/>
+  <path d="M 641 275 L 646 289 L 660 294 L 646 299 L 641 313 L 636 299 L 622 294 L 636 289 Z" fill="#ffffff" opacity="0.9"/>
+
+  <!-- left top card: chat prompt -->
+  <g>
+    <rect x="120" y="140" width="220" height="120" rx="14" fill="url(#card)"/>
+    <rect x="142" y="166" width="150" height="10" rx="5" fill="#94a3b8"/>
+    <rect x="142" y="188" width="176" height="10" rx="5" fill="#cbd5e1"/>
+    <rect x="142" y="210" width="110" height="10" rx="5" fill="#cbd5e1"/>
+    <rect x="142" y="230" width="52" height="14" rx="7" fill="#ff5a00"/>
+    <path d="M 150 260 L 170 260 L 150 280 Z" fill="#f1f5f9"/>
+  </g>
+
+  <!-- left bottom card: inquiries list -->
+  <g>
+    <rect x="120" y="360" width="220" height="130" rx="14" fill="url(#card)"/>
+    <circle cx="152" cy="392" r="11" fill="#ff5a00"/>
+    <rect x="172" y="386" width="120" height="10" rx="5" fill="#94a3b8"/>
+    <circle cx="152" cy="426" r="11" fill="#94a3b8"/>
+    <rect x="172" y="420" width="140" height="10" rx="5" fill="#cbd5e1"/>
+    <circle cx="152" cy="460" r="11" fill="#cbd5e1"/>
+    <rect x="172" y="454" width="96" height="10" rx="5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- right top card: building with status units -->
+  <g>
+    <rect x="860" y="130" width="220" height="130" rx="14" fill="url(#card)"/>
+    <rect x="886" y="156" width="76" height="82" rx="4" fill="#0f172a"/>
+    <g fill="#f1f5f9">
+      <rect x="896" y="166" width="14" height="12" rx="2"/>
+      <rect x="918" y="166" width="14" height="12" rx="2"/>
+      <rect x="940" y="166" width="14" height="12" rx="2"/>
+      <rect x="896" y="186" width="14" height="12" rx="2"/>
+      <rect x="940" y="186" width="14" height="12" rx="2"/>
+      <rect x="896" y="206" width="14" height="12" rx="2"/>
+      <rect x="918" y="206" width="14" height="12" rx="2"/>
+    </g>
+    <rect x="918" y="186" width="14" height="12" rx="2" fill="#ff5a00"/>
+    <rect x="940" y="206" width="14" height="12" rx="2" fill="#ff5a00"/>
+    <rect x="978" y="166" width="78" height="10" rx="5" fill="#94a3b8"/>
+    <rect x="978" y="188" width="60" height="10" rx="5" fill="#cbd5e1"/>
+    <rect x="978" y="210" width="70" height="10" rx="5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- right bottom card: price / status toggles -->
+  <g>
+    <rect x="860" y="370" width="220" height="120" rx="14" fill="url(#card)"/>
+    <rect x="886" y="396" width="90" height="10" rx="5" fill="#94a3b8"/>
+    <rect x="1006" y="392" width="48" height="18" rx="9" fill="#ff5a00"/>
+    <circle cx="1044" cy="401" r="7" fill="#ffffff"/>
+    <rect x="886" y="430" width="70" height="10" rx="5" fill="#cbd5e1"/>
+    <rect x="1006" y="426" width="48" height="18" rx="9" fill="#cbd5e1"/>
+    <circle cx="1016" cy="435" r="7" fill="#ffffff"/>
+    <rect x="886" y="462" width="110" height="10" rx="5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- small orbit nodes around hub -->
+  <g fill="#94a3b8">
+    <circle cx="600" cy="182" r="5"/>
+    <circle cx="600" cy="448" r="5"/>
+    <circle cx="712" cy="368" r="4"/>
+    <circle cx="488" cy="262" r="4"/>
+  </g>
+
+  <!-- tiny label chip (single graphic label) -->
+  <g>
+    <rect x="545" y="540" width="110" height="34" rx="17" fill="#0f172a" stroke="#ff5a00" stroke-width="2"/>
+    <text x="600" y="562" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#ff5a00" letter-spacing="2">MCP</text>
+  </g>
+</svg>

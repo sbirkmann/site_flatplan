@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="360-Grad-Panorama mit verbundenen Standpunkten">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="panoArc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff5a00" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#ff5a00" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff5a00" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="floorG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- interior background -->
+  <rect width="1200" height="630" fill="url(#room)"/>
+
+  <!-- panorama wall: curved band suggesting wrap-around view -->
+  <path d="M 0 90 C 300 40 900 40 1200 90 L 1200 400 C 900 350 300 350 0 400 Z" fill="#0f172a"/>
+  <!-- window openings in the panorama band -->
+  <g fill="#94a3b8" opacity="0.5">
+    <path d="M 120 140 C 220 120 300 112 380 108 L 380 300 C 300 304 220 312 120 332 Z"/>
+    <path d="M 470 102 C 560 98 640 98 730 102 L 730 292 C 640 288 560 288 470 292 Z"/>
+    <path d="M 820 108 C 900 112 980 120 1080 140 L 1080 332 C 980 312 900 304 820 300 Z"/>
+  </g>
+  <!-- skyline seen through the middle window -->
+  <g fill="#0f172a" opacity="0.85">
+    <rect x="500" y="180" width="42" height="112"/>
+    <rect x="556" y="150" width="52" height="140"/>
+    <rect x="622" y="196" width="38" height="94"/>
+    <rect x="672" y="166" width="44" height="124"/>
+  </g>
+  <circle cx="545" cy="132" r="18" fill="#ff5a00"/>
+  <!-- balcony rail hint in right window -->
+  <g stroke="#0f172a" stroke-width="4" opacity="0.7">
+    <line x1="840" y1="250" x2="1060" y2="266"/>
+    <line x1="860" y1="250" x2="860" y2="298"/>
+    <line x1="905" y1="253" x2="905" y2="300"/>
+    <line x1="950" y1="256" x2="950" y2="302"/>
+    <line x1="995" y1="259" x2="995" y2="305"/>
+    <line x1="1040" y1="262" x2="1040" y2="308"/>
+  </g>
+
+  <!-- floor -->
+  <path d="M 0 400 C 300 350 900 350 1200 400 L 1200 630 L 0 630 Z" fill="url(#floorG)"/>
+  <!-- floor plan lines on the ground -->
+  <g stroke="#475569" stroke-width="2" fill="none" opacity="0.8">
+    <path d="M 150 520 L 420 470 L 780 470 L 1050 520"/>
+    <path d="M 420 470 L 420 610"/>
+    <path d="M 780 470 L 780 610"/>
+    <path d="M 240 610 L 500 500 L 700 500 L 960 610"/>
+  </g>
+
+  <!-- connected standpoints path -->
+  <path d="M 260 545 C 380 505 500 512 600 512 C 700 512 820 505 940 545" fill="none" stroke="#ff5a00" stroke-width="4" stroke-dasharray="3 12" stroke-linecap="round"/>
+
+  <!-- standpoint left -->
+  <g transform="translate(260 545)">
+    <ellipse rx="34" ry="12" fill="#ff5a00" opacity="0.3"/>
+    <ellipse rx="20" ry="7" fill="none" stroke="#ff5a00" stroke-width="3"/>
+    <circle cy="-16" r="9" fill="#ffffff" stroke="#ff5a00" stroke-width="4"/>
+    <line y1="-7" y2="-4" stroke="#ff5a00" stroke-width="3"/>
+  </g>
+  <!-- standpoint right -->
+  <g transform="translate(940 545)">
+    <ellipse rx="34" ry="12" fill="#ff5a00" opacity="0.3"/>
+    <ellipse rx="20" ry="7" fill="none" stroke="#ff5a00" stroke-width="3"/>
+    <circle cy="-16" r="9" fill="#ffffff" stroke="#ff5a00" stroke-width="4"/>
+    <line y1="-7" y2="-4" stroke="#ff5a00" stroke-width="3"/>
+  </g>
+
+  <!-- central active standpoint with 360 sweep -->
+  <g transform="translate(600 512)">
+    <ellipse rx="52" ry="18" fill="#ff5a00" opacity="0.25"/>
+    <ellipse rx="36" ry="12" fill="none" stroke="#ff5a00" stroke-width="4"/>
+    <ellipse rx="70" ry="24" fill="none" stroke="#ff5a00" stroke-width="2" opacity="0.5"/>
+    <circle cy="-24" r="13" fill="#ff5a00"/>
+    <circle cy="-24" r="5" fill="#ffffff"/>
+    <line y1="-11" y2="-6" stroke="#ff5a00" stroke-width="4"/>
+    <!-- view cone toward the window -->
+    <path d="M 0 -24 L -70 -160 A 150 60 0 0 1 70 -160 Z" fill="url(#panoArc)"/>
+  </g>
+
+  <!-- rotation arrows around central point -->
+  <g fill="none" stroke="#f1f5f9" stroke-width="4" stroke-linecap="round">
+    <path d="M 505 512 A 95 34 0 0 1 545 484"/>
+    <path d="M 695 512 A 95 34 0 0 0 655 484"/>
+  </g>
+  <g fill="#f1f5f9">
+    <path d="M 505 512 L 494 496 L 516 498 Z"/>
+    <path d="M 695 512 L 706 496 L 684 498 Z"/>
+  </g>
+
+  <!-- hotspot markers in the panorama -->
+  <g>
+    <circle cx="250" cy="220" r="14" fill="#ffffff" stroke="#ff5a00" stroke-width="4"/>
+    <circle cx="250" cy="220" r="4" fill="#ff5a00"/>
+    <circle cx="950" cy="200" r="14" fill="#ffffff" stroke="#ff5a00" stroke-width="4"/>
+    <circle cx="950" cy="200" r="4" fill="#ff5a00"/>
+  </g>
+
+  <!-- small 360 label chip -->
+  <g>
+    <rect x="548" y="330" width="104" height="36" rx="18" fill="#ff5a00"/>
+    <text x="600" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="1">360°</text>
+  </g>
+
+  <!-- ambient dots -->
+  <g fill="#94a3b8" opacity="0.6">
+    <circle cx="90" cy="60" r="3"/>
+    <circle cx="1120" cy="70" r="3"/>
+    <circle cx="1160" cy="120" r="2"/>
+    <circle cx="55" cy="110" r="2"/>
+  </g>
+</svg>

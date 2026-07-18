@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Steigende Verkaufskurve vor Gebäudesilhouette">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5a00" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ff5a00" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="towerA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="990" cy="120" r="58" fill="#ff5a00" opacity="0.9"/>
+  <circle cx="990" cy="120" r="78" fill="none" stroke="#ff5a00" stroke-width="2" opacity="0.35"/>
+
+  <!-- skyline back row -->
+  <g fill="#94a3b8" opacity="0.55">
+    <rect x="70" y="250" width="90" height="290"/>
+    <rect x="205" y="300" width="70" height="240"/>
+    <rect x="620" y="270" width="80" height="270"/>
+    <rect x="1050" y="290" width="80" height="250"/>
+  </g>
+
+  <!-- skyline mid row -->
+  <g fill="#64748b" opacity="0.8">
+    <rect x="140" y="210" width="110" height="330"/>
+    <rect x="700" y="220" width="110" height="320"/>
+    <rect x="960" y="240" width="110" height="300"/>
+  </g>
+
+  <!-- hero buildings, navy with windows -->
+  <g>
+    <rect x="300" y="160" width="150" height="380" fill="url(#towerA)"/>
+    <g fill="#f1f5f9" opacity="0.9">
+      <rect x="320" y="185" width="24" height="18" rx="2"/>
+      <rect x="362" y="185" width="24" height="18" rx="2"/>
+      <rect x="404" y="185" width="24" height="18" rx="2"/>
+      <rect x="320" y="222" width="24" height="18" rx="2"/>
+      <rect x="404" y="222" width="24" height="18" rx="2"/>
+      <rect x="320" y="259" width="24" height="18" rx="2"/>
+      <rect x="362" y="259" width="24" height="18" rx="2"/>
+      <rect x="362" y="296" width="24" height="18" rx="2"/>
+      <rect x="404" y="296" width="24" height="18" rx="2"/>
+      <rect x="320" y="333" width="24" height="18" rx="2"/>
+      <rect x="404" y="333" width="24" height="18" rx="2"/>
+    </g>
+    <!-- sold units in orange -->
+    <g fill="#ff5a00">
+      <rect x="362" y="222" width="24" height="18" rx="2"/>
+      <rect x="404" y="259" width="24" height="18" rx="2"/>
+      <rect x="320" y="296" width="24" height="18" rx="2"/>
+      <rect x="362" y="333" width="24" height="18" rx="2"/>
+    </g>
+  </g>
+  <g>
+    <rect x="820" y="190" width="120" height="350" fill="#1e293b"/>
+    <g fill="#f1f5f9" opacity="0.85">
+      <rect x="838" y="214" width="20" height="15" rx="2"/>
+      <rect x="872" y="214" width="20" height="15" rx="2"/>
+      <rect x="906" y="214" width="20" height="15" rx="2"/>
+      <rect x="838" y="246" width="20" height="15" rx="2"/>
+      <rect x="906" y="246" width="20" height="15" rx="2"/>
+      <rect x="838" y="278" width="20" height="15" rx="2"/>
+      <rect x="872" y="278" width="20" height="15" rx="2"/>
+      <rect x="872" y="310" width="20" height="15" rx="2"/>
+    </g>
+    <g fill="#ff5a00">
+      <rect x="872" y="246" width="20" height="15" rx="2"/>
+      <rect x="906" y="278" width="20" height="15" rx="2"/>
+      <rect x="838" y="310" width="20" height="15" rx="2"/>
+    </g>
+  </g>
+
+  <!-- ground -->
+  <rect x="0" y="540" width="1200" height="90" fill="#0f172a"/>
+
+  <!-- rising curve with area fill -->
+  <path d="M 90 520 C 300 505 420 470 560 400 C 700 330 820 300 1010 205 L 1010 540 L 90 540 Z" fill="url(#curveFill)"/>
+  <path d="M 90 520 C 300 505 420 470 560 400 C 700 330 820 300 1010 205" fill="none" stroke="#ff5a00" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- curve data points -->
+  <g fill="#ffffff" stroke="#ff5a00" stroke-width="4">
+    <circle cx="90" cy="520" r="9"/>
+    <circle cx="330" cy="497" r="9"/>
+    <circle cx="560" cy="400" r="9"/>
+    <circle cx="790" cy="313" r="9"/>
+  </g>
+
+  <!-- arrow head at curve end -->
+  <g transform="translate(1010 205) rotate(-27)">
+    <path d="M 0 0 L -34 -16 L -24 0 L -34 16 Z" fill="#ff5a00"/>
+  </g>
+
+  <!-- target marker: bank quota line -->
+  <g>
+    <line x1="90" y1="240" x2="1110" y2="240" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="14 10" opacity="0.55"/>
+    <rect x="1046" y="222" width="64" height="36" rx="8" fill="#0f172a"/>
+    <text x="1078" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff">40%</text>
+  </g>
+
+  <!-- small checkmarks along the curve -->
+  <g stroke="#ffffff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g><circle cx="330" cy="452" r="14" fill="#ff5a00" stroke="none"/><path d="M 323 452 L 328 458 L 338 446"/></g>
+    <g><circle cx="560" cy="355" r="14" fill="#ff5a00" stroke="none"/><path d="M 553 355 L 558 361 L 568 349"/></g>
+    <g><circle cx="790" cy="268" r="14" fill="#ff5a00" stroke="none"/><path d="M 783 268 L 788 274 L 798 262"/></g>
+  </g>
+</svg>

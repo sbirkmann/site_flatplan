@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Schutzschild über Analytics-Diagrammen">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff7a33"/>
+      <stop offset="1" stop-color="#ff5a00"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5a00" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ff5a00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- subtle grid dots -->
+  <g fill="#94a3b8" opacity="0.12">
+    <circle cx="80" cy="80" r="3"/><circle cx="160" cy="60" r="2"/><circle cx="1120" cy="90" r="3"/>
+    <circle cx="1040" cy="60" r="2"/><circle cx="90" cy="560" r="2"/><circle cx="1130" cy="540" r="2"/>
+    <circle cx="60" cy="300" r="2"/><circle cx="1150" cy="330" r="2"/>
+  </g>
+  <circle cx="600" cy="290" r="240" fill="url(#glow)"/>
+
+  <!-- analytics card left: bar chart -->
+  <g>
+    <rect x="120" y="180" width="300" height="290" rx="18" fill="#f1f5f9"/>
+    <rect x="150" y="210" width="110" height="12" rx="6" fill="#94a3b8"/>
+    <rect x="150" y="380" width="36" height="60" rx="6" fill="#cbd5e1"/>
+    <rect x="200" y="340" width="36" height="100" rx="6" fill="#94a3b8"/>
+    <rect x="250" y="300" width="36" height="140" rx="6" fill="#ff5a00"/>
+    <rect x="300" y="325" width="36" height="115" rx="6" fill="#ffb38a"/>
+    <rect x="350" y="270" width="36" height="170" rx="6" fill="#0f172a"/>
+    <line x1="150" y1="440" x2="390" y2="440" stroke="#cbd5e1" stroke-width="3"/>
+  </g>
+
+  <!-- analytics card right: line chart -->
+  <g>
+    <rect x="780" y="180" width="300" height="290" rx="18" fill="#f1f5f9"/>
+    <rect x="810" y="210" width="90" height="12" rx="6" fill="#94a3b8"/>
+    <polyline points="810,420 870,380 930,395 990,320 1050,270" fill="none" stroke="#ff5a00" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="870" cy="380" r="8" fill="#0f172a"/>
+    <circle cx="990" cy="320" r="8" fill="#0f172a"/>
+    <circle cx="1050" cy="270" r="10" fill="#ff5a00" stroke="#f1f5f9" stroke-width="4"/>
+    <line x1="810" y1="440" x2="1050" y2="440" stroke="#cbd5e1" stroke-width="3"/>
+    <rect x="810" y="250" width="240" height="1" fill="#e2e8f0"/>
+    <rect x="810" y="310" width="240" height="1" fill="#e2e8f0"/>
+    <rect x="810" y="370" width="240" height="1" fill="#e2e8f0"/>
+  </g>
+
+  <!-- connecting lines to shield -->
+  <line x1="420" y1="320" x2="500" y2="320" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 10" opacity="0.6"/>
+  <line x1="700" y1="320" x2="780" y2="320" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 10" opacity="0.6"/>
+
+  <!-- central shield -->
+  <g>
+    <path d="M600 130 L740 175 V330 C740 425 675 490 600 520 C525 490 460 425 460 330 V175 Z" fill="url(#shield)"/>
+    <path d="M600 160 L712 197 V328 C712 405 660 460 600 487 C540 460 488 405 488 328 V197 Z" fill="#0f172a" opacity="0.15"/>
+    <!-- check mark -->
+    <path d="M545 320 L585 362 L665 270" fill="none" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- crossed cookie (bottom left of shield) -->
+  <g transform="translate(468,455)">
+    <circle cx="0" cy="0" r="42" fill="#f1f5f9"/>
+    <circle cx="-12" cy="-10" r="5" fill="#94a3b8"/>
+    <circle cx="12" cy="-4" r="5" fill="#94a3b8"/>
+    <circle cx="-2" cy="14" r="5" fill="#94a3b8"/>
+    <line x1="-26" y1="26" x2="26" y2="-26" stroke="#ff5a00" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="42" fill="none" stroke="#ff5a00" stroke-width="9"/>
+  </g>
+
+  <!-- small lock (bottom right of shield) -->
+  <g transform="translate(732,455)">
+    <circle cx="0" cy="0" r="42" fill="#f1f5f9"/>
+    <rect x="-18" y="-6" width="36" height="28" rx="6" fill="#0f172a"/>
+    <path d="M-10 -6 V-14 A10 10 0 0 1 10 -14 V-6" fill="none" stroke="#0f172a" stroke-width="7"/>
+    <circle cx="0" cy="7" r="5" fill="#ff5a00"/>
+  </g>
+
+  <!-- decorative rings -->
+  <circle cx="180" cy="110" r="26" fill="none" stroke="#94a3b8" stroke-width="4" opacity="0.35"/>
+  <circle cx="1030" cy="545" r="20" fill="none" stroke="#ff5a00" stroke-width="4" opacity="0.5"/>
+  <circle cx="960" cy="110" r="10" fill="#ff5a00" opacity="0.6"/>
+  <circle cx="250" cy="540" r="8" fill="#94a3b8" opacity="0.4"/>
+</svg>

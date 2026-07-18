@@ -1,214 +1,239 @@
-"use client";
-import React from 'react';
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import Testimonials from "@/components/Testimonials";
-import SEO from "@/components/SEO";
-import Link from 'next/link';
-import { Building2, Check, TrendingUp, ShieldCheck, BarChart, Layers, FileText, Users, ArrowRight } from 'lucide-react';
-import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ArrowRight, Check, Landmark, TimerReset, ListChecks, FileDown,
+  HardHat, FileSpreadsheet, BellRing, Building2,
+} from "lucide-react";
+import JsonLd, { breadcrumbs } from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/site";
 
-export default function Bautraeger() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "3D Wohnungsfinder für Bauträger | flatplan.de",
-    "description": "Erreichen Sie die notwendige Vorverkaufsquote schneller. Interaktive 3D Architekturvisualisierung für digitalen Neubauvertrieb und Bauträgermarketing.",
-    "publisher": { "@type": "Organization", "name": "Investora Commercial" }
-  };
+export const metadata: Metadata = pageMetadata({
+  title: "Wohnungsfinder für Bauträger – Vorverkauf ab dem ersten Rendering",
+  description:
+    "Erreichen Sie die Vorverkaufsquote Ihrer Bank schneller: Wohnungsfinder für Bauträger mit Warteliste, Exposé-Gate, Statusverwaltung und OpenImmo-Export.",
+  path: "/branchen/bautraeger",
+});
 
+export default function BautraegerPage() {
   return (
-    <>
-      <SEO />
-      <Header />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <main style={{ paddingTop: '80px' }}>
-        
-        {/* HERO */}
-        <section className="bg-white border-b" style={{ padding: '8rem 0 6rem 0' }}>
-          <div className="container grid grid-2 items-center">
-             <div className="animate-up">
-                <div className="badge"><Building2 size={16} style={{ marginRight: '8px' }}/> Branchenlösung Bauträger</div>
-                <h1 style={{ marginBottom: '2rem', marginTop: '1rem', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
-                  Vorverkaufsquote erreichen. Vor allen anderen.
-                </h1>
-                <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem', lineHeight: 1.6 }}>
-                  Als Bauträger wissen Sie: Die finanzierende Bank will Sicherheit sehen. Unser 3D Wohnungsfinder 
-                  generiert qualifizierte Reservierungen dank KI-Optimierung und Echtzeit-Tracking, lange bevor der erste Spaten gestochen wird.
-                </p>
-                <div className="flex gap-4" style={{ flexWrap: 'wrap' }}>
-                   <Link href="/kontakt" className="btn btn-primary btn-lg" style={{ textTransform: 'uppercase' }}>
-                      Projekt anfragen <ArrowRight size={20} style={{ marginLeft: '10px' }} />
-                   </Link>
-                   <Link href="/features" className="btn btn-outline" style={{ textTransform: 'uppercase' }}>
-                      Alle Features
-                   </Link>
-                </div>
-             </div>
-             <div className="animate-up delay-200">
-                <div style={{ border: '1px solid var(--border-light)', padding: '0.75rem', boxShadow: 'var(--shadow-xl)' }}>
-                   <img src="/showcase-3d.png" alt="3D Wohnungsfinder Bauträger" style={{ width: '100%', display: 'block' }} />
-                </div>
-             </div>
+    <main>
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Start", path: "/" },
+          { name: "Branchen", path: "/branchen/bautraeger" },
+          { name: "Bauträger", path: "/branchen/bautraeger" },
+        ])}
+      />
+
+      {/* HERO */}
+      <section className="page-hero bg-soft border-b">
+        <div className="container text-center max-w-3xl mx-auto animate-up">
+          <span className="eyebrow">Branchenlösung Bauträger</span>
+          <h1 style={{ fontSize: "clamp(2.25rem, 4vw, 3.25rem)" }}>
+            Vorverkauf ab dem ersten Rendering.
+          </h1>
+          <p className="lead">
+            Ihre Bank will eine Vorverkaufsquote sehen, bevor die Finanzierung
+            steht – und Ihre Käufer wollen sehen, was entsteht. Der interaktive
+            Wohnungsfinder von flatplan.de macht aus fotorealistischen
+            3D-Renderings ein Vertriebswerkzeug, das reserviert und verkauft,
+            lange bevor der erste Spaten sticht.
+          </p>
+          <div className="flex gap-4 flex-wrap justify-center mt-8">
+            <Link href="/kontakt" className="btn btn-primary btn-lg">
+              Demo anfragen <ArrowRight size={20} />
+            </Link>
+            <Link href="/features" className="btn btn-outline btn-lg">
+              Alle Funktionen
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* METRICS */}
-        <section className="bg-dark" style={{ padding: '4rem 0' }}>
-           <div className="container grid grid-4 text-center animate-up">
-              <div>
-                 <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--accent-primary)', lineHeight: 1, marginBottom: '0.75rem' }}>40%</div>
-                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'white' }}>Schnellerer Abverkauf</div>
-              </div>
-              <div>
-                 <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--accent-primary)', lineHeight: 1, marginBottom: '0.75rem' }}>2x</div>
-                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'white' }}>Höhere Lead-Qualität</div>
-              </div>
-              <div>
-                 <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--accent-primary)', lineHeight: 1, marginBottom: '0.75rem' }}>24/7</div>
-                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'white' }}>Virtuelle Begehungen</div>
-              </div>
-              <div>
-                 <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--accent-primary)', lineHeight: 1, marginBottom: '0.75rem' }}>100%</div>
-                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'white' }}>DSGVO-Konform</div>
-              </div>
-           </div>
-        </section>
+      {/* VORVERKAUFSQUOTE */}
+      <section className="section bg-white border-b">
+        <div className="container grid grid-2 items-center">
+          <div>
+            <span className="icon-wrapper"><Landmark size={26} /></span>
+            <h2>Die Vorverkaufsquote entscheidet über Ihren Baustart.</h2>
+            <p className="lead mb-8">
+              Finanzierende Banken verlangen üblicherweise 30–50 % verkaufte
+              Einheiten, bevor sie die Baufinanzierung freigeben. Jede Woche,
+              die Ihr Vorverkauf früher startet, senkt Zwischenfinanzierungs-
+              kosten und Projektrisiko. Genau dafür ist der Wohnungsfinder
+              gebaut: Er vermarktet Ihr Projekt, sobald die Renderings stehen –
+              nicht erst, wenn der Rohbau fotografierbar ist.
+            </p>
+            <ul className="check-list mb-8">
+              <li><Check size={20} /> Drehbare Projektansicht mit anklickbaren Wohnungen in der Fassade</li>
+              <li><Check size={20} /> Etagen-Grundrisse, Preise, Räume und Ausstattung je Einheit</li>
+              <li><Check size={20} /> Live-Verfügbarkeit statt veralteter Print-Preisliste</li>
+            </ul>
+            <Link href="/use-cases/neubauvertrieb" className="btn btn-outline">
+              Use Case Neubauvertrieb <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div>
+            <div className="card-soft" style={{ padding: "1rem" }}>
+              <img
+                src="/showcase-3d.png"
+                alt="Interaktiver Wohnungsfinder für Bauträger: drehbare Projektansicht mit Verfügbarkeiten"
+                style={{ width: "100%", borderRadius: "var(--radius-sm)" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* PROBLEM → SOLUTION */}
-        <section className="section bg-white border-b">
-           <div className="container grid grid-2 items-center">
-              <div className="animate-up">
-                 <h2 className="mb-6">Das Problem: Teure Vertriebszeit ohne Ergebnis</h2>
-                 <p className="mb-4">Dutzende Vor-Ort Termine mit Interessenten, die weder Budget haben noch den Grundriss verstanden haben, kosten einen Bauträger pro Projekt durchschnittlich 60.000 – 120.000 € an Vertriebsausgaben. Gedruckte Exposés veralten innerhalb weniger Wochen.</p>
-                 <p className="mb-4">Die Lösung: Ein <strong>interaktiver 3D Wohnungsfinder</strong>, der den gesamten Qualifizierungsprozess automatisiert. Der Interessent sieht exakt, was er bekommt – dreidimensional, maßstabsgetreu, und zu jeder Tages- und Nachtzeit.</p>
-                 
-                 <div style={{ background: 'var(--accent-light)', borderLeft: '4px solid var(--accent-primary)', padding: '1.5rem 2rem', marginTop: '2rem' }}>
-                    <p style={{ margin: 0, fontWeight: 600, color: 'var(--text-primary)', fontSize: '1.05rem' }}>
-                       &ldquo;Jeder Euro, den Sie in digitale Vorverkaufs-Infrastruktur investieren, spart Ihnen zehn Euro an klassischen Vertriebskosten.&rdquo;
-                    </p>
-                 </div>
-              </div>
-              <div className="animate-up delay-100">
-                 <img src="/flatfinder_features_expose.png" alt="Bauträger Dashboard" style={{ width: '100%', border: '1px solid var(--border-light)' }} />
-              </div>
-           </div>
-        </section>
+      {/* WERKZEUGE VOR & WÄHREND DES VERTRIEBS */}
+      <section className="section bg-soft border-b">
+        <div className="container text-center max-w-3xl mx-auto mb-12">
+          <span className="eyebrow">Vom Teaser bis zur Schlüsselübergabe</span>
+          <h2>Werkzeuge für jede Phase Ihres Projekts</h2>
+          <p className="lead">
+            Der Wohnungsfinder begleitet Ihr Bauvorhaben vom Vermarktungsstart
+            bis zur letzten verkauften Einheit – mit Funktionen, die genau auf
+            den Bauträger-Alltag zugeschnitten sind.
+          </p>
+        </div>
+        <div className="container grid grid-3">
+          <div className="card">
+            <span className="icon-wrapper"><TimerReset size={26} /></span>
+            <h3>Warteliste vor dem Launch</h3>
+            <p>
+              Sammeln Sie Interessenten, bevor die Vermarktung offiziell
+              startet: Landingpage mit Countdown, Warteliste mit
+              Double-Opt-in – am Starttag erreichen Sie hunderte
+              vorregistrierte Kontakte auf einen Schlag.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><ListChecks size={26} /></span>
+            <h3>Statusverwaltung in Echtzeit</h3>
+            <p>
+              FREI, DEMNÄCHST, RESERVIERT, VERKAUFT – jede Einheit trägt ihren
+              farbcodierten Status, den Sie zentral pflegen. Käufer sehen
+              sofort, was noch zu haben ist; Ihr Vertrieb telefoniert nie
+              wieder über eine längst reservierte Wohnung.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><HardHat size={26} /></span>
+            <h3>Baufortschritt je Haus</h3>
+            <p>
+              Zeigen Sie den Baufortschritt direkt im Wohnungsfinder – je Haus,
+              mit Ankündigungs-Bannern für Meilensteine. Käufer und
+              Reservierende bleiben informiert, ohne dass Ihr Team
+              Rundmails schreibt.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><FileDown size={26} /></span>
+            <h3>Exposé-Gate</h3>
+            <p>
+              Exposé-PDFs gibt es erst nach E-Mail-Bestätigung: Aus jedem
+              Download wird ein nachvollziehbarer Lead mit dokumentierter
+              Einwilligung – statt anonymer Klicks auf Ihrer Projektseite.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><FileSpreadsheet size={26} /></span>
+            <h3>Preisliste & OpenImmo</h3>
+            <p>
+              Preislisten exportieren Sie jederzeit als CSV oder Excel – für
+              Bank, Vertrieb und Notariat. Über den OpenImmo-XML-Export
+              übergeben Sie Ihre Einheiten im Branchenstandard an
+              nachgelagerte Systeme.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><BellRing size={26} /></span>
+            <h3>Alarme, die zurückholen</h3>
+            <p>
+              Preis-Alarme und Wieder-frei-Alarme informieren Interessenten
+              automatisch, wenn sich etwas ändert. Platzt eine Reservierung,
+              steht der nächste Käufer schon bereit.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* 1-2-3 STEPS */}
-        <section className="section bg-soft border-b">
-           <div className="container max-w-4xl mx-auto text-center mb-12 animate-up">
-              <span style={{ color: 'var(--accent-primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '1rem', fontSize: '0.875rem' }}>Prozess</span>
-              <h2>So starten Sie in 3 Schritten</h2>
-           </div>
-           <div className="container grid grid-3">
-              {[
-                { num: '1', title: 'Daten liefern', desc: 'Senden Sie uns Ihre DWG/BIM Dateien oder PDF-Grundrisse. Wir übernehmen die gesamte 3D-Modellierung, Texturierung und Möblierung. Sie müssen nichts tun.' },
-                { num: '2', title: 'Integration', desc: 'Wir liefern Ihnen einen Embed-Code. In 5 Minuten ist der 3D-Finder auf Ihrer Projektseite live. Optional verknüpfen wir Ihr CRM (onOffice, Propstack, etc.).' },
-                { num: '3', title: 'Leads empfangen', desc: 'Interessenten filtern, staunen und fragen an. Jeder Lead enthält die exakte Wunscheinheit, Zimmerzahl und Kontaktdaten. Ihr Vertrieb ruft nur noch warme Leads an.' },
-              ].map((s, i) => (
-                <div key={i} className="card animate-up" style={{ animationDelay: `${i * 100}ms`, position: 'relative', borderColor: i === 2 ? 'var(--accent-primary)' : 'var(--border-light)' }}>
-                   <span style={{ fontSize: '5rem', fontWeight: 800, color: 'rgba(227, 0, 15, 0.08)', position: 'absolute', top: '-10px', left: '1.5rem', lineHeight: 1 }}>{s.num}</span>
-                   <div style={{ position: 'relative', zIndex: 1, paddingTop: '2rem' }}>
-                      <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{s.title}</h3>
-                      <p style={{ margin: 0, fontSize: '1rem' }}>{s.desc}</p>
-                   </div>
-                </div>
-              ))}
-           </div>
-        </section>
+      {/* ZAHLEN-BAND */}
+      <section className="bg-dark" style={{ padding: "5rem 0" }}>
+        <div className="container grid grid-3 text-center">
+          {[
+            { big: "24/7", label: "Virtuelle Besichtigung", sub: "Ihr Musterhaus schläft nie – auch nicht vor Baubeginn" },
+            { big: "4 Status", label: "Farbcodierte Verfügbarkeit", sub: "FREI, DEMNÄCHST, RESERVIERT, VERKAUFT – zentral gepflegt" },
+            { big: "1 Export", label: "OpenImmo & Preislisten", sub: "CSV, Excel und OpenImmo-XML auf Knopfdruck" },
+          ].map((m) => (
+            <div key={m.label}>
+              <div style={{ fontSize: "3rem", fontWeight: 800, color: "#fff", lineHeight: 1, marginBottom: "0.75rem" }}>{m.big}</div>
+              <div style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#fff" }}>{m.label}</div>
+              <p style={{ marginTop: "0.375rem", fontSize: "0.9rem", marginBottom: 0 }}>{m.sub}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* 8 CORE FEATURES GRID */}
-        <CoreFeaturesGrid />
-
-        {/* TESTIMONIALS */}
-        <Testimonials variant="dark" />
-
-        {/* BAUTRÄGER BENEFITS */}
-        <section className="section bg-soft border-b" style={{ padding: '6rem 0' }}>
-           <div className="container grid grid-2 items-center">
-              <div className="animate-up">
-                 <h2 className="mb-6">Kalkulierbarer Vertriebsbaustein statt Sonderlösung</h2>
-                 <p className="mb-4">Wir entwickeln flatplan als skalierbare Lösung exklusiv für Projektentwickler und Bauträger. Ein verlässlicher Baustein für Wohnanlagen jeder Größe, ganz ohne die Risiken aufwendiger Eigenentwicklungen oder starrer Insellösungen.</p>
-                 <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)' }}>
-                    <li style={{ marginBottom: '0.5rem' }}><strong>Planbare Betriebskosten:</strong> Volle Transparenz über die gesamte Laufzeit inklusive Hosting, Updates und Support.</li>
-                    <li style={{ marginBottom: '0.5rem' }}><strong>Hohe Kosteneffizienz:</strong> Perfekt für große Bauvorhaben, da die Kosten bei vielen Wohneinheiten nicht linear mitwachsen.</li>
-                    <li style={{ marginBottom: '0.5rem' }}><strong>KI-Assistent zur Vorqualifizierung:</strong> Digitale Begleitung beantwortet Routinefragen (Finanzierung, Lage) im Vorfeld.</li>
-                    <li><strong>Zentrale Datenhoheit:</strong> Steuern Sie Verfügbarkeiten in Echtzeit und behalten Sie stets den Überblick über Ihre Projekte.</li>
-                 </ul>
-              </div>
-              <div className="animate-up delay-100" style={{ paddingLeft: '2rem' }}>
-                 <div style={{ background: 'white', padding: '2.5rem', borderRadius: '16px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-xl)' }}>
-                    <h3 style={{ fontSize: '1.3rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}><ShieldCheck color="var(--accent-primary)" size={24} /> Ihre Vorteile</h3>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>Keine Lead-Provisionen</span>
-                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>100% DSGVO-konform</span>
-                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>Kurze Time-to-Market</span>
-                       <span className="badge" style={{ background: 'rgba(0,0,0,0.05)', color: 'var(--text-primary)', border: 'none', padding: '0.5rem 1rem' }}>CSV-Massenimport</span>
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* SEO CONTENT */}
-        <section className="section bg-white border-b">
-           <div className="container prose animate-up">
-              <h2>Warum Bauträger auf digitale 3D-Vermarktung umsteigen</h2>
-              <p>Die Immobilienbranche in Deutschland, Österreich und der Schweiz erlebt einen fundamentalen Wandel. <strong>Bauträger</strong>, die noch immer auf analoge Exposés und reine Maklerbesichtigungen setzen, verlieren massiv an Wettbewerbsfähigkeit gegenüber PropTech-affinen Konkurrenten.</p>
-              
-              <h3>Die Vorverkaufsquote als entscheidendes KPI</h3>
-              <p>Banken fordern häufig 30-50% Vorverkaufsquote, bevor sie die Baufinanzierung freigeben. Je schneller ein Bauträger diese Quote erreicht, desto eher beginnt der Bau und desto geringer sind die Zwischenfinanzierungskosten. Ein <strong>interaktiver 3D Wohnungsfinder</strong> wie flatplan.de beschleunigt diesen Prozess nachweislich um bis zu 40%.</p>
-
-              <h3>Return on Investment (ROI) im Bauträgermarketing</h3>
-              <p>Kalkulieren Sie konservativ: Wenn die Erstellung eines Flatfinders 15.000 € kostet und Sie dadurch nur eine einzige Wohneinheit einen Monat früher verkaufen, haben Sie bei einem durchschnittlichen Bankzins von 4% auf einen Kaufpreis von 400.000 € bereits über 1.300 € Finanzierungskosten gespart. In der Praxis verkaufen Bauträger mit 3D-Findern nicht eine, sondern dutzende Einheiten schneller.</p>
-              
-              <h3>Integration in Ihre bestehende Vertriebsstruktur</h3>
-              <p>Der flatplan.de Wohnungsfinder ersetzt nicht Ihren Vertrieb, sondern macht ihn effizienter. Ihre Makler erhalten vorqualifizierte Leads inklusive Wunscheinheit. Ihre Marketing-Agentur erhält ein einbettbares Widget für Social-Media-Kampagnen. Ihre Bank erhält beeindruckende Präsentationsunterlagen.</p>
-           </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="section bg-soft border-b">
-           <div className="container max-width-3xl mx-auto animate-up">
-              <div className="text-center mb-12">
-                 <div className="badge">FAQ Bauträger</div>
-                 <h2>Häufige Fragen von Bauträgern</h2>
-              </div>
-              <div style={{ background: 'white', padding: '2.5rem 3rem', border: '1px solid var(--border-light)' }}>
-                 <details className="faq-item" open>
-                    <summary>Funktioniert der Finder auch für Gewerbeimmobilien?</summary>
-                    <p>Ja. Neben Wohneinheiten können auch Gewerbeflächen, Praxen, Büros und Tiefgaragenstellplätze im 3D-Modell dargestellt und vermarktet werden.</p>
-                 </details>
-                 <details className="faq-item">
-                    <summary>Können wir den 3D-Finder auch für Baustellenbesichtigungen nutzen?</summary>
-                    <p>Absolut. Viele Bauträger nutzen den Flatfinder vor Ort auf einem Tablet, um Kunden direkt auf der Baustelle die fertige Anlage visuell zu zeigen.</p>
-                 </details>
-                 <details className="faq-item">
-                    <summary>Was passiert nach dem Abverkauf aller Einheiten?</summary>
-                    <p>Sie können die Lizenz jederzeit kündigen. Alternativ nutzen viele Kunden den Flatfinder im After-Sales als digitales Übergabe-Tool.</p>
-                 </details>
-                 <details className="faq-item" style={{ borderBottom: 'none' }}>
-                    <summary>Unterstützen Sie auch WEG-Aufteilungen?</summary>
-                    <p style={{ paddingBottom: 0 }}>Ja. Das 3D-Modell kann exakt nach Teilungserklärung aufgebaut werden, sodass jede WEG-Einheit als eigenständiges klickbares Objekt dargestellt wird.</p>
-                 </details>
-              </div>
-           </div>
-        </section>
-
-        {/* CTA */}
-        <section className="section bg-white text-center">
-           <div className="container max-w-4xl mx-auto animate-up">
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Starten Sie Ihren digitalen Vorverkauf.</h2>
-              <p className="mb-8" style={{ fontSize: '1.25rem' }}>Fordern Sie jetzt ein unverbindliches Angebot für Ihr Bauprojekt an.</p>
-              <Link href="/kontakt" className="btn btn-primary btn-lg" style={{ textTransform: 'uppercase' }}>
-                 Projekt anfragen <ArrowRight size={20} style={{ marginLeft: '10px' }} />
+      {/* VERTRIEBSSTEUERUNG */}
+      <section className="section bg-white border-b">
+        <div className="container grid grid-2 items-center">
+          <div>
+            <div className="card-soft" style={{ padding: "1rem" }}>
+              <img
+                src="/flatfinder_features_expose.png"
+                alt="Anfragen-Board und Exposé-Verwaltung für Bauträger"
+                style={{ width: "100%", borderRadius: "var(--radius-sm)" }}
+              />
+            </div>
+          </div>
+          <div>
+            <span className="icon-wrapper"><Building2 size={26} /></span>
+            <h2>Anfragen im Griff – mit oder ohne externes CRM.</h2>
+            <p className="lead mb-8">
+              Jede Anfrage landet im Anfragen-Board mit Lead-Bewertung,
+              Zuweisung und Wiedervorlage. Arbeiten Sie mit onOffice, Propstack
+              oder Flowfact, übergibt flatplan.de die Leads nativ – inklusive
+              Wunscheinheit und Einwilligungsnachweis.
+            </p>
+            <ul className="check-list mb-8">
+              <li><Check size={20} /> Cookiefreies Tracking: Besuche, Wohnungs-Öffnungen, Conversion je Kampagne</li>
+              <li><Check size={20} /> Wochen- und Monatsbericht per Mail an Geschäftsführung und Vertrieb</li>
+              <li><Check size={20} /> DSGVO eingebaut: Double-Opt-in, Aufbewahrungsfristen, Auto-Löschung</li>
+            </ul>
+            <div className="flex gap-4 flex-wrap">
+              <Link href="/funktionen/lead-generierung" className="btn btn-outline">
+                Lead-Generierung <ArrowRight size={18} />
               </Link>
-           </div>
-        </section>
+              <Link href="/funktionen/integrationen" className="btn btn-outline">
+                CRM-Anbindung <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      </main>
-      <Footer />
-    </>
+      {/* CTA */}
+      <section className="section bg-soft text-center">
+        <div className="container max-w-3xl mx-auto">
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+            Starten Sie den Vorverkauf, bevor die Baustelle steht.
+          </h2>
+          <p className="lead mb-8">
+            Sehen Sie in einer kostenlosen Live-Demo, wie Ihr Bauvorhaben als
+            interaktiver Wohnungsfinder aussieht – und wie Sie damit die
+            Vorverkaufsquote Ihrer Bank schneller erreichen.
+          </p>
+          <div className="flex gap-4 flex-wrap justify-center">
+            <Link href="/kontakt" className="btn btn-primary btn-lg">
+              Jetzt Demo anfragen <ArrowRight size={20} />
+            </Link>
+            <Link href="/preise" className="btn btn-outline btn-lg">
+              Preise ansehen
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

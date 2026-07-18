@@ -1,143 +1,166 @@
-"use client";
-import React from 'react';
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import Testimonials from "@/components/Testimonials";
-import SEO from "@/components/SEO";
-import Link from 'next/link';
-import { Share2, RefreshCw, Smartphone, ListChecks, CheckCircle, Database } from 'lucide-react';
-import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ArrowRight, Check, Workflow, Webhook, KeyRound, Database, Bot, FolderInput,
+  ShieldCheck, FileSpreadsheet,
+} from "lucide-react";
+import JsonLd, { breadcrumbs } from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "CRM-Integration & Schnittstellen: onOffice, Propstack, Flowfact",
+  description:
+    "Anfragen automatisch ins CRM: native Anbindung an onOffice, Propstack und Flowfact, dazu Webhooks, Read-only-API, OpenImmo-Export und KI-Anbindung per MCP.",
+  path: "/funktionen/integrationen",
+});
+
+const crmSystems = [
+  { name: "onOffice", desc: "Marktführer im deutschen Maklergeschäft" },
+  { name: "Propstack", desc: "Modernes Makler-CRM aus Deutschland" },
+  { name: "Flowfact", desc: "Etablierte CRM-Lösung der Immobilienbranche" },
+];
+
+const interfaces = [
+  { icon: <Webhook size={22} />, title: "Webhooks", desc: "Neue Anfragen und Statuswechsel als JSON an eine URL Ihrer Wahl – Slack-kompatibel. Der Vertriebskanal, der bei jeder Anfrage aufleuchtet." },
+  { icon: <KeyRound size={22} />, title: "Read-only-REST-API", desc: "Wohnungsdaten per API-Key in Ihre eigenen Systeme lesen – für Dashboards, Auswertungen oder die eigene Website." },
+  { icon: <Database size={22} />, title: "OpenImmo-Export", desc: "Objektdaten im Branchenstandard-XML (angelehnt an 1.2.7) – für Portale und alle Systeme, die OpenImmo verarbeiten." },
+  { icon: <Bot size={22} />, title: "MCP / KI-Anbindung", desc: "OAuth-2.1-geschützter MCP-Server mit ~30 Tools: KI-Assistenten wie Claude lesen Anfragen, setzen Status und Preise, entwerfen Exposé-Texte." },
+  { icon: <FolderInput size={22} />, title: "Import & Backup", desc: "Projekt-Import aus ZIP, tägliche automatische Sicherung, Projektstruktur als YAML exportier- und wieder importierbar." },
+  { icon: <FileSpreadsheet size={22} />, title: "CSV & Excel", desc: "Wohnungen, Preislisten, Anfragen, Statistiken, Wartelisten – alles als CSV oder Excel exportierbar." },
+];
 
 export default function Integrationen() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Immobilien CRM Integrationen & Schnittstellen | flatplan.de",
-    "description": "flatplan.de integriert sich nahtlos in onOffice, FIO, Propstack, EMPRO und Immoprofessional. Automatisieren Sie Ihren Neubauvertrieb zu 100%.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Immowoo"
-    }
-  };
-
   return (
-    <>
-      <SEO />
-      <Header />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <main style={{ paddingTop: '80px' }}>
-        
-        {/* HERO */}
-        <section className="bg-white border-b" style={{ padding: '8rem 0 6rem 0' }}>
-          <div className="container max-w-4xl mx-auto text-center animate-up">
-             <div className="badge"><Share2 size={16} className="mr-2" style={{ marginRight: '8px' }}/> Automatisierung & API</div>
-             <h1 style={{ marginBottom: '2rem', marginTop: '1rem', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
-               Nahtlose Integration in Ihre Immobilien-Software.
-             </h1>
-             <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem', lineHeight: 1.6 }}>
-               Manuelle Lead-Erfassung war gestern. Unser 3D-Wohnungsfinder harmoniert perfekt 
-               mit führenden CRM-Lösungen wie onOffice, Propstack und FIO. Für effizienten Neubauvertrieb ohne Medienbrüche.
-             </p>
-             <Link href="/kontakt" className="btn btn-primary btn-lg" style={{ borderRadius: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Schnittstellen-Beratung
-             </Link>
+    <main>
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Start", path: "/" },
+          { name: "Funktionen", path: "/features" },
+          { name: "CRM & Schnittstellen", path: "/funktionen/integrationen" },
+        ])}
+      />
+
+      <section className="page-hero bg-soft border-b">
+        <div className="container text-center max-w-3xl mx-auto animate-up">
+          <span className="eyebrow">CRM & Schnittstellen</span>
+          <h1 style={{ fontSize: "clamp(2.25rem, 4vw, 3.25rem)" }}>
+            Ihre Systeme. Automatisch versorgt.
+          </h1>
+          <p className="lead">
+            flatplan.de ist keine Insel: Anfragen fließen nativ in onOffice,
+            Propstack oder Flowfact, Objektdaten per OpenImmo in Ihre
+            Systemlandschaft – und per MCP-Anbindung steuern Sie die Plattform
+            sogar über KI-Assistenten.
+          </p>
+          <Link href="/kontakt" className="btn btn-primary btn-lg mt-8">
+            Demo anfragen <ArrowRight size={20} />
+          </Link>
+        </div>
+      </section>
+
+      {/* CRM */}
+      <section className="section bg-white border-b">
+        <div className="container grid grid-2 items-center">
+          <div>
+            <span className="icon-wrapper"><Workflow size={26} /></span>
+            <h2>Native CRM-Anbindung</h2>
+            <p className="lead mb-8">
+              Einmal die API-Zugangsdaten hinterlegen – ab dann landet jede
+              Anfrage strukturiert in Ihrem CRM: mit Kontaktdaten,
+              Wunscheinheit, Merkliste und Besichtigungswunsch. Kein Abtippen,
+              kein Postfach-Chaos.
+            </p>
+            <ul className="check-list mb-8">
+              <li><Check size={20} /> Zugangsdaten verschlüsselt gespeichert (AES-256)</li>
+              <li><Check size={20} /> Automatische Anfrage-Weiterleitung in Echtzeit</li>
+              <li><Check size={20} /> Übergabe-Protokoll: jede Weiterleitung nachvollziehbar</li>
+              <li><Check size={20} /> Wohnungs-Verknüpfung zwischen Finder und CRM</li>
+            </ul>
+            <p style={{ fontSize: "0.9375rem" }}>
+              Praxisbeispiel gefällig? Unser Blog-Artikel{" "}
+              <Link href="/blog/crm-integration-neubauvertrieb" style={{ color: "var(--accent-hover)", fontWeight: 600 }}>
+                CRM-Integration im Neubauvertrieb
+              </Link>{" "}
+              zeigt den kompletten Workflow.
+            </p>
           </div>
-        </section>
-
-        {/* LOGOS / PARTNERS FOCUS */}
-        <section className="section bg-soft border-b" style={{ padding: '4rem 0' }}>
-           <div className="container text-center animate-up delay-100">
-              <p style={{ fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '2rem', fontWeight: 800 }}>
-                 Offiziell Kompatibel mit
-              </p>
-              <div className="flex justify-center flex-wrap gap-8" style={{ alignItems: 'center' }}>
-                 <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#e3000f', padding: '0.5rem 1rem', background: 'white', border: '1px solid var(--border-light)' }}>onOffice</div>
-                 <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0055aa', padding: '0.5rem 1rem', background: 'white', border: '1px solid var(--border-light)' }}>Propstack</div>
-                 <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#444444', padding: '0.5rem 1rem', background: 'white', border: '1px solid var(--border-light)' }}>FIO</div>
-                 <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#ff6600', padding: '0.5rem 1rem', background: 'white', border: '1px solid var(--border-light)' }}>EMPRO</div>
-                 <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', padding: '0.5rem 1rem', background: 'white', border: '1px solid var(--border-light)' }}>Immoprofessional</div>
+          <div className="grid" style={{ gap: "1rem" }}>
+            {crmSystems.map((crm) => (
+              <div key={crm.name} className="card" style={{ padding: "1.5rem 1.75rem", display: "flex", alignItems: "center", gap: "1.25rem" }}>
+                <div className="icon-wrapper" style={{ marginBottom: 0, width: "2.75rem", height: "2.75rem" }}>
+                  <Workflow size={20} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: "1.125rem", marginBottom: "0.125rem" }}>{crm.name}</h3>
+                  <p style={{ margin: 0, fontSize: "0.875rem" }}>{crm.desc}</p>
+                </div>
+                <span style={{ marginLeft: "auto", fontSize: "0.75rem", fontWeight: 700, color: "#16a34a", background: "#f0fdf4", padding: "0.25rem 0.625rem", borderRadius: "999px", whiteSpace: "nowrap" }}>
+                  Nativ
+                </span>
               </div>
-           </div>
-        </section>
+            ))}
+            <p style={{ fontSize: "0.8125rem", color: "var(--text-tertiary)", margin: 0 }}>
+              Andere Systeme erreichen Sie über Webhooks, REST-API oder
+              OpenImmo – offen dokumentiert statt Vendor-Lock-in.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* FEATURE DETAILS */}
-        <section className="section bg-white border-b">
-           <div className="container grid grid-2 items-center">
-              <div className="animate-up">
-                 <h2 className="mb-6">onOffice & Propstack: Der Gold-Standard</h2>
-                 <p className="mb-4">Wenn Sie Bauträger-Projekte vermarkten, ist Ihr CRM-System das Herzstück. Durch die tiefe Integration von flatplan.de in <strong>onOffice enterprise</strong> oder <strong>Propstack</strong> werden Kundenanfragen aus dem 3D-Modell in Echtzeit als komplett neue Adresse samt verknüpftem Wunschobjekt angelegt.</p>
-                 <p className="mb-8"><strong>Das bedeutet für Sie:</strong> Sobald der Kunde auf "Exposé anfordern" im browserbasierten Flatfinder klickt (z.B. für Wohnung #12 im Haus B), erstellt Ihr CRM eine Aufgabe für den verantwortlichen Makler, sendet das automatische Exposé (optional) und ordnet die Interessen-Kategorie korrekt zu.</p>
-                 
-                 <ul style={{ listStyle: 'none', padding: 0 }}>
-                    <li className="flex items-center gap-3 mb-4"><CheckCircle color="var(--accent-primary)" size={24} /> <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>100% DSGVO-Konforme Leadübergabe (OpenImmo-Standard)</span></li>
-                    <li className="flex items-center gap-3 mb-4"><CheckCircle color="var(--accent-primary)" size={24} /> <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>Keine Tippfehler mehr durch automatisches Parsing</span></li>
-                 </ul>
+      {/* SCHNITTSTELLEN */}
+      <section className="section bg-soft border-b">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="eyebrow">Offene Schnittstellen</span>
+            <h2>Für alles andere: offene Standards</h2>
+          </div>
+          <div className="grid grid-3">
+            {interfaces.map((item) => (
+              <div key={item.title} className="card" style={{ padding: "1.75rem" }}>
+                <div className="icon-wrapper" style={{ width: "2.75rem", height: "2.75rem" }}>{item.icon}</div>
+                <h3 style={{ fontSize: "1.0625rem", marginBottom: "0.5rem" }}>{item.title}</h3>
+                <p style={{ margin: 0, fontSize: "0.9375rem" }}>{item.desc}</p>
               </div>
-              <div className="animate-up delay-200">
-                 <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-light)', padding: '3rem', position: 'relative' }}>
-                    <RefreshCw size={64} color="var(--accent-primary)" style={{ opacity: 0.1, position: 'absolute', top: '1rem', right: '1rem' }} />
-                    <h3 style={{ fontSize: '1.5rem' }}>FIO & EMPRO & Immoprofessional</h3>
-                    <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>Egal ob Sie eine spezifische Bankenvertriebs-Software wie FIO nutzen oder auf hochspezialisierte Branchenlösungen wie EMPRO und Immoprofessional setzen. Über definierte <strong>REST-Schnittstellen</strong> (oder standardisierte E-Mail-Parser) dockt der 3D-Rundgang perfekt an Ihr System an.</p>
-                    <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>Selbst Verfügbarkeits-Status (Wohnung verkauft in Immoprofessional) kann über bidirektionale Interfaces im 3D-Modell in Echtzeit auf "Rot" geschaltet werden.</p>
-                 </div>
-              </div>
-           </div>
-        </section>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* FAQ - TECHNIK */}
-        <section className="section bg-soft border-b">
-           <div className="container max-width-3xl mx-auto animate-up">
-              <div className="text-center mb-12">
-                 <div className="badge">FAQ Technik</div>
-                 <h2>Fragen zu den Software-Schnittstellen</h2>
-              </div>
-              
-              <div style={{ background: 'white', padding: '2rem 3rem', border: '1px solid var(--border-light)' }}>
-                 <details className="faq-item" open>
-                    <summary>Wie erfolgt der Abgleich der Immobilien-Einheiten?</summary>
-                    <p>Flatplan.de kann als eigenständiges CMS dienen oder (bei Premium-Integration) Ihre OpenImmo-XML Dateien oder API-Feeds entgegennehmen. Wenn Sie in onOffice eine Wohneinheit als "Reserviert" markieren, färbt sich die entsprechende Etage im 3D Modell auf Ihrer Webseite automatisch ein.</p>
-                 </details>
-                 
-                 <details className="faq-item">
-                    <summary>Kostet die Anbindung an EMPRO oder FIO extra?</summary>
-                    <p>Die reine Leadübergabe via Standard-Schnittstelle (Mail-Parser, Basisanbindung) ist im Einrichtungs-Paket meistens kostenfrei enthalten. Komplexe bidirektionale REST-API Synchronisationen (Live-Bestandsabgleich) werden als Add-On bei der initialen Projektentwicklung abgerechnet.</p>
-                 </details>
+      {/* SICHERHEIT */}
+      <section className="section bg-dark border-b">
+        <div className="container grid grid-2 items-center">
+          <div>
+            <span className="eyebrow">Sicherheit & Team</span>
+            <h2>Enterprise-Grundlagen inklusive</h2>
+            <p className="lead">
+              Schnittstellen sind Vertrauenssache. Deshalb kommt flatplan.de
+              mit Sicherheits- und Team-Funktionen, die sonst Aufpreis kosten.
+            </p>
+          </div>
+          <ul className="check-list" style={{ marginBottom: 0 }}>
+            <li style={{ color: "#fff" }}><Check size={20} /> Zwei-Faktor-Authentifizierung (TOTP) mit Recovery-Codes</li>
+            <li style={{ color: "#fff" }}><Check size={20} /> Rollen je Projekt: Betrachter, Bearbeiter, Manager</li>
+            <li style={{ color: "#fff" }}><Check size={20} /> Sitzungsverwaltung mit Fern-Abmeldung & Login-Protokoll</li>
+            <li style={{ color: "#fff" }}><Check size={20} /> DSGVO: Aufbewahrungsfristen, Auto-Anonymisierung, Datenexport</li>
+            <li style={{ color: "#fff" }}><Check size={20} /> Änderungsprotokoll über alle Aktionen</li>
+          </ul>
+        </div>
+      </section>
 
-                 <details className="faq-item">
-                    <summary>Muss ich Propstack / onOffice neu konfigurieren?</summary>
-                    <p>Grundsätzlich nicht. Die API-Endpoints von modernen CRMs wie Propstack erlauben es uns, sogenannte Webhooks oder direkten API-Zugriff (via Token) zu nutzen, ohne dass Sie Ihre bewährten Workflow-Automatisierungen umbauen müssen.</p>
-                 </details>
-                 
-                 <details className="faq-item" style={{ borderBottom: 'none', marginBottom: 0 }}>
-                    <summary>Unterstützen Sie auch andere, proprietäre CRMs?</summary>
-                    <p style={{ paddingBottom: 0 }}>Ja. Sobald Ihr ERP oder CRM-System fähig ist, JSON-Payloads via HTTP POST zu empfangen (Webhook) oder XML-Dateien einzulesen, können wir leadsichere Verbindungen herstellen.</p>
-                 </details>
-              </div>
-           </div>
-        </section>
-
-        {/* IMAGE BREAKOUT */}
-        <section className="bg-white" style={{ padding: '6rem 0' }}>
-           <div className="container grid grid-2" style={{ alignItems: 'center' }}>
-              <div className="animate-up">
-                 <img src="/showcase-detail.png" alt="flatplan.de Integrationsübersicht" style={{ width: '100%', height: 'auto', border: '1px solid var(--border-light)' }} />
-              </div>
-              <div style={{ paddingLeft: '4rem' }} className="animate-up delay-200">
-                 <h2>Die perfekte Datenkonsistenz im Neubauvertrieb</h2>
-                 <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Die digitale Fehlerquote im Vertrieb wird oft unterschätzt. Durch Copy-Paste Fehler in Excel-Listen gehen Millionen-Deals verloren. Durch die harte Vernetzung der <strong>3D Architektur</strong> mit Ihrem Makler-CRM existiert nur noch "Ein Single Point of Truth".</p>
-                 <Link href="/branchen/bautraeger" className="btn btn-outline" style={{ borderRadius: 0, textTransform: 'uppercase' }}>Bauträger-Vorteile ansehen &rarr;</Link>
-              </div>
-           </div>
-        </section>
-
-        {/* 8 CORE FEATURES GRID */}
-        <CoreFeaturesGrid />
-
-        {/* TESTIMONIALS */}
-        <Testimonials variant="light" />
-
-      </main>
-      <Footer />
-    </>
+      {/* CTA */}
+      <section className="section bg-white text-center">
+        <div className="container max-w-3xl mx-auto">
+          <ShieldCheck size={40} style={{ color: "var(--accent-primary)", margin: "0 auto 1.5rem" }} />
+          <h2>Passt flatplan.de in Ihre Systemlandschaft?</h2>
+          <p className="lead mb-8">
+            Bringen Sie Ihre CRM- und IT-Fragen mit in die Demo – wir zeigen
+            die Anbindung live und beantworten alles Technische direkt.
+          </p>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">
+            Kostenlose Demo anfragen <ArrowRight size={20} />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -1,141 +1,209 @@
-"use client";
-import React from 'react';
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SEO from "@/components/SEO";
-import Link from 'next/link';
-import { Camera, Clock, Globe, ArrowRight, ShieldCheck, Check } from 'lucide-react';
-import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ArrowRight, Check, Rotate3d, Sun, MapPin, Languages, Smartphone,
+  CalendarCheck, Compass, Eye,
+} from "lucide-react";
+import JsonLd, { breadcrumbs } from "@/components/JsonLd";
+import { pageMetadata, site } from "@/lib/site";
 
-export default function VirtuelleBesichtigung() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Virtuelle 3D Besichtigungen für Immobilien",
-    "description": "Ortsunabhängig Immobilien vermarkten. Wie virtuelle 3D-Rundgänge im Vorverkauf den Makler-Aufwand minimieren und die Leads qualifizieren."
-  };
+export const metadata: Metadata = pageMetadata({
+  title: "Virtuelle Besichtigung 24/7 – Neubauprojekte online erleben",
+  description:
+    "Virtuelle Besichtigung 24/7: drehbare Projektansicht, 360°-Rundgänge, Sonnenstand-Simulation und Umgebungs-POIs – mehrsprachig, als PWA, ohne App-Download.",
+  path: "/use-cases/virtuelle-besichtigung",
+});
 
+export default function VirtuelleBesichtigungPage() {
   return (
-    <>
-      <SEO />
-      <Header />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <main style={{ paddingTop: '80px' }}>
-        
-        {/* HERO */}
-        <section className="bg-white border-b" style={{ padding: '8rem 0 6rem 0', position: 'relative', overflow: 'hidden' }}>
-          <div className="container grid grid-2 items-center">
-             <div className="hero-text animate-up" style={{ zIndex: 10 }}>
-                <div className="badge"><Camera size={16} className="mr-2" style={{ marginRight: '8px' }}/> Immobilienpräsentation</div>
-                <h1 style={{ marginBottom: '2rem', marginTop: '1rem', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
-                  Besichtigungen neu gedacht. <br/> 24/7. Weltweit.
-                </h1>
-                <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '3rem', lineHeight: 1.6 }}>
-                  Reduzieren Sie Reisezeiten und Makleraufwand um bis zu 80%. Der 3D-Wohnungsfinder 
-                  ermöglicht Ihren Kunden eine vollständige, maßstabsgetreue Hausbegehung im Browser.
-                </p>
-                <Link href="/kontakt" className="btn btn-primary btn-lg">
-                   System Live Erleben <ArrowRight size={20} style={{ marginLeft: '10px' }} />
-                </Link>
-             </div>
-             
-             {/* Showcase Image with delay */}
-             <div className="hero-visual animate-up delay-200" style={{ position: 'relative', zIndex: 5 }}>
-                 <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-light)', padding: '1rem', boxShadow: 'var(--shadow-xl)' }}>
-                    <img src="/showcase-detail.png" alt="Virtuelle Besichtigung Interface" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                 </div>
-             </div>
+    <main>
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Start", path: "/" },
+          { name: "Use Cases", path: "/use-cases/virtuelle-besichtigung" },
+          { name: "Virtuelle Besichtigung", path: "/use-cases/virtuelle-besichtigung" },
+        ])}
+      />
+
+      {/* HERO */}
+      <section className="page-hero bg-soft border-b">
+        <div className="container text-center max-w-3xl mx-auto animate-up">
+          <span className="eyebrow">Use Case</span>
+          <h1 style={{ fontSize: "clamp(2.25rem, 4vw, 3.25rem)" }}>
+            Virtuelle Besichtigung. 24 Stunden. 7 Tage.
+          </h1>
+          <p className="lead">
+            Die meisten Immobiliensuchen finden abends auf dem Sofa statt –
+            wenn kein Vertriebsbüro geöffnet hat. Mit flatplan.de besichtigen
+            Interessenten Ihr Neubauprojekt, wann immer sie wollen: drehbare
+            Projektansicht, echte 360°-Rundgänge und Sonnenstand-Simulation,
+            direkt im Browser und ohne App-Download.
+          </p>
+          <div className="flex gap-4 flex-wrap justify-center mt-8">
+            <Link href="/kontakt" className="btn btn-primary btn-lg">
+              Demo anfragen <ArrowRight size={20} />
+            </Link>
+            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-lg">
+              Live-Demo öffnen
+            </a>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 1-2-3 STEPS */}
-        <section className="section bg-soft border-b">
-           <div className="container max-width-3xl mx-auto text-center mb-12 animate-up delay-100">
-              <span style={{ color: 'var(--accent-primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '1rem', fontSize: '0.875rem' }}>Prozess</span>
-              <h2>So funktioniert die virtuelle Besichtigung</h2>
-           </div>
-           
-           <div className="container grid grid-3">
-              <div className="card animate-up delay-100" style={{ position: 'relative' }}>
-                 <div style={{ position: 'absolute', top: '-20px', left: '2rem', fontSize: '4rem', fontWeight: 800, color: 'var(--bg-soft)', lineHeight: 1, zIndex: 0 }}>1</div>
-                 <div style={{ position: 'relative', zIndex: 1, paddingTop: '1.5rem' }}>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Modellerstellung</h3>
-                    <p style={{ marginBottom: '0', fontSize: '0.95rem' }}>Sie übermitteln uns DWG oder BIM Daten. Wir erstellen ein hochdetailliertes, texturiertes und möbliertes 3D-Modell Ihres geplanten Objekts.</p>
-                 </div>
-              </div>
-              <div className="card animate-up delay-200" style={{ position: 'relative' }}>
-                 <div style={{ position: 'absolute', top: '-20px', left: '2rem', fontSize: '4rem', fontWeight: 800, color: 'var(--bg-soft)', lineHeight: 1, zIndex: 0 }}>2</div>
-                 <div style={{ position: 'relative', zIndex: 1, paddingTop: '1.5rem' }}>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>System-Integration</h3>
-                    <p style={{ marginBottom: '0', fontSize: '0.95rem' }}>Wir stellen Ihnen einen einfachen Iframe-Code zur Verfügung. Sie binden das System in 5 Minuten in Ihre bestehende Landingpage ein.</p>
-                 </div>
-              </div>
-              <div className="card animate-up delay-300" style={{ position: 'relative', border: '1px solid var(--accent-primary)' }}>
-                 <div style={{ position: 'absolute', top: '-20px', left: '2rem', fontSize: '4rem', fontWeight: 800, color: 'var(--accent-light)', lineHeight: 1, zIndex: 0 }}>3</div>
-                 <div style={{ position: 'relative', zIndex: 1, paddingTop: '1.5rem' }}>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Vermarktung</h3>
-                    <p style={{ marginBottom: '0', fontSize: '0.95rem' }}>Nutzer betreten die virtuelle Umgebung, filtern Einheiten, senden qualifizierte Leads und erhalten automatisiert Exposés.</p>
-                 </div>
-              </div>
-           </div>
-        </section>
+      {/* PROJEKT ERLEBEN */}
+      <section className="section bg-white border-b">
+        <div className="container grid grid-2 items-center">
+          <div>
+            <span className="icon-wrapper"><Rotate3d size={26} /></span>
+            <h2>Vom Draufschauen zum Drin-Stehen.</h2>
+            <p className="lead mb-8">
+              Die virtuelle Besichtigung beginnt bei der Vogelperspektive:
+              Interessenten drehen das gesamte Projekt um 360°, klicken
+              Wohnungen direkt in der Fassade an und wechseln in den
+              Etagen-Grundriss. Von dort geht es in echte 360°-Panorama-
+              Rundgänge mit verbundenen Standpunkten – Raum für Raum, wie bei
+              einem Rundgang durch die Musterwohnung.
+            </p>
+            <ul className="check-list mb-8">
+              <li><Check size={20} /> Drehbare, zoombare Projektansicht aus fotorealistischen 3D-Renderings</li>
+              <li><Check size={20} /> 360°-Rundgänge (WebGL) mit verbundenen Standpunkten</li>
+              <li><Check size={20} /> Bildergalerien, Wohnungs-Videos und Foliensätze je Einheit</li>
+            </ul>
+            <Link href="/funktionen/3d-grundrisse" className="btn btn-outline">
+              Projektansicht im Detail <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div>
+            <div className="card-soft" style={{ padding: "1rem" }}>
+              <img
+                src="/showcase-detail.png"
+                alt="Virtuelle Besichtigung: 360°-Rundgang durch eine Neubauwohnung im Browser"
+                style={{ width: "100%", borderRadius: "var(--radius-sm)" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* COMPARISON / BENEFITS */}
-        <section className="section bg-white border-b">
-           <div className="container grid grid-2 items-center">
-              <div className="animate-up">
-                 <h2 className="mb-6">Das Ende der nutzlosen "Sightseeing"-Termine</h2>
-                 <p className="mb-4">Wer im <strong>Immobilienvertrieb</strong> tätig ist, kennt das Problem: Unzählige Stunden fließen in Vor-Ort Termine mit Kunden, die weder über das entsprechende Kapital verfügen, noch wirklich verstanden haben, was sie dort besichtigen.</p>
-                 <p className="mb-8">Die <strong>virtuelle Besichtigung</strong> eliminiert diesen Streuverlust. Durch die immersive Präsentation vorab findet eine massive Selbstqualifizierung statt. Nur Interessenten mit echtem Kaufinteresse rufen an.</p>
-                 
-                 <ul style={{ listStyle: 'none', padding: 0 }}>
-                    <li className="flex items-center gap-3 mb-4"><Check color="var(--accent-primary)" size={24} /> <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>Globale Reichweite (Auslandsinvestoren)</span></li>
-                    <li className="flex items-center gap-3 mb-4"><Check color="var(--accent-primary)" size={24} /> <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>Keine Schmutzbaustellen-Termine mehr</span></li>
-                    <li className="flex items-center gap-3"><Check color="var(--accent-primary)" size={24} /> <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>Voll möbliert statt grauer Rohbau</span></li>
-                 </ul>
-              </div>
-              <div className="animate-up delay-200">
-                 <img src="/flatfinder_features_expose.png" alt="flatplan.de Showcase Vogelperspektive" style={{ width: '100%', height: 'auto', border: '1px solid var(--border-light)' }} />
-              </div>
-           </div>
-        </section>
+      {/* MEHR ALS EIN RUNDGANG */}
+      <section className="section bg-soft border-b">
+        <div className="container text-center max-w-3xl mx-auto mb-12">
+          <span className="eyebrow">Mehr als ein Rundgang</span>
+          <h2>Fragen beantworten, bevor sie gestellt werden</h2>
+          <p className="lead">
+            Eine gute Besichtigung beantwortet mehr als „Wie sieht es aus?“.
+            Der Wohnungsfinder beantwortet auch: Wann habe ich Sonne? Was ist
+            in der Nähe? Verstehe ich das auch auf Englisch?
+          </p>
+        </div>
+        <div className="container grid grid-3">
+          <div className="card">
+            <span className="icon-wrapper"><Sun size={26} /></span>
+            <h3>Sonnenstand-Simulation</h3>
+            <p>
+              Per Schieberegler wandert die Sonne über das Projekt – mit
+              Kompass zur Orientierung. Interessenten prüfen selbst, wann der
+              Südwest-Balkon Abendsonne hat. Eine Frage weniger im
+              Verkaufsgespräch.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><MapPin size={26} /></span>
+            <h3>Umgebung mit Gehminuten</h3>
+            <p>
+              Kita, Bäcker, S-Bahn: Umgebungs-POIs zeigen die Lagequalität mit
+              Gehminuten direkt im Projekt – optional mit Karte. Die Lage
+              verkauft mit, ohne dass jemand sie erklären muss.
+            </p>
+          </div>
+          <div className="card">
+            <span className="icon-wrapper"><Languages size={26} /></span>
+            <h3>Mehrsprachig & als PWA</h3>
+            <p>
+              Der Viewer spricht mehrere Sprachen, darunter Englisch – ideal
+              für internationale Käufer und Kapitalanleger. Als PWA lässt er
+              sich wie eine App auf dem Homescreen installieren, ganz ohne
+              App-Store.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* FAQ ACCORDION */}
-        <section className="section bg-soft border-b">
-           <div className="container max-width-3xl mx-auto animate-up">
-              <div className="text-center mb-12">
-                 <div className="badge">Knowledge Base</div>
-                 <h2>Häufige Fragen zu 3D-Rundgängen</h2>
-              </div>
-              
-              <div style={{ background: 'white', padding: '2rem 3rem', border: '1px solid var(--border-light)' }}>
-                 <details className="faq-item" open>
-                    <summary>Müssen Kunden eine App installieren?</summary>
-                    <p>Definitiv nicht. Um maximale Conversion-Raten im <strong>Neubauvertrieb</strong> zu gewährleisten, läuft unsere Architektur vollständig im Webbrowser (Chrome, Safari, Edge) unter iOS, Android, Windows und macOS.</p>
-                 </details>
-                 
-                 <details className="faq-item">
-                    <summary>Wie gut muss die Internetverbindung sein?</summary>
-                    <p>Die 3D-Modelle werden (im Vergleich zu Videostreams) stark komprimiert. Nach einem kurzen, initialen Download (meist unter 20MB) wird das gesamte Gebäude in Echtzeit über die GPU des Nutzers gerendert. So ist auch mobile Nutzung problemlos möglich.</p>
-                 </details>
+      {/* FAKTEN-BAND */}
+      <section className="bg-dark" style={{ padding: "5rem 0" }}>
+        <div className="container grid grid-4 text-center">
+          {[
+            { icon: <Eye size={28} />, big: "24/7", label: "Immer geöffnet", sub: "Besichtigung ohne Termin, Anfahrt und Bauhelm" },
+            { icon: <Smartphone size={28} />, big: "0 Apps", label: "Läuft im Browser", sub: "Smartphone, Tablet, Desktop – sofort startklar" },
+            { icon: <Compass size={28} />, big: "360°", label: "Rundum erlebbar", sub: "Projektansicht drehen, Rundgänge begehen" },
+            { icon: <Languages size={28} />, big: "EN+", label: "Mehrsprachig", sub: "Auch internationale Interessenten besichtigen selbst" },
+          ].map((m) => (
+            <div key={m.label}>
+              <div style={{ color: "var(--accent-on-dark)", display: "flex", justifyContent: "center", marginBottom: "1rem" }}>{m.icon}</div>
+              <div style={{ fontSize: "3rem", fontWeight: 800, color: "#fff", lineHeight: 1, marginBottom: "0.75rem" }}>{m.big}</div>
+              <div style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#fff" }}>{m.label}</div>
+              <p style={{ marginTop: "0.375rem", fontSize: "0.9rem", marginBottom: 0 }}>{m.sub}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-                 <details className="faq-item">
-                    <summary>Eignet sich dies auch für Bestandsimmobilien?</summary>
-                    <p>Primär ist unser System für den sogenannten <strong>Off-Plan Vertrieb</strong> (Neubau, Revitalisierung, Projektentwicklung) konzipiert, da wir aus CAD / BIM Daten fotorealistische Welten erschaffen, die in der Realität noch gar nicht existieren.</p>
-                 </details>
-                 
-                 <details className="faq-item" style={{ borderBottom: 'none', marginBottom: 0 }}>
-                    <summary>Sind die 3D Rundgänge DSGVO-konform?</summary>
-                    <p style={{ paddingBottom: 0 }}>Ja. Ihre Daten und die daraus generierten Leads werden verschlüsselt auf deutschen Servern verarbeitet. Wir handeln streng nach den Vorgaben der europäischen Datenschutz-Grundverordnung.</p>
-                 </details>
-              </div>
-           </div>
-        </section>
+      {/* BRÜCKE ZUR ECHTEN BESICHTIGUNG */}
+      <section className="section bg-white border-b">
+        <div className="container grid grid-2 items-center">
+          <div>
+            <div className="card-soft" style={{ padding: "1rem" }}>
+              <img
+                src="/flatfinder_features_expose.png"
+                alt="Besichtigungsslots mit iCal-Export: von der virtuellen zur echten Besichtigung"
+                style={{ width: "100%", borderRadius: "var(--radius-sm)" }}
+              />
+            </div>
+          </div>
+          <div>
+            <span className="icon-wrapper"><CalendarCheck size={26} /></span>
+            <h2>Die Brücke zur echten Besichtigung.</h2>
+            <p className="lead mb-8">
+              Die virtuelle Besichtigung ersetzt den Vor-Ort-Termin nicht –
+              sie sorgt dafür, dass er sich lohnt. Wer nach dem Rundgang noch
+              persönlich kommen möchte, bucht direkt einen Besichtigungsslot:
+              Der Termin wandert per iCal in beide Kalender, und Ihr Vertrieb
+              trifft auf Interessenten, die das Projekt bereits kennen.
+            </p>
+            <ul className="check-list mb-8">
+              <li><Check size={20} /> Besichtigungsslots mit iCal-Export für Interessent und Vertrieb</li>
+              <li><Check size={20} /> Rückruf- und Besichtigungswunsch direkt im Anfrageformular</li>
+              <li><Check size={20} /> Merkliste in der Anfrage: Ihr Team bereitet den Termin gezielt vor</li>
+              <li><Check size={20} /> Anfragen laufen ins Anfragen-Board oder nativ ins CRM</li>
+            </ul>
+            <div className="flex gap-4 flex-wrap">
+              <Link href="/funktionen/lead-generierung" className="btn btn-outline">
+                Lead-Generierung <ArrowRight size={18} />
+              </Link>
+              <Link href="/use-cases/neubauvertrieb" className="btn btn-outline">
+                Use Case Neubauvertrieb <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <CoreFeaturesGrid />
-
-      </main>
-      <Footer />
-    </>
+      {/* CTA */}
+      <section className="section bg-soft text-center">
+        <div className="container max-w-3xl mx-auto">
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+            Öffnen Sie Ihr Projekt – rund um die Uhr.
+          </h2>
+          <p className="lead mb-8">
+            Erleben Sie in einer kostenlosen Live-Demo, wie sich Ihr
+            Neubauprojekt virtuell besichtigen lässt – vom ersten Rendering
+            bis zum gebuchten Vor-Ort-Termin.
+          </p>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">
+            Jetzt Demo anfragen <ArrowRight size={20} />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

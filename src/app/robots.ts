@@ -1,12 +1,13 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { site } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
+      userAgent: "*",
+      allow: "/",
+      disallow: "/api/",
     },
-    sitemap: 'https://flatplan.de/sitemap.xml',
+    sitemap: `${site.url}/sitemap.xml`,
   };
 }

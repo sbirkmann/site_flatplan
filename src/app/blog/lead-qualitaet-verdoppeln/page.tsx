@@ -1,85 +1,164 @@
-"use client";
-import React from 'react';
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SEO from "@/components/SEO";
-import Link from 'next/link';
+import type { Metadata } from "next";
+import Link from "next/link";
+import BlogArticle from "@/components/BlogArticle";
+import { getPost } from "@/lib/blog";
+import { pageMetadata } from "@/lib/site";
 
-export default function BlogArticle() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Wie ein 3D Flatfinder die Lead-Qualität verdoppelt",
-    "author": {
-      "@type": "Organization",
-      "name": "Investora Commercial"
-    },
-    "publisher": {
-       "@type": "Organization",
-       "name": "Investora Commercial"
-    }
-  };
+const post = getPost("lead-qualitaet-verdoppeln")!;
 
+export const metadata: Metadata = pageMetadata({
+  title: post.title,
+  description: post.description,
+  path: `/blog/${post.slug}`,
+});
+
+export default function LeadQualitaetArticle() {
   return (
-    <>
-      <SEO />
-      <Header />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <main style={{ paddingTop: '80px' }}>
-        
-        {/* HERO */}
-        <section className="bg-white border-b" style={{ padding: '6rem 0 4rem 0' }}>
-          <div className="container prose animate-up" style={{ textAlign: 'center' }}>
-             <div className="badge">Neubauvertrieb</div>
-             <h1 style={{ marginBottom: '2rem', marginTop: '1rem', fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}>
-               Wie ein 3D Flatfinder die Lead-Qualität verdoppelt
-             </h1>
-             <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}>
-                Veröffentlicht am 14. September 2026 • Lesezeit: 4 Minuten
-             </p>
-          </div>
-        </section>
+    <BlogArticle post={post}>
+      <p>
+        <strong>Die teuersten Leads sind die, die Ihr Vertrieb vergeblich anruft.</strong>{" "}
+        Wer Neubauprojekte über Portale und Anzeigen vermarktet, kennt das
+        Muster: Das Exposé wird reflexhaft angefordert, beim Rückruf heißt
+        es „ich wollte nur mal schauen“, und nach zwanzig solcher
+        Gespräche ist ein Vormittag verbrannt. Das Problem ist selten die
+        Menge der Anfragen – es ist ihre Qualität. Und die lässt sich
+        systematisch steuern.
+      </p>
 
-        {/* CONTENT */}
-        <section className="section bg-soft border-b">
-           <div className="container prose animate-up delay-100">
-              <img src="/showcase-3d.png" alt="3D Wohnungsfinder Screenshot" style={{ width: '100%', marginBottom: '3rem', border: '1px solid var(--border-light)' }} />
-              
-              <p>Wer im Bereich Projektentwicklung oder Neubauvertrieb tätig ist, kennt das Dilemma: Einer Marketingkampagne folgen hunderte Leads. Der Vertrieb freut sich zunächst. Doch bei den ersten Anrufen stellt sich schnell Ernüchterung ein.</p>
+      <h2>Qualität beginnt vor dem Formular</h2>
+      <p>
+        Ein <Link href="/funktionen/3d-grundrisse">interaktiver Wohnungsfinder</Link>{" "}
+        verändert den Moment, in dem eine Anfrage entsteht. Wer ein Projekt
+        gedreht, Etagen-Grundrisse durchgeblättert, den Sonnenstand simuliert
+        und einen 360°-Rundgang gemacht hat, fragt nicht mehr blind an – er
+        hat sich bereits selbst qualifiziert. Die Anfrage bezieht sich auf
+        eine konkrete Wohneinheit, deren Schnitt, Preis und Ausrichtung der
+        Interessent kennt. Das allein sortiert einen großen Teil der
+        „Nur-mal-schauen“-Kontakte aus, bevor sie Ihren Vertrieb erreichen.
+      </p>
 
-              <h2>Das Problem mit generischen Immobilien-Leads</h2>
-              <p>Oftmals klicken Interessenten auf ein Facebook Ad oder ein Immoscout24 Inserat, nur um "mal zu schauen". Das Exposé wird blindlings angefordert. Wenn der Verkäufer nachfasst, kommen oft Aussagen wie: "Die Zimmer waren mir doch zu klein" oder "Das Budget passt nicht ganz". Diese blinden Anfragen kosten Zeit, Nerven und wertvolles Sales-Budget.</p>
+      <h2>Das Exposé-Gate: aus Downloads werden Kontakte</h2>
+      <p>
+        Das Exposé-PDF ist im Neubauvertrieb die meistgefragte Ressource –
+        und meistens wird sie anonym verschenkt. Ein{" "}
+        <strong>Exposé-Gate</strong> dreht das um: Der Download startet
+        erst, nachdem der Interessent seine E-Mail-Adresse hinterlegt hat.
+        Aus einem anonymen Klick wird ein Kontakt mit dokumentiertem
+        Interesse an einer konkreten Wohnung. Wie das Gate mit Preislisten,
+        QR-Codes und Widgets zusammenspielt, zeigt die Seite{" "}
+        <Link href="/funktionen/pdf-expose">Exposés & Vermarktung</Link>.
+      </p>
+      <p>
+        Entscheidend ist die Dosierung. Wer vor jedes Bild eine Schranke
+        setzt, vergrault Besucher. Bewährt hat sich: Projektansicht,
+        Grundrisse und Rundgänge frei zugänglich lassen – das ist Ihr
+        Schaufenster – und erst das detaillierte Exposé-PDF hinter das
+        Gate legen. So bleibt das Erlebnis offen, aber der wertvollste
+        Moment wird erfasst.
+      </p>
 
-              <div className="card-soft mt-8 mb-8" style={{ borderLeft: '4px solid var(--accent-primary)', background: 'var(--bg-primary)' }}>
-                 <p style={{ fontStyle: 'italic', fontSize: '1.2rem', margin: 0, color: 'var(--text-primary)' }}>
-                    "Der Vorverkauf eines 50-Einheiten Objekts erfordert hocheffiziente Qualifizierung, bevor jemals ein Sales-Agent ans Telefon geht."
-                 </p>
-              </div>
+      <h2>Pflichtfelder: die Conversion-Qualitäts-Balance</h2>
+      <p>
+        Jedes zusätzliche Formularfeld senkt die Abschlussrate des
+        Formulars – und erhöht gleichzeitig die Qualität der Anfragen, die
+        durchkommen. Diese Balance sollten Sie bewusst wählen, nicht dem
+        Zufall überlassen. Mit konfigurierbaren Pflichtfeldern legen Sie
+        fest, was eine Anfrage mindestens enthalten muss: Telefonnummer?
+        Rückruf- oder Besichtigungswunsch? Zeithorizont?
+      </p>
+      <p>
+        Eine praktikable Faustregel: In der frühen Vermarktungsphase, wenn
+        Sie Reichweite aufbauen, halten Sie die Hürde niedrig. Je weiter
+        der Verkauf fortschreitet und je knapper die Einheiten werden,
+        desto mehr dürfen Sie verlangen – wer bei 80 Prozent{" "}
+        <Link href="/blog/vorverkaufsquote-steigern">Vorverkaufsquote</Link>{" "}
+        anfragt, meint es ernst.
+      </p>
 
-              <h2>Die Lösung: Selbstqualifizierung durch 3D-Finder</h2>
-              <p>Wenn ein Bauträger stattdessen den interaktiven <strong>flatplan.de 3D Wohnungsfinder</strong> auf seiner Projektseite einbindet, verändert sich die Customer Journey grundlegend. Zunächst wird die Verweildauer (Dwell-Time) der User massiv gesteigert.</p>
-              <p>Anstatt nur Daten in ein Formular einzugeben, beginnen die Nutzer, sich aktiv mit dem Bauprojekt auseinanderzusetzen. Sie drehen das Gebäude, begutachten den Schattenwurf und betrachten voll möblierte Etagen im sogenannten <strong>Slice-View</strong>.</p>
-              <ul>
-                 <li><strong>Filtern:</strong> Der Interessent sieht nur die Einheiten, die exakt zu seinem Filter (Preis, Zimmer, Balkon) passen.</li>
-                 <li><strong>Räumliches Verständnis:</strong> Er sieht genau, wie groß das Wohnzimmer mit Möbeln wirken wird. Er fragt keine Wohnung an, deren Schnitt ihm nicht gefällt.</li>
-                 <li><strong>Bewusste Entscheidung:</strong> Die Anfrage geschieht im letzten Schritt, nachdem alle wesentlichen Fakten interaktiv erkundet wurden.</li>
-              </ul>
+      <h2>Double-Opt-in: der ehrlichste Qualitätsfilter</h2>
+      <p>
+        Double-Opt-in gilt vielen als lästige DSGVO-Pflicht. Tatsächlich
+        ist es einer der besten Qualitätsfilter überhaupt: Wer den
+        Bestätigungslink in der E-Mail klickt, hat eine echte, erreichbare
+        Adresse angegeben und sein Interesse ein zweites Mal bekräftigt.
+        Tippfehler-Adressen und Wegwerf-Kontakte fallen automatisch
+        heraus. Nebenbei entsteht ein dokumentierter Einwilligungsnachweis
+        – wichtig, wenn Sie den Kontakt später mit Suchagenten-Mails oder
+        einem Newsletter ansprechen wollen.
+      </p>
 
-              <h2>Fazit: Konvertierungsrate steigt um 40%</h2>
-              <p>Durch die Vorschaltung dieses extrem transparenten "Visualisierungs-Filters" bricht das Volumen blind angeforderter Exposés massiv ein. Stattdessen erhalten Sie weitaus weniger Leads – <strong>aber diese weisen einen echten Kaufwillen auf</strong>. Wenn der Makler anruft, weiß er bereits, dass der Interessent das Layout von Wohnung 14 exzellent findet und das Budget gesichert ist.</p>
+      <h2>Merklisten-Signale: Interesse sichtbar machen</h2>
+      <p>
+        Nicht jedes Kaufsignal ist eine Anfrage. Die Merkliste ist ein
+        unterschätzter Indikator: Wer drei Wohnungen favorisiert und per
+        Magic-Link auf seine Liste zurückkehrt, beschäftigt sich ernsthaft
+        mit dem Projekt. Kommt die Anfrage dann, liefert die angehängte
+        Merkliste Ihrem Verkäufer wertvollen Kontext – er sieht sofort,
+        ob jemand zwischen zwei 3-Zimmer-Wohnungen schwankt oder das
+        Penthouse mit der Gartenwohnung vergleicht, und kann das Gespräch
+        entsprechend führen.
+      </p>
 
-              <hr style={{ borderTop: '1px solid var(--border-light)', margin: '4rem 0' }} />
-              
-              <div style={{ background: 'var(--text-primary)', color: 'white', padding: '3rem', borderRadius: '4px', textAlign: 'center' }}>
-                 <h3 style={{ color: 'white' }}>Jetzt Lead-Maschine aktivieren</h3>
-                 <p style={{ color: 'var(--text-tertiary)' }}>Nutzen Sie unseren Architektur-Konfigurator für Ihr Objekt.</p>
-                 <Link href="/features" className="btn btn-primary mt-4">Features ansehen</Link>
-              </div>
-           </div>
-        </section>
+      <h2>Suchagenten und Preis-Alarme: warme Leads auf Vorrat</h2>
+      <p>
+        Der häufigste Grund für eine Nicht-Anfrage ist banal: Die passende
+        Wohnung ist gerade nicht frei oder zu teuer. Klassisch geht dieser
+        Kontakt verloren. Mit einem <strong>Suchagenten</strong> bleibt er
+        im System: Der Interessent hinterlegt seine Kriterien und erhält
+        automatisch eine Mail, sobald eine passende Einheit verfügbar
+        wird. <strong>Preis-Alarme</strong> und{" "}
+        <strong>Wieder-frei-Alarme</strong> arbeiten nach demselben
+        Prinzip – sie melden sich, wenn eine gemerkte Wohnung günstiger
+        wird oder aus einer Reservierung zurückfällt. Einen Überblick über
+        alle Werkzeuge gibt die Seite{" "}
+        <Link href="/funktionen/lead-generierung">Lead-Generierung</Link>.
+      </p>
+      <p>
+        Diese Kontakte sind Gold wert: Sie haben ihr Interesse präzise
+        beschrieben, per Double-Opt-in bestätigt und warten aktiv auf Ihr
+        Signal. Wenn die Mail kommt, ist der Lead nicht kalt, sondern
+        vorgewärmt – oft der schnellste Weg zur Besichtigung.
+      </p>
 
-      </main>
-      <Footer />
-    </>
+      <h2>A/B/C-Bewertung: Fokus für den Vertrieb</h2>
+      <p>
+        Auch mit guter Qualifizierung sind nicht alle Leads gleich. Eine
+        einfache <strong>A/B/C-Bewertung</strong> im Anfragen-Board schafft
+        Fokus: A-Leads – konkrete Wohnung, Besichtigungswunsch, kurzfristiger
+        Zeithorizont – werden zuerst angerufen, mit SLA-Ampel für die
+        Reaktionszeit. B-Leads bekommen eine Wiedervorlage, C-Leads laufen
+        über Suchagent und Newsletter mit, bis sie sich weiterentwickeln.
+        Zuweisung, Aufgaben und Textbausteine sorgen dafür, dass dieser
+        Prozess im Team funktioniert und nichts liegen bleibt.
+      </p>
+
+      <h2>Messen statt vermuten</h2>
+      <p>
+        Ob Ihre Qualifizierung funktioniert, zeigt sich in den Zahlen:
+        Wie viele Besucher öffnen Wohnungen? Wie viele Downloads laufen
+        durch das Exposé-Gate? Welche Kampagne liefert Anfragen, die zu
+        Besichtigungen werden? Ein cookiefreies Analytics mit Conversion
+        je UTM-Quelle beantwortet das, ohne dass Sie einen Cookie-Banner
+        brauchen – mehr dazu auf unserer{" "}
+        <Link href="/vorteile">Vorteile-Seite</Link> und im Artikel über{" "}
+        <Link href="/blog/dsgvo-immobilienmarketing">DSGVO-konformes Tracking</Link>.
+      </p>
+
+      <h2>Fazit</h2>
+      <p>
+        Lead-Qualität entsteht nicht im Verkaufsgespräch, sondern davor:
+        durch ein Erlebnis, das Selbstqualifizierung ermöglicht, durch
+        Gates und Pflichtfelder an den richtigen Stellen, durch
+        Double-Opt-in als Filter und durch Suchagenten, die aus
+        „noch nicht“ ein „jetzt“ machen. Wer diese Bausteine kombiniert,
+        bekommt weniger Anfragen als über das Portal-Gießkannenprinzip –
+        aber deutlich mehr Gespräche, die zu Abschlüssen führen. Wie die
+        Anfragen anschließend automatisch im CRM landen, lesen Sie im
+        Artikel zur{" "}
+        <Link href="/blog/crm-integration-neubauvertrieb">
+          CRM-Integration im Neubauvertrieb
+        </Link>.
+      </p>
+    </BlogArticle>
   );
 }

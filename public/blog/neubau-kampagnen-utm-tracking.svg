@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Kampagnenkanäle mit Conversion-Messung">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#edf1f7"/>
+    </linearGradient>
+    <linearGradient id="funnel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="#94a3b8" opacity="0.25">
+    <circle cx="90" cy="70" r="3"/><circle cx="1120" cy="90" r="3"/><circle cx="1140" cy="560" r="3"/>
+    <circle cx="70" cy="560" r="3"/><circle cx="600" cy="50" r="2"/>
+  </g>
+
+  <!-- channel chips (left column) -->
+  <g>
+    <!-- chip 1: megaphone -->
+    <rect x="110" y="90" width="190" height="76" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="150" cy="128" r="22" fill="#ff5a00"/>
+    <path d="M142 128 l10 -8 v16 z M154 122 a10 10 0 0 1 0 12" fill="#ffffff" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <rect x="185" y="112" width="90" height="12" rx="6" fill="#94a3b8"/>
+    <rect x="185" y="134" width="60" height="9" rx="4.5" fill="#cbd5e1"/>
+
+    <!-- chip 2: mail -->
+    <rect x="110" y="196" width="190" height="76" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="150" cy="234" r="22" fill="#0f172a"/>
+    <rect x="138" y="226" width="24" height="17" rx="3" fill="#ffffff"/>
+    <path d="M138 228 l12 9 l12 -9" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+    <rect x="185" y="218" width="90" height="12" rx="6" fill="#94a3b8"/>
+    <rect x="185" y="240" width="60" height="9" rx="4.5" fill="#cbd5e1"/>
+
+    <!-- chip 3: QR / print -->
+    <rect x="110" y="302" width="190" height="76" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="150" cy="340" r="22" fill="#ff5a00"/>
+    <g fill="#ffffff">
+      <rect x="140" y="330" width="8" height="8"/>
+      <rect x="152" y="330" width="8" height="8"/>
+      <rect x="140" y="342" width="8" height="8"/>
+      <rect x="153" y="343" width="4" height="4"/>
+      <rect x="157" y="347" width="4" height="4"/>
+    </g>
+    <rect x="185" y="324" width="90" height="12" rx="6" fill="#94a3b8"/>
+    <rect x="185" y="346" width="60" height="9" rx="4.5" fill="#cbd5e1"/>
+
+    <!-- chip 4: search -->
+    <rect x="110" y="408" width="190" height="76" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="150" cy="446" r="22" fill="#0f172a"/>
+    <circle cx="146" cy="442" r="8" fill="none" stroke="#ffffff" stroke-width="3.5"/>
+    <line x1="152" y1="448" x2="160" y2="456" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="185" y="430" width="90" height="12" rx="6" fill="#94a3b8"/>
+    <rect x="185" y="452" width="60" height="9" rx="4.5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- flow lines into funnel -->
+  <g fill="none" stroke="#94a3b8" stroke-width="4" stroke-dasharray="9 11" opacity="0.6">
+    <path d="M300 128 C400 128 420 190 470 210"/>
+    <path d="M300 234 C390 234 410 240 470 250"/>
+    <path d="M300 340 C390 340 410 330 470 300"/>
+    <path d="M300 446 C400 446 420 380 470 340"/>
+  </g>
+  <g fill="#ff5a00">
+    <circle cx="392" cy="152" r="6"/>
+    <circle cx="388" cy="237" r="6"/>
+    <circle cx="388" cy="334" r="6"/>
+    <circle cx="392" cy="420" r="6"/>
+  </g>
+
+  <!-- funnel -->
+  <g>
+    <path d="M470 180 H790 L700 340 V470 L560 430 V340 Z" fill="url(#funnel)"/>
+    <path d="M470 180 H790 L770 216 H490 Z" fill="#ff5a00"/>
+    <path d="M508 248 H752" stroke="#94a3b8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+    <path d="M545 306 H715" stroke="#94a3b8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+    <!-- link glyph on funnel: short link -->
+    <g transform="translate(630,395)" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round">
+      <path d="M-14 8 l-8 8 a14 14 0 0 0 20 20 l8 -8"/>
+      <path d="M14 20 l8 -8 a14 14 0 0 0 -20 -20 l-8 8"/>
+      <line x1="-6" y1="24" x2="6" y2="4"/>
+    </g>
+  </g>
+
+  <!-- drop into result chart -->
+  <path d="M630 470 C630 505 700 500 760 505" fill="none" stroke="#ff5a00" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/>
+
+  <!-- result card: conversions per source -->
+  <g>
+    <rect x="800" y="150" width="290" height="330" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="832" y="182" width="120" height="13" rx="6.5" fill="#94a3b8"/>
+    <!-- horizontal bars with markers -->
+    <circle cx="845" cy="242" r="9" fill="#ff5a00"/>
+    <rect x="866" y="234" width="190" height="16" rx="8" fill="#ff5a00"/>
+    <circle cx="845" cy="292" r="9" fill="#0f172a"/>
+    <rect x="866" y="284" width="140" height="16" rx="8" fill="#0f172a"/>
+    <circle cx="845" cy="342" r="9" fill="#94a3b8"/>
+    <rect x="866" y="334" width="100" height="16" rx="8" fill="#94a3b8"/>
+    <circle cx="845" cy="392" r="9" fill="#cbd5e1"/>
+    <rect x="866" y="384" width="60" height="16" rx="8" fill="#cbd5e1"/>
+    <!-- check row -->
+    <rect x="832" y="428" width="226" height="2" fill="#f1f5f9"/>
+    <circle cx="850" cy="452" r="12" fill="#ff5a00"/>
+    <path d="M844 452 l4 5 l8 -9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="874" y="446" width="110" height="11" rx="5.5" fill="#cbd5e1"/>
+  </g>
+
+  <!-- accents -->
+  <circle cx="1090" cy="100" r="20" fill="none" stroke="#ff5a00" stroke-width="4" opacity="0.55"/>
+  <circle cx="420" cy="540" r="10" fill="#94a3b8" opacity="0.35"/>
+  <circle cx="760" cy="120" r="8" fill="#ff5a00" opacity="0.5"/>
+</svg>
