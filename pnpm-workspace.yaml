@@ -1,0 +1,4 @@
+allowBuilds:
+  '@img/sharp-libvips-linux-x64': true
+  'sharp': true
+  'unrs-resolver': true

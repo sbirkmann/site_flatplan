@@ -4,7 +4,7 @@ import { pageMetadata, site } from "@/lib/site";
 export const metadata: Metadata = {
   ...pageMetadata({
     title: "Impressum",
-    description: "Impressum und Anbieterkennzeichnung von flatplan.de – eine Marke der Investora Commercial EWIV, Rohrdorf.",
+    description: "Impressum und Anbieterkennzeichnung von flatplan.de – eine Marke der Immowoo Group GmbH, Grünwald.",
     path: "/impressum",
   }),
   robots: { index: false, follow: true },
@@ -19,9 +19,7 @@ export default function Impressum() {
           <div className="card prose" style={{ margin: 0, maxWidth: "none", padding: "2.5rem" }}>
             <h2 style={{ marginTop: 0 }}>Angaben gemäß § 5 TMG</h2>
             <p>
-              <strong>Investora Commercial</strong>
-              <br />
-              Europäische Wirtschaftliche Interessenvereinigung (EWIV)
+              <strong>Immowoo Group GmbH</strong>
             </p>
             <p>
               {site.company.street}
@@ -39,26 +37,33 @@ export default function Impressum() {
             </p>
 
             <h2>Vertreten durch</h2>
-            <p>Geschäftsführer: Klaus Thomanek</p>
+            <p>Geschäftsführer: Andrei-Alexandru Muckle</p>
 
             <h2>Registereintrag</h2>
             <p>
               Eintragung im Handelsregister.
               <br />
-              Registergericht: Würzburg
+              Registergericht: Amtsgericht München
               <br />
-              Registernummer: HRA 7576
+              Registernummer: HRB 314765
             </p>
 
-            <h2>Umsatzsteuer-ID</h2>
+            <h2>Haftung für Inhalte</h2>
             <p>
-              Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
-              <br />
-              DE308073305
+              Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene
+              Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+              verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter
+              jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+              Informationen zu überwachen.
             </p>
 
-            <h2>EORI-Nummer</h2>
-            <p>DE599323849000549</p>
+            <h2>Urheberrecht</h2>
+            <p>
+              Die durch die Seitenbetreiber erstellten Inhalte und Werke auf
+              diesen Seiten unterliegen dem deutschen Urheberrecht. Downloads
+              und Kopien dieser Seite sind nur für den privaten, nicht
+              kommerziellen Gebrauch gestattet.
+            </p>
 
             <h2>EU-Streitschlichtung</h2>
             <p>
