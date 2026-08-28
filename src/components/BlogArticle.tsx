@@ -1,13 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { blogPosts, formatDate, type BlogPost } from "@/lib/blog";
 import { site } from "@/lib/site";
+import { IconArrow } from "@/components/icons";
 
-/**
- * Gemeinsames Artikel-Layout: Hero mit Bild & Meta, prose-Inhalt,
- * Related-Posts aus der Registry, Article-JSON-LD und CTA.
- */
 export default function BlogArticle({
   post,
   children,
@@ -45,46 +41,42 @@ export default function BlogArticle({
         ]}
       />
 
-      {/* HERO */}
-      <section className="page-hero bg-soft border-b" style={{ paddingBottom: "0" }}>
-        <div className="container max-w-4xl mx-auto">
-          <div className="animate-up">
-            <span className="badge">{post.tag}</span>
-            <h1 style={{ fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", maxWidth: "56rem" }}>{post.title}</h1>
-            <p className="lead" style={{ maxWidth: "48rem" }}>{post.description}</p>
-            <div className="flex items-center gap-8 mb-8" style={{ color: "var(--text-tertiary)", fontSize: "0.9rem", fontWeight: 500 }}>
-              <span className="flex items-center gap-2"><CalendarDays size={16} /> {formatDate(post.date)}</span>
-              <span className="flex items-center gap-2"><Clock3 size={16} /> {post.readingMinutes} Min. Lesezeit</span>
-            </div>
-          </div>
-          <div style={{ borderRadius: "var(--radius-lg) var(--radius-lg) 0 0", overflow: "hidden", boxShadow: "var(--shadow-lg)" }}>
-            <img src={post.image} alt={post.imageAlt} style={{ width: "100%", display: "block" }} />
-          </div>
+      <section className="page-hero border-b" style={{ paddingBottom: 0 }}>
+        <div className="container" style={{ maxWidth: "52rem" }}>
+          <Link href="/blog" className="measure" style={{ display: "inline-block", marginBottom: "1.5rem", color: "var(--blatt)" }}>
+            ← Artikel
+          </Link>
+          <span className="eyebrow">{post.tag}</span>
+          <h1 style={{ maxWidth: "18ch" }}>{post.title}</h1>
+          <p className="lead" style={{ maxWidth: "38rem" }}>{post.description}</p>
+          <p className="measure" style={{ marginBottom: "1.75rem" }}>
+            {formatDate(post.date)}  ·  {post.readingMinutes} Min.
+          </p>
+          <figure className="overlap-frame" style={{ margin: 0, padding: "0.55rem" }}>
+            <img src={post.image} alt={post.imageAlt} width={1200} height={750} style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", display: "block" }} />
+          </figure>
         </div>
       </section>
 
-      {/* INHALT */}
       <article className="section bg-white border-b">
-        <div className="container max-w-4xl mx-auto">
-          <div className="prose" style={{ margin: 0, maxWidth: "72ch" }}>{children}</div>
+        <div className="container" style={{ maxWidth: "52rem" }}>
+          <div className="prose" style={{ margin: 0, maxWidth: "66ch" }}>{children}</div>
         </div>
       </article>
 
-      {/* WEITERLESEN */}
       {relatedPosts.length > 0 && (
         <section className="section bg-soft border-b">
           <div className="container">
-            <h2 style={{ fontSize: "1.75rem" }} className="mb-8">Weiterlesen</h2>
-            <div className="grid grid-3">
+            <p className="plan-rule mb-8">Weitere Artikel</p>
+            <div className="blog-board blog-board--related">
               {relatedPosts.map((p) => (
-                <Link key={p.slug} href={`/blog/${p.slug}`} className="card" style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                  <img src={p.image} alt={p.imageAlt} style={{ width: "100%", aspectRatio: "1200 / 630", objectFit: "cover" }} loading="lazy" />
-                  <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
-                    <span style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--accent-hover)" }}>{p.tag}</span>
-                    <h3 style={{ fontSize: "1.0625rem", margin: 0 }}>{p.title}</h3>
-                    <span style={{ fontSize: "0.8125rem", color: "var(--text-tertiary)", marginTop: "auto" }}>
-                      {formatDate(p.date)} · {p.readingMinutes} Min.
-                    </span>
+                <Link key={p.slug} href={`/blog/${p.slug}`} className="blog-card">
+                  <div className="blog-card-frame">
+                    <img src={p.image} alt={p.imageAlt} width={1200} height={750} />
+                  </div>
+                  <div className="blog-card-plate">
+                    <span className="measure">{p.tag} · {formatDate(p.date)}</span>
+                    <strong>{p.title}</strong>
                   </div>
                 </Link>
               ))}
@@ -93,16 +85,15 @@ export default function BlogArticle({
         </section>
       )}
 
-      {/* CTA */}
-      <section className="section bg-white text-center">
-        <div className="container max-w-3xl mx-auto">
-          <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}>Lieber zeigen statt lesen?</h2>
-          <p className="lead mb-8">
-            In einer kostenlosen Live-Demo sehen Sie den interaktiven
-            Wohnungsfinder an einem echten Projekt.
+      <section className="section bg-sonne">
+        <div className="container" style={{ maxWidth: "40rem" }}>
+          <p className="measure" style={{ marginBottom: "1rem" }}>Grünwald</p>
+          <h2>Demo am laufenden Objekt.</h2>
+          <p className="lead" style={{ color: "var(--tinte)" }}>
+            Rendering und Wohnungsliste. Termin vor Ort oder per Video.
           </p>
-          <Link href="/kontakt" className="btn btn-primary btn-lg">
-            Demo anfragen <ArrowRight size={20} />
+          <Link href="/kontakt" className="btn btn-outline btn-lg">
+            Demo am Projekt <IconArrow size={18} />
           </Link>
         </div>
       </section>

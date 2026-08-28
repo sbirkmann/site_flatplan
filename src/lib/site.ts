@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const site = {
   name: "flatplan.de",
   url: "https://flatplan.de",
-  title: "flatplan.de | Interaktiver Wohnungsfinder für den Neubauvertrieb",
+  title: "flatplan.de | Wohnungsfinder für den Neubauvertrieb",
   description:
-    "Der interaktive Wohnungsfinder für Bauträger, Projektentwickler und Makler: drehbare 360°-Projektansicht, Grundriss-Navigation, Lead-Management, CRM-Sync (onOffice, Propstack, Flowfact) und OpenImmo-Export.",
+    "Wohnungsfinder für Bauträger und Makler. Fassade aus dem Rendering, Etagengrundriss, 360°, Anfrage nach onOffice, Propstack oder Flowfact. Hosting in Deutschland.",
   company: {
     brand: "Immowoo",
     legalName: "Immowoo Group GmbH",

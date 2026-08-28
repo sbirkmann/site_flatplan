@@ -1,25 +1,6 @@
 "use client";
 import { useState } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
-
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "0.875rem 1rem",
-  border: "1px solid var(--border-dark)",
-  borderRadius: "var(--radius-sm)",
-  fontSize: "1rem",
-  fontFamily: "inherit",
-  background: "#fff",
-  color: "var(--text-primary)",
-};
-
-const labelStyle: React.CSSProperties = {
-  display: "block",
-  fontSize: "0.875rem",
-  fontWeight: 600,
-  marginBottom: "0.375rem",
-  color: "var(--text-primary)",
-};
+import { IconCheck, IconLoader, IconSend } from "@/components/icons";
 
 export default function LeadForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -54,47 +35,47 @@ export default function LeadForm() {
 
   if (status === "sent") {
     return (
-      <div className="card" style={{ textAlign: "center", padding: "3rem 2rem" }}>
-        <CheckCircle2 size={48} style={{ color: "var(--accent-primary)", margin: "0 auto 1.25rem" }} />
-        <h3>Vielen Dank für Ihre Anfrage!</h3>
-        <p style={{ marginBottom: "1.5rem" }}>
-          Wir haben Ihre Nachricht erhalten und melden uns in der Regel innerhalb
-          eines Werktags bei Ihnen — meist mit einem Terminvorschlag für eine
-          persönliche Live-Demo.
+      <div className="overlap-plate" style={{ textAlign: "left", padding: "2.25rem 1.75rem" }}>
+        <IconCheck size={40} style={{ color: "var(--blatt)", margin: "0 auto 1.25rem" }} />
+        <h3>Anfrage angekommen.</h3>
+        <p style={{ marginBottom: "1.5rem", fontFamily: "var(--font-serif)" }}>
+          Antwort in der Regel innerhalb eines Werktags, meist mit Terminvorschlag
+          am laufenden Objekt.
         </p>
         <button className="btn btn-outline btn-sm" onClick={() => setStatus("idle")}>
-          Weitere Anfrage senden
+          Weitere Nachricht
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card" style={{ padding: "2.5rem" }}>
-      <div className="grid grid-2" style={{ gap: "1.25rem", marginBottom: "1.25rem" }}>
-        <div>
-          <label style={labelStyle} htmlFor="lead-name">Name *</label>
-          <input id="lead-name" name="name" type="text" required autoComplete="name" placeholder="Max Mustermann" style={inputStyle} />
+    <form onSubmit={handleSubmit} className="overlap-plate" style={{ padding: "2rem 1.6rem 1.75rem", maxWidth: "none" }}>
+      <p className="measure" style={{ marginBottom: "1.25rem" }}>Nachricht an Grünwald</p>
+      <div className="grid grid-2" style={{ gap: "1.15rem", marginBottom: "1.15rem" }}>
+        <div className="form-field">
+          <label htmlFor="lead-name">Name *</label>
+          <input id="lead-name" name="name" type="text" required autoComplete="name" placeholder="Name" />
         </div>
-        <div>
-          <label style={labelStyle} htmlFor="lead-firma">Firma</label>
-          <input id="lead-firma" name="firma" type="text" autoComplete="organization" placeholder="Mustermann Immobilien GmbH" style={inputStyle} />
+        <div className="form-field">
+          <label htmlFor="lead-firma">Firma</label>
+          <input id="lead-firma" name="firma" type="text" autoComplete="organization" placeholder="Firma" />
         </div>
-        <div>
-          <label style={labelStyle} htmlFor="lead-email">E-Mail *</label>
-          <input id="lead-email" name="email" type="email" required autoComplete="email" placeholder="name@firma.de" style={inputStyle} />
+        <div className="form-field">
+          <label htmlFor="lead-email">E-Mail *</label>
+          <input id="lead-email" name="email" type="email" required autoComplete="email" placeholder="name@firma.de" />
         </div>
-        <div>
-          <label style={labelStyle} htmlFor="lead-telefon">Telefon</label>
-          <input id="lead-telefon" name="telefon" type="tel" autoComplete="tel" placeholder="+49 …" style={inputStyle} />
+        <div className="form-field">
+          <label htmlFor="lead-telefon">Telefon</label>
+          <input id="lead-telefon" name="telefon" type="tel" autoComplete="tel" placeholder="+49 …" />
         </div>
-        <div>
-          <label style={labelStyle} htmlFor="lead-projekt">Projekt / Vorhaben</label>
-          <input id="lead-projekt" name="projekt" type="text" placeholder="z. B. Wohnquartier mit 3 Häusern" style={inputStyle} />
+        <div className="form-field">
+          <label htmlFor="lead-projekt">Projekt</label>
+          <input id="lead-projekt" name="projekt" type="text" placeholder="z. B. Wohnquartier, 3 Häuser" />
         </div>
-        <div>
-          <label style={labelStyle} htmlFor="lead-einheiten">Anzahl Einheiten</label>
-          <select id="lead-einheiten" name="einheiten" style={inputStyle} defaultValue="">
+        <div className="form-field">
+          <label htmlFor="lead-einheiten">Einheiten</label>
+          <select id="lead-einheiten" name="einheiten" defaultValue="">
             <option value="" disabled>Bitte wählen</option>
             <option value="bis 10">bis 10</option>
             <option value="11–30">11–30</option>
@@ -103,35 +84,20 @@ export default function LeadForm() {
           </select>
         </div>
       </div>
-      <div style={{ marginBottom: "1.5rem" }}>
-        <label style={labelStyle} htmlFor="lead-nachricht">Ihre Nachricht</label>
-        <textarea
-          id="lead-nachricht"
-          name="nachricht"
-          rows={5}
-          placeholder="Erzählen Sie uns kurz von Ihrem Projekt und Ihrem Zeitplan."
-          style={{ ...inputStyle, resize: "vertical" }}
-        />
+      <div className="form-field" style={{ marginBottom: "1.5rem" }}>
+        <label htmlFor="lead-nachricht">Nachricht</label>
+          <textarea id="lead-nachricht" name="nachricht" rows={5} placeholder="Objekt, Lage, Zahl der WE, ob Renderings vorliegen." style={{ resize: "vertical" }} />
       </div>
-
-      {/* Honeypot gegen Bots — für Menschen unsichtbar */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }} />
-
       {status === "error" && (
-        <p role="alert" style={{ color: "#dc2626", fontWeight: 600, marginBottom: "1rem" }}>{errorMsg}</p>
+        <p role="alert" style={{ color: "var(--koralle)", fontWeight: 650, marginBottom: "1rem" }}>{errorMsg}</p>
       )}
-
       <button type="submit" className="btn btn-primary btn-lg" disabled={status === "sending"} style={{ width: "100%" }}>
-        {status === "sending" ? (
-          <><Loader2 size={20} className="animate-spin" style={{ animation: "spin 1s linear infinite" }} /> Wird gesendet …</>
-        ) : (
-          <><Send size={18} /> Anfrage senden</>
-        )}
+        {status === "sending" ? <><IconLoader size={18} /> Wird gesendet</> : <><IconSend size={18} /> Nachricht senden</>}
       </button>
-      <p style={{ fontSize: "0.8125rem", color: "var(--text-tertiary)", marginTop: "1rem", marginBottom: 0 }}>
-        Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur
-        Bearbeitung der Anfrage zu. Details in der{" "}
-        <a href="/datenschutz" style={{ textDecoration: "underline" }}>Datenschutzerklärung</a>.
+      <p className="measure" style={{ marginTop: "1rem", marginBottom: 0 }}>
+        Mit dem Senden willigen Sie in die Verarbeitung ein.{" "}
+        <a href="/datenschutz" style={{ textDecoration: "underline" }}>Datenschutz</a>.
       </p>
     </form>
   );

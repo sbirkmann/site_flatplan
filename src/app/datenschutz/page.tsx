@@ -16,7 +16,7 @@ export default function Datenschutz() {
       <section className="page-hero bg-soft">
         <div className="container max-w-3xl mx-auto">
           <h1 style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)" }}>Datenschutzerklärung</h1>
-          <div className="card prose" style={{ margin: 0, maxWidth: "none", padding: "2.5rem" }}>
+          <div className="overlap-plate prose" style={{ margin: 0, maxWidth: "none" }}>
             <h2 style={{ marginTop: 0 }}>1. Datenschutz auf einen Blick</h2>
             <h3>Allgemeine Hinweise</h3>
             <p>

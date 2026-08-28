@@ -1,97 +1,94 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Boxes, Rocket, Users, ShieldCheck } from "lucide-react";
 import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/site";
+import PageHero from "@/components/ui/PageHero";
+import CtaBand from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
-  title: "FAQ – Häufige Fragen zum interaktiven Wohnungsfinder",
+  title: "FAQ: Technik, Einrichtung, Anfragen, Recht",
   description:
-    "Antworten auf häufige Fragen zu flatplan.de: Browser statt App, Einführung in wenigen Tagen, CRM-Anbindung an onOffice, Propstack und Flowfact, cookiefreies Tracking und DSGVO.",
+    "Browser, Rendering, CRM, Gate, Cookie. Die Fragen, die vor der Einrichtung kommen.",
   path: "/faq",
 });
 
 type Faq = { q: string; a: string };
-type FaqGroup = { title: string; icon: React.ReactNode; items: Faq[] };
+type FaqGroup = { title: string; items: Faq[] };
 
 const groups: FaqGroup[] = [
   {
-    title: "Produkt & Technik",
-    icon: <Boxes size={26} />,
+    title: "Technik.",
     items: [
       {
-        q: "Was ist der flatplan.de Wohnungsfinder genau?",
-        a: "Ein interaktiver Wohnungsfinder für Neubauprojekte: Interessenten drehen eine fotorealistische Projektansicht aus hochwertigen 3D-Renderings, klicken Wohnungen direkt in der Fassade an, navigieren durch Etagen-Grundrisse und starten echte 360°-Panorama-Rundgänge. Preise, Verfügbarkeit (frei, reserviert, verkauft), Ausstattung und Exposés sind je Wohnung hinterlegt – alles im Browser.",
+        q: "Was ist der Finder?",
+        a: "Ansicht aus der Rendering-Sequenz. Klick auf die Loggia öffnet die WE: Grundriss, 360°, Preis, Status. Browser, ohne App.",
       },
       {
-        q: "Brauchen Besucher eine App oder ein Plugin?",
-        a: "Nein. Der Wohnungsfinder läuft vollständig im Browser – auf Desktop, Tablet und Smartphone, ohne Download und ohne Installation. Wer möchte, kann ihn zusätzlich als PWA auf dem Homescreen installieren, etwa für den Einsatz im Verkaufsbüro oder auf Messen.",
+        q: "Brauchen Besucher eine App?",
+        a: "Nein. Desktop, Tablet, Handy. Optional PWA auf dem Homescreen, etwa im Verkaufsbüro.",
       },
       {
-        q: "Welche Inhalte kann der Wohnungsfinder darstellen?",
-        a: "Drehbare Projekt-Rundumansichten mit anklickbaren Wohnungsflächen, Etagen-Grundrisse mit Pins, 360°-Rundgänge mit verbundenen Standpunkten, eine Sonnenstand-Simulation mit Schieberegler und Kompass, Bildergalerien und Foliensätze mit Video, Umgebungs-POIs mit Gehminuten, Baufortschritt je Haus sowie Wohnungs-Videos von YouTube, Vimeo oder als Datei.",
+        q: "Was kann die Ansicht zeigen?",
+        a: "Fassade mit Hotspots, Etage mit Pins, 360° mit verbundenen Standpunkten, Sonnenstand, Galerie, POI mit Gehminuten, Baufortschritt, Video.",
       },
       {
-        q: "Läuft der Wohnungsfinder auf unserer eigenen Domain?",
-        a: "Ja. Jedes Projekt kann unter einer eigenen Domain oder Subdomain laufen, zum Beispiel wohnen-am-park.de. Alternativ binden Sie den Finder per Link oder das Verfügbarkeits-Widget per iframe in Ihre bestehende Projektwebsite ein.",
+        q: "Eigene Domain?",
+        a: "Ja. Domain oder Subdomain, etwa wohnen-am-park.de. Oder Link und Widget in der bestehenden Seite.",
       },
       {
-        q: "Ist der Viewer mehrsprachig?",
-        a: "Ja. Der Viewer steht mehrsprachig zur Verfügung, unter anderem auf Englisch – hilfreich für internationale Kaufinteressenten und Kapitalanleger.",
+        q: "Mehrsprachig?",
+        a: "Ja. Unter anderem Englisch, wenn Kapitalanleger oder internationale Käufer dazugehören.",
       },
     ],
   },
   {
-    title: "Einführung & Aufwand",
-    icon: <Rocket size={26} />,
+    title: "Einrichtung.",
     items: [
       {
-        q: "Wie schnell ist ein Projekt online?",
-        a: "Sobald Renderings, Grundrisse und Wohnungsdaten vorliegen, ist ein Projekt in wenigen Tagen live. Eine Launch-Checkliste führt durch alle Schritte, und mit der Warteliste samt Countdown sammeln Sie schon vor dem offiziellen Start erste Interessenten.",
+        q: "Wie schnell ist ein Objekt online?",
+        a: "Liegen Sequenz, Grundrisse und Wohnungsliste vor: wenige Tage. Warteliste mit Countdown, falls der Start später liegt.",
       },
       {
-        q: "Welche Unterlagen werden benötigt?",
-        a: "Hochwertige 3D-Renderings Ihres Visualisierers (als Bildsequenz für die drehbare Ansicht), Etagen-Grundrisse sowie die Wohnungsdaten – Flächen, Zimmer, Preise, Ausstattung, Energieausweis. Exposé-PDFs je Wohnung laden Sie einfach hoch; Bilder werden automatisch für Desktop und Mobil optimiert.",
+        q: "Welche Unterlagen?",
+        a: "Renderings als Sequenz, Grundriss je Geschoss, Wohnungsliste (Fläche, Zimmer, Preis, Ausstattung, Energie). Exposé-PDF je WE, wenn vorhanden.",
       },
       {
-        q: "Können wir Projekte selbst pflegen?",
-        a: "Ja. Status, Preise, Bilder, Rundgänge und Texte pflegen Sie selbst im Verwaltungsbereich – mit Rollen je Projekt (Viewer, Editor, Manager), Änderungsprotokoll, Kommentaren mit @-Erwähnung und Projekt-Aufgaben. Projekte lassen sich duplizieren, als ZIP exportieren und werden täglich automatisch gesichert.",
+        q: "Wer pflegt danach?",
+        a: "Sie. Status, Preise, Bilder, Texte. Rollen je Projekt, Protokoll, Duplizieren, tägliche Sicherung.",
       },
     ],
   },
   {
-    title: "Leads & CRM",
-    icon: <Users size={26} />,
+    title: "Anfragen.",
     items: [
       {
-        q: "Welche CRM-Systeme werden unterstützt?",
-        a: "Nativ angebunden sind onOffice, Propstack und Flowfact: Anfragen werden automatisch mit der angefragten Wohneinheit übergeben, die Zugangsdaten liegen verschlüsselt, jede Übergabe wird protokolliert. Zusätzlich gibt es Webhooks (Slack-kompatibel), eine Read-only-REST-API und den OpenImmo-XML-Export für weitere Systeme.",
+        q: "Welche CRM?",
+        a: "onOffice, Propstack, Flowfact — nativ, mit WE-Nummer. Daneben Webhook, lesende REST-API, OpenImmo-XML.",
       },
       {
-        q: "Wie entstehen aus Besuchern qualifizierte Anfragen?",
-        a: "Über mehrere Wege: das Anfrageformular mit Merkliste und konfigurierbaren Pflichtfeldern, das Exposé-Gate (PDF-Download erst nach E-Mail-Angabe), Suchagenten mit Mail bei neuen Treffern, Preis- und Wieder-frei-Alarme sowie die Warteliste vor dem Launch. Jede Anfrage enthält den konkreten Wohnungsbezug – Ihr Vertrieb weiß sofort, worum es geht.",
+        q: "Woher kommt die Anfrage?",
+        a: "Formular mit Merkliste, Exposé-Gate, Suchagent, Preis-Alarm, Warteliste. Immer mit der WE.",
       },
       {
-        q: "Wie arbeitet der Vertrieb mit den Anfragen weiter?",
-        a: "Im Anfragen-Board mit den Stufen Neu, In Bearbeitung und Erledigt: Zuweisung an Teammitglieder, Lead-Bewertung A/B/C, Wiedervorlagen, Aufgaben, Textbausteine und vCard-Export. Besichtigungsslots mit iCal-Export und eine SLA-Ampel für Reaktionszeiten sind eingebaut.",
+        q: "Was macht der Vertrieb danach?",
+        a: "Board Neu / in Arbeit / erledigt. A/B/C, Wiedervorlage, iCal, Textbaustein. Oder direkt das CRM.",
       },
     ],
   },
   {
-    title: "Datenschutz & Sicherheit",
-    icon: <ShieldCheck size={26} />,
+    title: "Recht.",
     items: [
       {
-        q: "Ist das Tracking DSGVO-konform – brauchen wir einen Cookie-Banner?",
-        a: "Das eingebaute Analytics arbeitet cookiefrei und speichert keine IP-Adressen – ein Cookie-Banner ist dafür nicht nötig. Sie sehen trotzdem Besuche, Wohnungs-Öffnungen, Favoriten, Rundgang-Verweildauer und Conversions je UTM-Quelle.",
+        q: "Cookie-Banner?",
+        a: "Die eingebaute Messung speichert kein Cookie und keine IP. Banner dafür nicht nötig. UTM bis zur Anfrage bleibt.",
       },
       {
-        q: "Wie werden Einwilligungen und Löschfristen gehandhabt?",
-        a: "Anfragen laufen über eine DSGVO-Einwilligung mit Double-Opt-in, jeder Einwilligungsnachweis wird gespeichert. Aufbewahrungsfristen mit automatischer Löschung oder Anonymisierung, ein Papierkorb und der Datenexport für Auskunftsersuchen sind integriert.",
+        q: "Einwilligung und Löschung?",
+        a: "Double-Opt-in, Nachweis, Frist, Papierkorb, Export für Auskunft.",
       },
       {
-        q: "Wie ist der Zugang zum System abgesichert?",
-        a: "Mit Zwei-Faktor-Authentifizierung (TOTP), Einladungs-Links statt geteilter Passwörter, Sitzungsverwaltung, Login-Protokoll und Rollen je Projekt. Jede Änderung an Wohnungen und Preisen wird im Änderungsprotokoll festgehalten.",
+        q: "Zugang?",
+        a: "2FA (TOTP), Einladung statt geteiltem Passwort, Rollen, Login-Protokoll. Jede Preis- und Statusänderung im Protokoll.",
       },
     ],
   },
@@ -122,29 +119,20 @@ export default function FaqPage() {
         ]}
       />
 
-      {/* HERO */}
-      <section className="page-hero bg-soft border-b">
-        <div className="container text-center max-w-3xl mx-auto animate-up">
-          <span className="eyebrow">Häufige Fragen</span>
-          <h1 style={{ fontSize: "clamp(2.25rem, 4vw, 3.25rem)" }}>
-            Alles, was Sie vor dem Start wissen wollen.
-          </h1>
-          <p className="lead">
-            Von der Technik über die Einführung bis zu CRM-Anbindung und
-            Datenschutz: die häufigsten Fragen zu flatplan.de – klar und
-            faktenbasiert beantwortet.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Fragen aus dem Vorverkauf"
+        title="Was vor dem ersten Rendering geklärt sein will."
+        lead="Technik, Unterlagen, CRM, Cookie. Die Sätze, die am Telefon fallen."
+        tone="licht"
+        measure="Vier Räume"
+      />
 
-      {/* GROUPS */}
       {groups.map((group, i) => (
         <section
           key={group.title}
           className={`section border-b ${i % 2 === 0 ? "bg-white" : "bg-soft"}`}
         >
-          <div className="container max-w-3xl mx-auto">
-            <span className="icon-wrapper">{group.icon}</span>
+          <div className="container max-w-3xl">
             <h2 className="mb-8">{group.title}</h2>
             {group.items.map((f) => (
               <details key={f.q} className="faq-item">
@@ -156,47 +144,21 @@ export default function FaqPage() {
         </section>
       ))}
 
-      {/* WEITERFÜHREND */}
       <section className="section bg-white border-b">
-        <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="mb-4">Noch tiefer einsteigen?</h2>
-          <p className="lead mb-8">
-            Alle Funktionen im Überblick, die Nutzenargumente für Ihr Projekt
-            oder Fachbegriffe kurz erklärt:
+        <div className="container" style={{ maxWidth: "40rem" }}>
+          <span className="eyebrow">Weiter</span>
+          <h2>Begriff, Funktion, Zahl.</h2>
+          <p className="lead">
+            <Link href="/wissen/glossar" style={{ fontWeight: 700, textDecoration: "underline" }}>Glossar</Link>
+            {" · "}
+            <Link href="/features" style={{ fontWeight: 700, textDecoration: "underline" }}>Funktionen</Link>
+            {" · "}
+            <Link href="/preise" style={{ fontWeight: 700, textDecoration: "underline" }}>Preise</Link>
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/features" className="btn btn-outline">
-              Alle Funktionen
-            </Link>
-            <Link href="/vorteile" className="btn btn-outline">
-              Ihre Vorteile
-            </Link>
-            <Link href="/wissen/glossar" className="btn btn-outline">
-              Glossar
-            </Link>
-            <Link href="/preise" className="btn btn-outline">
-              Preise
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section bg-soft text-center">
-        <div className="container max-w-3xl mx-auto">
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)" }}>
-            Ihre Frage war nicht dabei?
-          </h2>
-          <p className="lead mb-8">
-            Am schnellsten klärt sich alles in einer Live-Demo: Wir zeigen den
-            Wohnungsfinder an einem echten Projekt und beantworten Ihre Fragen
-            direkt am Bildschirm.
-          </p>
-          <Link href="/kontakt" className="btn btn-primary btn-lg">
-            Demo anfragen <ArrowRight size={20} />
-          </Link>
-        </div>
-      </section>
+      <CtaBand title="Die fehlende Frage am Objekt." lead="Laufendes Haus, Bildschirm. Keine Folien." />
     </main>
   );
 }

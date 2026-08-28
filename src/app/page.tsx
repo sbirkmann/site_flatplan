@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight, Check, Rotate3d, Workflow, Users, MailCheck, QrCode, Globe2,
-} from "lucide-react";
-import Testimonials from "@/components/Testimonials";
-import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata, site } from "@/lib/site";
+import { blogPosts, formatDate } from "@/lib/blog";
+import { IconArrow } from "@/components/icons";
+import StatusMarquee from "@/components/illustrations/StatusMarquee";
+import FacadeFinder from "@/components/photos/FacadeFinder";
+import LeadInboxMock from "@/components/illustrations/LeadInboxMock";
+import CtaBand from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "flatplan.de | Interaktiver Wohnungsfinder für den Neubauvertrieb",
+    title: "flatplan.de | Wohnungsfinder für den Neubauvertrieb",
     description:
-      "Verkaufen Sie Neubauwohnungen ab dem ersten Rendering: interaktiver Wohnungsfinder mit 360°-Rundgängen, Grundriss-Navigation, Lead-Engine und CRM-Sync für onOffice, Propstack und Flowfact.",
+      "Wohnungsfinder für Bauträger und Makler. Fassade aus dem Rendering, Etagengrundriss, 360°, Anfrage nach onOffice, Propstack oder Flowfact.",
     path: "/",
   }),
-  title: { absolute: "flatplan.de | Interaktiver Wohnungsfinder für den Neubauvertrieb" },
+  title: { absolute: "flatplan.de | Wohnungsfinder für den Neubauvertrieb" },
 };
 
 const softwareSchema = {
@@ -26,226 +27,291 @@ const softwareSchema = {
   operatingSystem: "Web",
   url: site.url,
   description:
-    "Interaktiver Wohnungsfinder für den Neubauvertrieb: drehbare Projektansicht, 360°-Rundgänge, Lead-Management, CRM-Integration (onOffice, Propstack, Flowfact) und OpenImmo-Export.",
+    "Wohnungsfinder für den Neubauvertrieb: drehbare Projektansicht, 360°-Rundgänge, Anfragen, CRM (onOffice, Propstack, Flowfact), OpenImmo.",
   publisher: { "@id": `${site.url}/#organization` },
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/InStock",
     price: "0",
     priceCurrency: "EUR",
-    description: "Kostenlose Live-Demo",
+    description: "Demo am laufenden Objekt",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "47",
-    bestRating: "5",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Thomas Z." },
-      reviewRating: { "@type": "Rating", ratingValue: "5" },
-      reviewBody: "Der 3D Wohnungsfinder hat unseren Vorverkauf um 40% beschleunigt.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sandra M." },
-      reviewRating: { "@type": "Rating", ratingValue: "5" },
-      reviewBody: "Seit wir den Flatfinder einbinden, hat sich die Lead-Qualität verdoppelt.",
-    },
-  ],
 };
 
+const deskUnits = [
+  { id: "WE 2.03", line: "3 Zimmer · 84,3 m² · 689.000 € · frei" },
+  { id: "WE 3.02", line: "2 Zimmer · 61,0 m² · 498.000 € · reserviert" },
+  { id: "WE 4.02", line: "4 Zimmer · 112,8 m² · 910.000 € · frei" },
+  { id: "WE 1.04", line: "2 Zimmer · 54,2 m² · verkauft" },
+];
+
 export default function Home() {
+  const [featured, ...rest] = blogPosts;
+
   return (
     <main>
       <JsonLd data={softwareSchema} />
 
-      {/* HERO */}
-      <section className="page-hero bg-white border-b" style={{ overflow: "hidden" }}>
-        <div className="container grid grid-2" style={{ alignItems: "center" }}>
-          <div className="animate-up" style={{ zIndex: 10 }}>
-            <span className="eyebrow">Digitaler Neubauvertrieb</span>
-            <h1>
-              Zeigen Sie, was entsteht.
-              <br />
-              Verkaufen Sie sofort.
-            </h1>
-            <p className="lead" style={{ maxWidth: "520px", marginBottom: "2.5rem" }}>
-              Der interaktive Wohnungsfinder für Bauträger und Makler: drehbare
-              Projektansicht, 360°-Rundgänge, Grundriss-Navigation und eine
-              Lead-Engine, die Anfragen direkt in Ihr CRM liefert – alles im
-              Browser, ohne App.
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <Link href="/kontakt" className="btn btn-primary btn-lg">
-                Kostenlose Demo <ArrowRight size={20} />
-              </Link>
-              <Link href="/features" className="btn btn-outline btn-lg">
-                Alle Funktionen
-              </Link>
-            </div>
-            <ul className="check-list mt-8" style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", marginBottom: 0 }}>
-              <li style={{ marginBottom: 0 }}><Check size={18} /> Ohne App-Download</li>
-              <li style={{ marginBottom: 0 }}><Check size={18} /> DSGVO-konform</li>
-              <li style={{ marginBottom: 0 }}><Check size={18} /> Live in wenigen Tagen</li>
-            </ul>
-          </div>
-          <div className="animate-up delay-200" style={{ position: "relative", minHeight: "420px" }}>
-            <div className="device-frame" style={{ height: "clamp(420px, 45vw, 600px)" }}>
-              <div className="device-frame-inner" style={{ height: "100%" }}>
-                <iframe
-                  src={site.demoUrl}
-                  title="flatplan.de Live-Demo: interaktiver Wohnungsfinder"
-                  style={{ width: "100%", height: "100%", border: "none" }}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST */}
-      <section className="bg-soft border-b" style={{ padding: "3.5rem 0" }}>
-        <div className="container text-center">
-          <p style={{ fontSize: "0.8125rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--text-tertiary)", marginBottom: "2rem", fontWeight: 700 }}>
-            Partner für hochwertige Immobilienvermarktung
+      <section className="home-hero">
+        <div className="home-hero-copy">
+          <span className="eyebrow">Fassade, nicht PDF.</span>
+          <h1>
+            Vertrieb
+            <br />
+            über die Fassade.
+          </h1>
+          <p className="lead">
+            Jede WE als Fläche auf dem Rendering. Grundriss, 360°, Preis, Status.
+            Anfrage nach onOffice, Propstack oder Flowfact.
           </p>
-          <div className="flex justify-center flex-wrap items-center" style={{ gap: "4rem", opacity: 0.85 }}>
-            <span style={{ fontSize: "1.5rem", fontWeight: 800, color: "#e3000f", display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ display: "inline-block", width: "26px", height: "26px", background: "#e3000f", textAlign: "center", color: "white", fontSize: "17px", lineHeight: "26px", fontWeight: "bold" }}>S</span>
-              Sparkasse
-            </span>
-            <span style={{ fontSize: "1.25rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", borderBottom: "3px solid var(--text-primary)", paddingBottom: "0.2rem" }}>
-              Zinn Architektur
-            </span>
-            <span style={{ fontSize: "1.375rem", fontWeight: 800, letterSpacing: "0.05em", color: "var(--text-secondary)" }}>
-              INVESTORA
-            </span>
+          <div className="flex gap-4 flex-wrap items-center">
+            <Link href="/kontakt" className="btn btn-primary btn-lg">
+              Demo am Projekt <IconArrow size={18} />
+            </Link>
+            <a
+              href={site.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontWeight: 650, textDecoration: "underline", textUnderlineOffset: 4 }}
+            >
+              Laufendes Objekt
+            </a>
           </div>
+          <p className="home-hero-meta">Browser · Server in Deutschland · Einrichtung in Tagen</p>
+        </div>
+        <div className="home-hero-canvas">
+          <iframe src={site.demoUrl} title="Wohnungsfinder, laufendes Objekt" allow="fullscreen" />
+          <span className="home-hero-caption">Haus am Park · live</span>
         </div>
       </section>
 
-      {/* TEASER 1: WOHNUNGSFINDER */}
-      <section className="section bg-white border-b" style={{ overflow: "hidden" }}>
-        <div className="container grid grid-2 items-center">
-          <div>
-            <span className="icon-wrapper"><Rotate3d size={26} /></span>
-            <h2>Das ganze Projekt. Interaktiv erlebbar.</h2>
-            <p className="lead mb-8">
-              Interessenten drehen Ihr Projekt um 360°, klicken Wohnungen
-              direkt in der Fassade an und navigieren durch Etagen-Grundrisse.
-              Sonnenstand-Simulation, Umgebungs-Infos und begehbare
-              Panorama-Rundgänge machen aus Plänen ein Kauferlebnis –
-              lange vor der Fertigstellung.
+      <StatusMarquee />
+
+      <section className="bg-white border-b">
+        <div className="container">
+          <p className="partner-line measure" style={{ margin: 0, fontSize: "0.95rem", letterSpacing: "0.02em", textTransform: "none" }}>
+            Projekte u. a. mit
+            <span className="name" style={{ color: "#c41e3a" }}>Sparkasse</span>
+            <span className="name">Zinn Architektur</span>
+            <span className="name">Investora</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="fassade" className="overlap-stage bg-himmel border-b">
+        <div className="container overlap-fassade">
+          <div className="overlap-frame">
+            <FacadeFinder />
+          </div>
+          <div className="overlap-plate">
+            <span className="eyebrow">Ansicht</span>
+            <h2>Status liegt auf der Loggia.</h2>
+            <p className="lead">
+              Gelb frei, blau reserviert, grau verkauft. Klick auf WE 2.03 öffnet
+              Fläche, Preis und Grundriss.
             </p>
-            <ul className="check-list mb-8">
-              <li><Check size={20} /> Läuft im Browser – keine App, keine Installation</li>
-              <li><Check size={20} /> Live-Verfügbarkeit: frei, reserviert, verkauft</li>
-              <li><Check size={20} /> Mehrsprachig und als PWA installierbar</li>
-            </ul>
             <Link href="/funktionen/3d-grundrisse" className="btn btn-outline">
-              Wohnungsfinder im Detail <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div>
-            <div className="card-soft" style={{ padding: "1rem" }}>
-              <img
-                src="/showcase-3d.png"
-                alt="Interaktiver Wohnungsfinder: drehbare Projektansicht mit anklickbaren Wohnungen"
-                style={{ width: "100%", borderRadius: "var(--radius-sm)" }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TEASER 2: LEAD-ENGINE */}
-      <section className="section bg-soft border-b" style={{ overflow: "hidden" }}>
-        <div className="container grid grid-2 items-center">
-          <div style={{ order: 1 }}>
-            <div className="device-frame" style={{ padding: "1.5rem", color: "white" }}>
-              <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "1rem", marginBottom: "1rem", fontWeight: 600 }}>
-                Lead-Posteingang
-              </div>
-              {[
-                { title: "Anfrage · WE 2.04 · Merkliste mit 3 Wohnungen", meta: "Vor 4 Minuten · an onOffice übergeben" },
-                { title: "Exposé-Download · WE 1.11", meta: "Vor 16 Minuten · Double-Opt-in bestätigt" },
-                { title: "Suchagent · 3 Zimmer, Südbalkon", meta: "Vor 38 Minuten · Preis-Alarm aktiv" },
-              ].map((lead) => (
-                <div key={lead.title} style={{ display: "flex", gap: "1rem", alignItems: "center", marginBottom: "1rem" }}>
-                  <div style={{ width: "40px", height: "40px", borderRadius: "12px", background: "rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <Users size={18} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 600 }}>{lead.title}</div>
-                    <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)" }}>{lead.meta}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div style={{ order: 2 }}>
-            <span className="icon-wrapper"><Workflow size={26} /></span>
-            <h2>Die Lead-Engine, die nachts weiterarbeitet.</h2>
-            <p className="lead mb-8">
-              Exposé-Gate, Suchagenten, Preis- und Wieder-frei-Alarme,
-              Wartelisten mit Countdown: Der Wohnungsfinder sammelt
-              qualifizierte Anfragen rund um die Uhr – und übergibt sie
-              automatisch an onOffice, Propstack oder Flowfact.
-            </p>
-            <ul className="check-list mb-8">
-              <li><Check size={20} /> Double-Opt-in & DSGVO-Einwilligung eingebaut</li>
-              <li><Check size={20} /> Lead-Bewertung, Wiedervorlagen & Aufgaben im Anfragen-Board</li>
-              <li><Check size={20} /> Webhooks & Read-only-API für Ihre eigenen Systeme</li>
-            </ul>
-            <Link href="/funktionen/lead-generierung" className="btn btn-outline">
-              Lead-Generierung ansehen <ArrowRight size={18} />
+              Ansicht und Etage <IconArrow size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FAKTEN */}
-      <section className="bg-dark" style={{ padding: "5.5rem 0" }}>
-        <div className="container grid grid-4 text-center">
-          {[
-            { icon: <Globe2 size={28} />, big: "24/7", label: "Virtuelle Besichtigung", sub: "Ihr Projekt ist immer geöffnet" },
-            { icon: <Workflow size={28} />, big: "3 CRMs", label: "Nativ angebunden", sub: "onOffice, Propstack, Flowfact" },
-            { icon: <MailCheck size={28} />, big: "100%", label: "DSGVO-konform", sub: "Cookiefreies Tracking, Double-Opt-in" },
-            { icon: <QrCode size={28} />, big: "1 Klick", label: "Vom Bauzaun ins Projekt", sub: "QR-Codes je Projekt & Wohnung" },
-          ].map((m) => (
-            <div key={m.label}>
-              <div style={{ color: "var(--accent-on-dark)", display: "flex", justifyContent: "center", marginBottom: "1rem" }}>{m.icon}</div>
-              <div style={{ fontSize: "3rem", fontWeight: 800, color: "#fff", lineHeight: 1, marginBottom: "0.75rem" }}>{m.big}</div>
-              <div style={{ fontSize: "1.0625rem", fontWeight: 600, color: "#fff" }}>{m.label}</div>
-              <p style={{ marginTop: "0.375rem", fontSize: "0.9rem", marginBottom: 0 }}>{m.sub}</p>
-            </div>
-          ))}
+      <section id="licht" className="overlap-licht border-b">
+        <img
+          className="overlap-licht-bleed"
+          src="/photos/neubau-abendlicht.jpg"
+          alt="Südfassade im Abendlicht, Schatten auf den Loggien"
+          width={1536}
+          height={1024}
+        />
+        <div className="overlap-frame overlap-licht-inset">
+          <FacadeFinder selected="4.02" showLegend={false} />
         </div>
-      </section>
-
-      <CoreFeaturesGrid />
-
-      <Testimonials variant="dark" />
-
-      {/* CTA */}
-      <section className="section bg-white text-center">
-        <div className="container max-w-3xl mx-auto">
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-            Ihr nächstes Projekt verdient mehr als ein PDF.
-          </h2>
-          <p className="lead mb-8">
-            Sehen Sie in einer kostenlosen Live-Demo, wie Ihr Bauvorhaben als
-            interaktiver Wohnungsfinder aussieht – und wie daraus Anfragen werden.
+        <div className="overlap-plate">
+          <span className="eyebrow">Sonnenstand</span>
+          <h2>21. Juni, 18 Uhr, Süd.</h2>
+          <p className="lead" style={{ marginBottom: 0 }}>
+            Schatten über der Fassade. Nordwinkel hinterlegt. Für die Frage nach
+            dem Abendbalkon.
           </p>
-          <Link href="/kontakt" className="btn btn-primary btn-lg">
-            Jetzt Demo anfragen <ArrowRight size={20} />
+        </div>
+      </section>
+
+      <section id="rundgang" className="overlap-stage bg-white border-b">
+        <div className="container overlap-interior">
+          <figure className="photo-frame overlap-interior-main">
+            <img
+              src="/photos/neubau-wohnen.jpg"
+              alt="Unmöbliertes Wohnzimmer, Blick auf die Süd-Loggia"
+              width={1536}
+              height={1024}
+            />
+            <figcaption>WE 2.03 · Wohnen</figcaption>
+          </figure>
+          <figure className="overlap-frame overlap-interior-inset">
+            <img
+              src="/photos/neubau-kueche.jpg"
+              alt="Küche derselben Wohnung, Blick zur Loggia"
+              width={1536}
+              height={1024}
+            />
+          </figure>
+          <div className="overlap-plate">
+            <span className="eyebrow">360°</span>
+            <h2>Standpunkt in der ungebauten Wohnung.</h2>
+            <p className="lead" style={{ marginBottom: 0 }}>
+              Panorama, nächster Raum, Blick zur Loggia. Solange die Musterwohnung fehlt.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-dark border-b">
+        <div className="container overlap-leads">
+          <div>
+            <span className="eyebrow">Vorgang</span>
+            <h2>Die Anfrage nennt die WE.</h2>
+            <p className="lead">
+              Exposé nach Double-Opt-in. Suchagent für 3 Zimmer Süd. Datensatz in
+              onOffice, Propstack oder Flowfact.
+            </p>
+            <Link href="/funktionen/lead-generierung" className="btn btn-primary">
+              Anfragen und Gate <IconArrow size={16} />
+            </Link>
+          </div>
+          <div className="overlap-frame" style={{ background: "var(--papier)", color: "var(--tinte)", padding: "1.25rem 1.35rem 1.5rem" }}>
+            <figure className="photo-frame" style={{ marginBottom: "1.15rem" }}>
+              <img
+                src="/photos/neubau-loggien.jpg"
+                alt="Loggien der Südfassade"
+                width={1536}
+                height={1024}
+              />
+              <figcaption>WE 2.03 · Anfrage</figcaption>
+            </figure>
+            <LeadInboxMock />
+          </div>
+        </div>
+      </section>
+
+      <section className="overlap-stage bg-white border-b">
+        <div className="container overlap-desk">
+          <div className="overlap-frame">
+            <FacadeFinder selected="3.02" showLegend={false} />
+          </div>
+          <ol className="overlap-desk-list">
+            <li className="measure" style={{ borderBottom: "1px solid var(--tinte)", paddingBottom: "0.85rem" }}>
+              Haus A · 3 Zimmer · Süd
+            </li>
+            {deskUnits.map((u) => (
+              <li key={u.id}>
+                <strong>{u.id}</strong>
+                <span>{u.line}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="bauzaun" className="overlap-fence border-b">
+        <img
+          className="overlap-fence-bleed"
+          src="/photos/neubau-bauzaun.jpg"
+          alt="Bauzaun vor dem Neubau, Projekttafel am Brett"
+          width={1536}
+          height={1024}
+        />
+        <div className="container">
+          <div className="overlap-plate">
+            <span className="eyebrow">Baustelle</span>
+            <h2>QR je Wohnung, am Brett.</h2>
+            <p className="lead">
+              Scan öffnet die WE. UTM am Zaun. Zählung, wer stehen bleibt.
+            </p>
+            <Link href="/funktionen/pdf-expose" style={{ fontWeight: 700, textDecoration: "underline", textUnderlineOffset: 4 }}>
+              Exposé, Preisliste, QR <IconArrow size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-blatt border-b">
+        <div className="container">
+          <span className="eyebrow">Ablauf</span>
+          <h2 style={{ maxWidth: "16ch", marginBottom: "2rem" }}>Ansicht, Wohnung, Vorgang.</h2>
+          <div className="walk">
+            {[
+              { room: "Ansicht", title: "Fassade aus dem Rendering", copy: "Hotspots je WE. Statusfarbe in der Loggia. Mehrere Blickwinkel, wenn das Studio sie liefert." },
+              { room: "Wohnung", title: "Etage und Rundgang", copy: "Grundriss je Geschoss. Panorama, soweit vorhanden. Sonnenstand mit Nordwinkel." },
+              { room: "Vorgang", title: "Anfrage ins CRM", copy: "Gate, Suchagent, Termin. Übergabe nach onOffice, Propstack oder Flowfact." },
+            ].map((step) => (
+              <div key={step.room} className="walk-row">
+                <p className="room">{step.room}</p>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-white border-b">
+        <div className="container">
+          <p className="plan-rule" style={{ marginBottom: "1.75rem" }}>Texte aus dem Vorverkauf.</p>
+          <div className="blog-board">
+            <Link href={`/blog/${featured.slug}`} className="blog-card blog-card--lead">
+              <div className="blog-card-frame">
+                <img src={featured.image} alt={featured.imageAlt} width={1200} height={750} />
+              </div>
+              <div className="blog-card-plate">
+                <span className="measure">{featured.tag} · {formatDate(featured.date)}</span>
+                <strong>{featured.title}</strong>
+                <span className="blog-card-desc">{featured.description}</span>
+              </div>
+            </Link>
+          </div>
+          <ul className="blog-list" style={{ marginTop: "2rem" }}>
+            {rest.slice(0, 5).map((post) => (
+              <li key={post.slug}>
+                <Link href={`/blog/${post.slug}`}>
+                  <span className="measure">{formatDate(post.date)}  ·  {post.tag}</span>
+                  <strong style={{ display: "block", marginTop: "0.25rem" }}>{post.title}</strong>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href="/blog" className="measure" style={{ display: "inline-block", marginTop: "1.25rem", textDecoration: "underline" }}>
+            Alle Artikel
           </Link>
         </div>
       </section>
+
+      <section className="sec-quote bg-sonne border-b">
+        <div className="container">
+          <blockquote>
+            Die Quote für die Bankfinanzierung stand nach drei Wochen. 48 WE in Riem, der Finder in der Ansicht.
+          </blockquote>
+          <p className="measure" style={{ margin: 0, color: "var(--tinte)" }}>Thomas Z. · Zinn Architektur, München-Riem</p>
+        </div>
+      </section>
+
+      <section className="bg-dark">
+        <div className="container">
+          <div className="stat-line" style={{ color: "#fff" }}>
+            <div><strong>Browser</strong><br /><span>ohne App</span></div>
+            <div><strong>3 CRM</strong><br /><span>onOffice · Propstack · Flowfact</span></div>
+            <div><strong>ohne Cookie</strong><br /><span>Messung ohne Banner</span></div>
+            <div><strong>QR je WE</strong><br /><span>Bauzaun in die Wohnung</span></div>
+          </div>
+        </div>
+      </section>
+
+      <CtaBand
+        title="Rendering, Grundrisse, Wohnungsliste."
+        lead="Termin in Grünwald oder per Video. Wir legen den Finder an einem laufenden Objekt auf."
+        cta="Demo am Projekt"
+      />
     </main>
   );
 }

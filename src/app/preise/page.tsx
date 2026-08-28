@@ -1,33 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Award, Check } from "lucide-react";
-import Testimonials from "@/components/Testimonials";
 import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/site";
+import PageHero from "@/components/ui/PageHero";
+import CtaBand from "@/components/ui/CtaBand";
+import FacadeFinder from "@/components/photos/FacadeFinder";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Preise & Pakete für den interaktiven Wohnungsfinder",
+  title: "Preise: Setup und Lizenz nach Einheiten",
   description:
-    "Transparente Preisstruktur nach Projektgröße: einmaliges Setup plus monatliche Lizenz – vom Einzelgebäude bis zum Quartier mit 500 Einheiten und White-Label für Agenturen.",
+    "Einmal Setup, monatliche Lizenz nach Zahl der WE. Haus, Quartier, mehrere Mandate. Updates in der Lizenz. Angebot nach Demo am Objekt.",
   path: "/preise",
 });
 
 const faqs = [
   {
-    q: "Wie setzen sich die Kosten zusammen?",
-    a: "Die Kosten bestehen aus einem einmaligen Setup-Honorar (Einrichtung des Projekts, Verknüpfung Ihrer Renderings und Grundrisse, Anlage aller Einheiten) und einer monatlichen Lizenz für Hosting, Betrieb und Updates. Die Höhe richtet sich nach Anzahl der Einheiten, Bereiche und Ansichten.",
+    q: "Woraus setzen sich die Kosten zusammen?",
+    a: "Einmal Setup: Renderings verknüpfen, Grundrisse legen, Einheiten anlegen. Danach eine monatliche Lizenz für Hosting, Betrieb und Updates. Die Höhe folgt der Zahl der WE, der Bereiche und der Ansichten.",
   },
   {
-    q: "Gibt es versteckte Gebühren für Updates?",
-    a: "Nein. Laufende Software-Updates, Sicherheits-Patches und der Betrieb sind vollständig durch die Lizenz abgedeckt. Nur größere inhaltliche Umbauten – etwa ein komplett neues Rendering-Set nach einer Umplanung – kalkulieren wir separat.",
+    q: "Was kostet ein Update extra?",
+    a: "Software, Sicherheit, Betrieb: in der Lizenz. Ein neues Rendering-Set nach Umplanung rechnen wir gesondert.",
   },
   {
-    q: "Was brauchen wir, um zu starten?",
-    a: "Fotorealistische Renderings Ihres Visualisierungsstudios (für die drehbare Projektansicht), Grundrisse je Etage und Ihre Wohnungsliste mit Flächen, Zimmern und Preisen. Fehlen die Renderings noch, starten viele Projekte zunächst mit interaktiven Grundrissen.",
+    q: "Was braucht es zum Start?",
+    a: "Renderings für die Fassade, Grundrisse je Etage, die Wohnungsliste. Fehlen die Bilder, beginnt die Einrichtung bei den Grundrissen.",
   },
   {
-    q: "Können wir Statuswechsel und Preise selbst pflegen?",
-    a: "Ja. Nach der Einrichtung pflegen Sie Verfügbarkeit, Preise, Aktionspreise, Bilder und Dokumente selbst in der Verwaltung – ohne Agentur und ohne Wartezeit. Rollen und Rechte regeln, wer im Team was ändern darf.",
+    q: "Wer pflegt Status und Preise?",
+    a: "Sie. Verfügbarkeit, Preise, Bilder, Dokumente in der Verwaltung. Rollen legen fest, wer darf.",
   },
 ];
 
@@ -41,130 +42,97 @@ const faqSchema = {
   })),
 };
 
+const plans = [
+  {
+    name: "Haus",
+    meta: "bis 30 WE",
+    tag: "Objekt",
+    featured: false,
+    items: ["Fassade aus den Renderings", "Etagen mit Status", "Filter, Merkliste, Anfrage", "Exposé-Gate und QR", "Auswertung ohne Cookie"],
+    cta: "Angebot Haus",
+  },
+  {
+    name: "Quartier",
+    meta: "30 bis 500+ WE",
+    tag: "Areal",
+    featured: true,
+    items: ["wie Haus", "CRM: onOffice, Propstack, Flowfact", "360° und Sonnenstand", "mehrere Häuser und Ansichten", "Domain, OpenImmo, Webhooks"],
+    cta: "Angebot Quartier",
+  },
+  {
+    name: "Mandate",
+    meta: "mehrere Projekte",
+    tag: "Büro",
+    featured: false,
+    items: ["Hosting in Deutschland", "Marke je Mandant", "Read-only-API", "Rollen über Projekte"],
+    cta: "Gespräch zu Mandaten",
+  },
+];
+
 export default function Preise() {
   return (
     <main>
       <JsonLd data={[faqSchema, breadcrumbs([{ name: "Start", path: "/" }, { name: "Preise", path: "/preise" }])]} />
+      <PageHero
+        eyebrow="Preise"
+        title="Setup, dann Lizenz. Nach Zahl der WE."
+        lead="Die Zahl folgt Einheiten, Ansichten und ob CRM dazugehört. Updates in der Lizenz."
+        tone="sonne"
+        illustration={<FacadeFinder showLegend={false} />}
+        measure="Kalkulation nach WE · nicht nach Klicks"
+      />
 
-      <section className="page-hero bg-white border-b">
-        <div className="container max-w-3xl mx-auto text-center animate-up">
-          <span className="eyebrow">Preise</span>
-          <h1 style={{ fontSize: "clamp(2.25rem, 4vw, 3.25rem)" }}>
-            Fair kalkuliert. Keine versteckten Gebühren.
-          </h1>
-          <p className="lead">
-            Einmaliges Setup plus monatliche Lizenz – gestaffelt nach
-            Einheiten und Projektkomplexität. Der Wohnungsfinder rechnet sich
-            typischerweise schon durch den beschleunigten Abverkauf der ersten
-            Einheiten.
-          </p>
-        </div>
+      <section className="border-b">
+        {plans.map((plan) => (
+          <div
+            key={plan.name}
+            style={{
+              background: plan.featured ? "var(--tinte)" : "var(--papier)",
+              color: plan.featured ? "#fff" : "var(--tinte)",
+              borderBottom: "1px solid var(--tinte)",
+            }}
+          >
+            <div className="container walk-row" style={{ borderTop: 0 }}>
+              <p className="room" style={{ color: plan.featured ? "var(--sonne)" : undefined }}>{plan.tag}</p>
+              <div>
+                <h3 style={{ color: "inherit" }}>{plan.name}</h3>
+                <p className="measure" style={{ color: plan.featured ? "var(--text-on-dark-muted)" : undefined, margin: "0.35rem 0 0" }}>{plan.meta}</p>
+              </div>
+              <div>
+                <p style={{ fontFamily: "var(--font-serif)", marginBottom: "1.25rem", color: plan.featured ? "var(--text-on-dark-muted)" : undefined }}>
+                  {plan.items.join("  ·  ")}
+                </p>
+                <Link href="/kontakt" className={plan.featured ? "btn btn-primary" : "btn btn-outline"}>
+                  {plan.cta}
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </section>
 
-      {/* PLÄNE */}
-      <section className="section bg-soft border-b">
-        <div className="container grid grid-3" style={{ alignItems: "stretch" }}>
-          {/* PLAN 1 */}
-          <div className="card animate-up" style={{ display: "flex", flexDirection: "column", padding: "2.5rem" }}>
-            <div style={{ marginBottom: "2rem", borderBottom: "1px solid var(--border-light)", paddingBottom: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Objekt & Wohnanlage</h3>
-              <p style={{ margin: 0, fontSize: "0.9375rem" }}>Für Einzelgebäude und Wohnanlagen bis 30 Einheiten.</p>
-            </div>
-            <div style={{ marginBottom: "2rem" }}>
-              <span style={{ fontSize: "1.875rem", fontWeight: 800, color: "var(--text-primary)" }}>Mittelstand</span>
-              <span style={{ display: "block", color: "var(--text-tertiary)", fontSize: "0.9375rem", marginTop: "0.375rem" }}>Einmaliges Setup + monatliche Lizenz</span>
-            </div>
-            <ul className="check-list" style={{ flex: 1, marginBottom: "2rem" }}>
-              <li><Check size={20} /> Drehbare Projektansicht aus Ihren Renderings</li>
-              <li><Check size={20} /> Etagen-Grundrisse mit Live-Status</li>
-              <li><Check size={20} /> Filter, Merkliste & Anfrageformular</li>
-              <li><Check size={20} /> Exposé-Gate & QR-Codes</li>
-              <li><Check size={20} /> Cookiefreies Analytics</li>
-            </ul>
-            <Link href="/kontakt" className="btn btn-outline" style={{ width: "100%" }}>Angebot anfordern</Link>
-          </div>
-
-          {/* PLAN 2 */}
-          <div className="animate-up delay-100" style={{ background: "var(--bg-dark)", color: "white", border: "2px solid var(--accent-primary)", borderRadius: "var(--radius-md)", display: "flex", flexDirection: "column", position: "relative", boxShadow: "var(--shadow-xl)", padding: "2.5rem" }}>
-            <div style={{ position: "absolute", top: "-1px", right: "1.5rem", background: "var(--accent-primary)", color: "white", fontSize: "0.75rem", fontWeight: 800, padding: "0.5rem 1rem", textTransform: "uppercase", letterSpacing: "0.08em", borderRadius: "0 0 8px 8px", display: "flex", alignItems: "center", gap: "0.375rem" }}>
-              <Award size={14} /> Beliebteste Lösung
-            </div>
-            <div style={{ marginBottom: "2rem", borderBottom: "1px solid rgba(255,255,255,0.12)", paddingBottom: "1.75rem", marginTop: "1rem" }}>
-              <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem", color: "white" }}>Quartier & Areal</h3>
-              <p style={{ margin: 0, fontSize: "0.9375rem", color: "var(--text-on-dark-muted)" }}>Für Projekte und Quartiere von 30 bis 500+ Einheiten.</p>
-            </div>
-            <div style={{ marginBottom: "2rem" }}>
-              <span style={{ fontSize: "1.875rem", fontWeight: 800, color: "white" }}>Enterprise</span>
-              <span style={{ display: "block", color: "var(--text-on-dark-muted)", fontSize: "0.9375rem", marginTop: "0.375rem" }}>Nach Gebäude- und Einheitenzahl</span>
-            </div>
-            <ul className="check-list" style={{ flex: 1, marginBottom: "2rem" }}>
-              <li style={{ color: "white" }}><Check size={20} /> Alles aus Objekt & Wohnanlage</li>
-              <li style={{ color: "white" }}><Check size={20} /> CRM-Integration: onOffice, Propstack, Flowfact</li>
-              <li style={{ color: "white" }}><Check size={20} /> 360°-Rundgänge & Sonnenstand-Simulation</li>
-              <li style={{ color: "white" }}><Check size={20} /> Mehrere Bereiche, Bauabschnitte & Ansichten</li>
-              <li style={{ color: "white" }}><Check size={20} /> Eigene Domain, OpenImmo-Export, Webhooks</li>
-            </ul>
-            <Link href="/kontakt" className="btn btn-primary" style={{ width: "100%" }}>Angebot anfordern</Link>
-          </div>
-
-          {/* PLAN 3 */}
-          <div className="card animate-up delay-200" style={{ display: "flex", flexDirection: "column", padding: "2.5rem" }}>
-            <div style={{ marginBottom: "2rem", borderBottom: "1px solid var(--border-light)", paddingBottom: "1.75rem" }}>
-              <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Agentur & White-Label</h3>
-              <p style={{ margin: 0, fontSize: "0.9375rem" }}>Für Immobilienmarketing-Agenturen und PropTechs.</p>
-            </div>
-            <div style={{ marginBottom: "2rem" }}>
-              <span style={{ fontSize: "1.875rem", fontWeight: 800, color: "var(--text-primary)" }}>Partner</span>
-              <span style={{ display: "block", color: "var(--text-tertiary)", fontSize: "0.9375rem", marginTop: "0.375rem" }}>Multi-Projekt-fähig</span>
-            </div>
-            <ul className="check-list" style={{ flex: 1, marginBottom: "2rem" }}>
-              <li><Check size={20} /> Hosting in Deutschland</li>
-              <li><Check size={20} /> Branding & Akzentfarbe je Endkunde</li>
-              <li><Check size={20} /> Read-only-API für Ihre Systeme</li>
-              <li><Check size={20} /> Multi-Projekt-Verwaltung mit Rollen</li>
-            </ul>
-            <Link href="/kontakt" className="btn btn-outline" style={{ width: "100%" }}>Partnerschaft anfragen</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
       <section className="section bg-white border-b">
-        <div className="container max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="eyebrow">Lizenzierung</span>
-            <h2>Häufige Fragen zu den Kosten</h2>
-          </div>
-          <div>
-            {faqs.map((f, i) => (
-              <details key={f.q} className="faq-item" open={i === 0}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
-          </div>
-          <p className="text-center mt-8" style={{ fontSize: "0.9375rem" }}>
-            Mehr Antworten in den <Link href="/faq" style={{ color: "var(--accent-hover)", fontWeight: 600 }}>FAQ</Link> –
-            oder direkt im Gespräch.
+        <div className="container max-w-3xl">
+          <span className="eyebrow">Lizenz</span>
+          <h2 className="mb-8">Vier Punkte vor der Zahl.</h2>
+          {faqs.map((f, i) => (
+            <details key={f.q} className="faq-item" open={i === 0}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+          <p className="mt-8" style={{ fontSize: "0.9375rem" }}>
+            Mehr in den <Link href="/faq" style={{ color: "var(--blatt)", fontWeight: 650 }}>FAQ</Link>.
           </p>
         </div>
       </section>
 
-      <Testimonials variant="light" />
-
-      {/* CTA */}
-      <section className="section bg-dark text-center">
-        <div className="container max-w-3xl mx-auto">
-          <h2>Lassen Sie sich ein unverbindliches Angebot erstellen.</h2>
-          <p className="lead mb-8">
-            Wir kalkulieren transparent auf Basis Ihrer Projektgröße – und
-            zeigen Ihnen vorab in der Live-Demo, was Sie bekommen.
-          </p>
-          <Link href="/kontakt" className="btn btn-primary btn-lg">
-            Jetzt Angebot anfordern <ArrowRight size={20} />
-          </Link>
-        </div>
-      </section>
+      <CtaBand
+        title="Angebot nach der Demo am Objekt."
+        lead="Einheiten, Ansichten, ob CRM dazugehört. Dann eine Zahl."
+        cta="Demo am Projekt"
+        tone="tinte"
+      />
     </main>
   );
 }
