@@ -20,7 +20,8 @@ export default function Page() {
         Bankgespräch. Üblich sind 30 bis 50 Prozent der WE oder des
         Volumens. Jede Woche ohne Quote verlängert die Zwischenfinanzierung
         und schiebt den ersten Übergabetermin. Die Flächen liegen auf der
-        Fassade, sobald die Renderings da sind.
+        Fassade, sobald Modell und Bilder stehen — die machen wir, oder wir
+        bereiten Ihr Material auf.
       </p>
 
       <h2>Drei Fragen, die das PDF nicht beantwortet</h2>
@@ -63,7 +64,7 @@ export default function Page() {
       <p>
         Gelb frei, blau reserviert, grau verkauft. Zwölf 3-Zimmer, vier
         noch frei — das steht in der Ansicht, nicht im Satz des Verkäufers.
-        Widget „x von y frei“ auf der Seite des Hauses. Der Stand muss der
+        Auf der Projektseite kann „x von y frei“ stehen, ohne Preise. Der Stand muss der
         echte sein. Künstliche Knappheit hält nicht bis zur Bank.
       </p>
 

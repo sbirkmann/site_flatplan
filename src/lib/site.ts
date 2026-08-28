@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const site = {
   name: "flatplan.de",
   url: "https://flatplan.de",
-  title: "flatplan.de | Wohnungsfinder für den Neubauvertrieb",
+  title: "flatplan.de | Wohnungsfinder für den Vorverkauf",
   description:
-    "Wohnungsfinder für Bauträger und Makler. Fassade aus dem Rendering, Etagengrundriss, 360°, Anfrage nach onOffice, Propstack oder Flowfact. Hosting in Deutschland.",
+    "Wohnungsfinder für Bauträger und Makler im Vorverkauf. Wohnungen in der Fassade wählen, Status frei, reserviert oder verkauft, 3D-Grundriss und 360°. Anfragen mit Wohnungsnummer. Modelle und Renderings von Immowoo. Dashboard inklusive.",
   company: {
     brand: "Immowoo",
     legalName: "Immowoo Group GmbH",
@@ -14,7 +14,7 @@ export const site = {
     city: "Grünwald",
     phone: "+49 931 30194458",
     phoneHref: "tel:+4993130194458",
-    email: "info@fotoestate.de",
+    email: "info@flatplan.de",
   },
   demoUrl: "https://flatfind2.x900.3az.de/p/5",
 } as const;

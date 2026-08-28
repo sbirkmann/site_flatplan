@@ -1,9 +1,11 @@
-export function LogoIcon({ size = 32 }: { size?: number }) {
+export function LogoIcon({ size = 32, light = false }: { size?: number; light?: boolean }) {
+  const ink = light ? "#F5F3EF" : "#12151A";
+  const mark = light ? "#E24A1B" : "#E24A1B";
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="1.25" y="1.25" width="29.5" height="29.5" stroke="#163028" strokeWidth="1.25" />
-      <path d="M16 1.25V30.75M1.25 16H30.75" stroke="#163028" strokeWidth="1.25" />
-      <rect x="16.6" y="1.9" width="13.5" height="13.5" fill="#E8B92A" />
+      <rect x="4" y="3" width="7" height="26" fill={ink} />
+      <rect x="4" y="3" width="7" height="7" fill={mark} />
+      <path d="M15 8h13M15 16h10M15 24h7" stroke={ink} strokeWidth="1.75" strokeLinecap="square" />
     </svg>
   );
 }
@@ -17,10 +19,10 @@ export default function Logo({
 }) {
   return (
     <span className="brand">
-      <LogoIcon size={height} />
-      <span className="brand-word" style={dark ? { color: "#fffcf6" } : undefined}>
+      <LogoIcon size={height} light={dark} />
+      <span className="brand-word" style={dark ? { color: "#F5F3EF" } : undefined}>
         flatplan
-        <span className="brand-tld" style={dark ? { color: "rgba(255,252,246,0.45)" } : undefined}>.de</span>
+        <span className="brand-tld" style={dark ? { color: "rgba(245,243,239,0.4)" } : undefined}>.de</span>
       </span>
     </span>
   );

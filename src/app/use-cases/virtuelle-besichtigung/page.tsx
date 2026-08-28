@@ -7,9 +7,9 @@ import CtaBand from "@/components/ui/CtaBand";
 import { IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "360° im ungebauten Objekt",
+  title: "360°-Rundgang vor der Fertigstellung",
   description:
-    "Panorama-Standpunkte in der Wohnung, die noch nicht steht. Verbundene Räume, POI zur WE. Browser, ohne App.",
+    "Virtuelle Besichtigung im Neubau: 360°-Panoramen aus dem Modell, verbundene Räume, Sprung zur Wohnung im Wohnungsfinder. Im Browser, ohne App.",
   path: "/use-cases/virtuelle-besichtigung",
 });
 
@@ -24,11 +24,11 @@ export default function VirtuelleBesichtigungPage() {
       />
       <PageHero
         eyebrow="360°"
-        title="Standpunkt, solange der Estrich fehlt."
-        lead="Gerenderte oder fotografierte Panoramen. Wechsel in den nächsten Raum. Sprung zur WE."
+        title="360° in der Wohnung — ohne Musterwohnung."
+        lead="Wer auf der Fassade eine Wohnung wählt, geht weiter: Wohnen, Küche, Loggia. Die Panoramen kommen aus unserem Modell, solange der Rohbau fehlt."
         tone="himmel"
         actions={
-          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
         }
       />
       <section className="overlap-stage bg-white border-b">
@@ -44,9 +44,9 @@ export default function VirtuelleBesichtigungPage() {
           </figure>
           <div className="overlap-plate">
             <span className="eyebrow">360°</span>
-            <h2>Standpunkt, solange der Estrich fehlt.</h2>
+            <h2>Raum für Raum, dieselbe Wohnungsnummer.</h2>
             <p className="lead" style={{ margin: 0 }}>
-              Panorama, nächster Raum, Blick zur Loggia.
+              Standpunkt Wohnen, nächster Klick Küche, Blick zur Loggia. Im Finder hängt der Rundgang an der WE, nicht als separates Video.
             </p>
           </div>
         </div>
@@ -54,8 +54,8 @@ export default function VirtuelleBesichtigungPage() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Quelle", title: "Studio oder Fotografie", copy: "Neubau: Panorama aus der Visualisierung. Bestand: Aufnahme vor Ort." },
-            { room: "Weg", title: "Verbundene Standpunkte", copy: "Wohnen, Küche, Bad, Loggia. POI zur Etage oder zur WE." },
+            { room: "Quelle", title: "Modell oder Fotografie", copy: "Neubau: Panorama aus unserem Modell. Bestand: Aufnahme vor Ort. Vorhandenes Material bereiten wir auf." },
+            { room: "Weg", title: "Verbundene Standpunkte", copy: "Wohnen, Küche, Bad, Loggia. Sprung zur Etage oder zur Wohnung." },
             { room: "Gerät", title: "Browser", copy: "Desktop und Handy. Keine App." },
           ].map((row) => (
             <div key={row.room} className="walk-row">

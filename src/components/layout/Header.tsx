@@ -12,22 +12,22 @@ type DropdownItem = {
 };
 
 const funktionen: DropdownItem[] = [
-  { href: "/features", title: "Überblick", desc: "Fassade bis CRM" },
-  { href: "/funktionen/3d-grundrisse", title: "Wohnungsfinder", desc: "Ansicht, Etage, 360°" },
-  { href: "/funktionen/lead-generierung", title: "Anfragen", desc: "Gate, Suchagent, Board" },
+  { href: "/features", title: "Überblick", desc: "Was der Wohnungsfinder kann" },
+  { href: "/funktionen/3d-grundrisse", title: "Wohnungsfinder", desc: "Fassade, Grundriss, 360°" },
+  { href: "/funktionen/lead-generierung", title: "Anfragen", desc: "Exposé, Gate, Dashboard" },
   { href: "/funktionen/pdf-expose", title: "Exposé und QR", desc: "PDF, Preisliste, Bauzaun" },
-  { href: "/funktionen/integrationen", title: "CRM", desc: "onOffice, Propstack, Flowfact" },
+  { href: "/funktionen/integrationen", title: "Dashboard und CRM", desc: "onOffice nur auf Wunsch" },
 ];
 
 const branchen: DropdownItem[] = [
-  { href: "/branchen/bautraeger", title: "Bauträger", desc: "Vorverkauf, Quote, Status" },
+  { href: "/branchen/bautraeger", title: "Bauträger", desc: "Vorverkauf vor dem Spatenstich" },
   { href: "/branchen/immobilienmakler", title: "Makler", desc: "Neubau als Mandat" },
-  { href: "/branchen/projektentwicklung", title: "Projektentwicklung", desc: "Quartier, Abschnitte" },
+  { href: "/branchen/projektentwicklung", title: "Projektentwicklung", desc: "Quartier und Abschnitte" },
 ];
 
 const wissen: DropdownItem[] = [
-  { href: "/vorteile", title: "Im Vertrieb", desc: "Was der Finder ersetzt" },
-  { href: "/faq", title: "FAQ", desc: "Technik, Ablauf, Recht" },
+  { href: "/vorteile", title: "Im Vertrieb", desc: "Was sich im Alltag ändert" },
+  { href: "/faq", title: "FAQ", desc: "Technik, Ablauf, Datenschutz" },
   { href: "/wissen/glossar", title: "Glossar", desc: "WE, OpenImmo, Gate" },
 ];
 
@@ -129,7 +129,7 @@ export default function Header() {
       <header className={`global-header ${isScrolled ? "scrolled" : ""}`}>
         <div className="container global-header-container">
           <Link href="/" aria-label="flatplan.de – Startseite" className="brand-link">
-            <Logo height={26} />
+            <Logo height={26} dark />
           </Link>
 
           <nav className="global-desktop-nav" ref={navRef} aria-label="Hauptnavigation">
@@ -142,7 +142,7 @@ export default function Header() {
           </nav>
 
           <div className="global-cta">
-            <Link href="/kontakt" className="header-cta">Demo am Projekt</Link>
+            <Link href="/kontakt" className="header-cta">Demo anfragen</Link>
             <button
               className="global-mobile-toggle"
               onClick={() => setMobileMenuOpen((v) => !v)}
@@ -191,7 +191,7 @@ export default function Header() {
               ))}
             </div>
             <Link href="/kontakt" className="header-cta" style={{ marginTop: "1.75rem" }}>
-              Demo am Projekt
+              Demo anfragen
             </Link>
           </div>
         </div>

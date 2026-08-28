@@ -16,11 +16,12 @@ export default function CrmIntegrationArticle() {
   return (
     <BlogArticle post={post}>
       <p>
-        <strong>Eine Anfrage, die nicht im CRM ankommt, existiert nicht.</strong>
+        <strong>Eine Anfrage, die nicht im System ankommt, existiert nicht.</strong>
         {" "}
         Formular, Postfach, Excel, Abtippen. Stunden, manchmal Tage. Der
-        Interessent fragt parallel drei Objekte an. Die WE steht dann nicht
-        im Datensatz.
+        Interessent fragt parallel drei Projekte an. Die Wohnung steht dann nicht
+        im Datensatz. Im Dashboard liegt sie mit Nummer. Ein CRM wie onOffice
+        ist optional — wir binden es an, wenn das Büro eines nutzt.
       </p>
 
       <h2>Was beim Abtippen fehlt</h2>
@@ -34,9 +35,9 @@ export default function CrmIntegrationArticle() {
       <h2>onOffice, Propstack, Flowfact</h2>
       <p>
         Einmal Zugangsdaten, verschlüsselt. Jede Anfrage aus dem{" "}
-        <Link href="/funktionen/3d-grundrisse">Finder</Link> landet als
-        Datensatz: Kontakt, WE, Merkliste, Wunsch. Protokoll je Übergabe.
-        {" "}
+        <Link href="/funktionen/3d-grundrisse">Finder</Link> kann als
+        Datensatz landen: Kontakt, Wohnung, Merkliste, Wunsch. Protokoll je Übergabe.
+        Ohne CRM bleiben die Anfragen im Dashboard.{" "}
         <Link href="/funktionen/integrationen">CRM</Link>.
       </p>
 

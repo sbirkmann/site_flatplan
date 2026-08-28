@@ -18,9 +18,9 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "ki-immobilienvertrieb-mcp",
-    title: "Status setzen per Chat.",
+    title: "Status per Chat setzen",
     description:
-      "WE 2.03 auf reserviert. Anfrage lesen. Satz fürs Exposé. Über die Projektdaten, nicht über eine Folie.",
+      "WE 2.03 auf reserviert. Anfragen lesen. Satz fürs Exposé. Über die Projektdaten im Dashboard.",
     date: "2026-07-14",
     readingMinutes: 6,
     image: "/blog/ki-immobilienvertrieb-mcp.jpg",
@@ -29,9 +29,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "vorverkaufsquote-steigern",
-    title: "Die Quote vor dem Spatenstich.",
+    title: "Vorverkaufsquote vor dem Spatenstich",
     description:
-      "Die Bank zählt WE. Gelb frei, blau reserviert. Die Flächen liegen auf der Fassade.",
+      "Die Bank zählt Wohnungen. Gelb frei, blau reserviert. Die Flächen liegen auf der Fassade.",
     date: "2026-07-02",
     readingMinutes: 6,
     image: "/blog/vorverkaufsquote-steigern.jpg",
@@ -40,9 +40,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "crm-integration-neubauvertrieb",
-    title: "Anfrage nach onOffice.",
+    title: "Anfragen optional nach onOffice übergeben",
     description:
-      "Datensatz mit WE-Nummer. Propstack, Flowfact. Kein Copy-Paste aus dem Formular.",
+      "Datensatz mit Wohnungsnummer. Anfragen liegen zuerst im Dashboard. onOffice, Propstack oder Flowfact nur, wenn Sie es anbinden.",
     date: "2026-06-10",
     readingMinutes: 5,
     image: "/blog/crm-integration-neubauvertrieb.jpg",
@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "warteliste-launch-strategie",
-    title: "Liste vor dem Start.",
+    title: "Warteliste vor dem Vermarktungsstart",
     description:
       "Countdown, Double-Opt-in, erster Tag. Das Postfach ist voll, bevor die Tafel am Zaun steht.",
     date: "2026-06-24",
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "lead-qualitaet-verdoppeln",
-    title: "Anfrage mit Merkliste.",
+    title: "Bessere Anfragen durch Merkliste und Gate",
     description:
       "Gate vor dem Exposé. Pflichtfelder, Double-Opt-in. Die WE steht im Datensatz.",
     date: "2026-05-20",
@@ -73,7 +73,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "virtueller-rundgang-neubau",
-    title: "Standpunkt in der ungebauten Wohnung.",
+    title: "360°-Rundgang vor der Fertigstellung",
     description:
       "360°, nächster Raum, Blick zur Loggia. Solange die Musterwohnung fehlt.",
     date: "2026-05-06",
@@ -84,7 +84,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "digitaler-bauzaun-qr-marketing",
-    title: "QR am Brett.",
+    title: "QR-Code am Bauzaun",
     description: "Scan öffnet die WE. UTM am Zaun. Zählung, wer stehen bleibt.",
     date: "2026-04-21",
     readingMinutes: 5,
@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "dsgvo-immobilienmarketing",
-    title: "Messung ohne Banner.",
+    title: "Messung ohne Cookie-Banner",
     description:
       "Kein Cookie. Keine IP. Besuch und Anfrage, ohne Einwilligungstext über der Fassade.",
     date: "2026-04-08",
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "preisstrategie-neubau",
-    title: "Preisänderung mit Alarm.",
+    title: "Preisänderung mit Alarm an Interessenten",
     description:
       "Aktionspreis, Zeitraum. Wer 3 Zimmer Süd merkt, bekommt die Mail.",
     date: "2026-03-17",
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "openimmo-schnittstelle-erklaert",
-    title: "OpenImmo aus dem Finder.",
+    title: "OpenImmo-Export aus dem Wohnungsfinder",
     description: "Wohnungsliste im XML. Portale, Makler, der eigene Bestand.",
     date: "2026-02-25",
     readingMinutes: 5,
@@ -126,7 +126,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "neubau-kampagnen-utm-tracking",
-    title: "UTM am Link.",
+    title: "Kampagnen mit UTM bis zur Anfrage",
     description:
       "Kanal, Anfrage, WE. Bauzaun, Anzeige, Newsletter — dieselbe Zählung.",
     date: "2026-02-04",
@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "besichtigung-digital-organisieren",
-    title: "Slot in der Wohnung.",
+    title: "Besichtigungstermine in der Wohnung buchen",
     description: "Kapazität, Bestätigung, iCal. Weniger Anruf, weniger No-Show.",
     date: "2026-01-15",
     readingMinutes: 5,

@@ -26,7 +26,7 @@ export default function Page() {
       <h2>Panorama, nicht Spiel</h2>
       <p>
         Feste Standpunkte, verbunden. Wohnen, Küche, Loggia. Neubau: Bild
-        aus dem Studio. Bestand: Fotografie. Browser, WebGL, ohne App.
+        aus unserem Modell. Bestand: Fotografie. Browser, WebGL, ohne App.
       </p>
       <p>
         Kein frei laufendes 3D-Modell. Kein Video, das man nur anschaut.
@@ -41,9 +41,9 @@ export default function Page() {
         wenn das Budget die Sequenz der Fassade zuerst braucht.
       </p>
       <p>
-        Quelle und Pflege: Studio liefert, Hotspots bleiben. Neue Sequenz
-        nach Umplanung gesondert.{" "}
-        <Link href="/use-cases/virtuelle-besichtigung">360° im ungebauten Objekt</Link>.
+        Quelle und Pflege: Modell und Bilder von uns, oder Ihr Material
+        aufbereitet. Hotspots bleiben. Neue Sequenz nach Umplanung gesondert.{" "}
+        <Link href="/use-cases/virtuelle-besichtigung">360° vor der Fertigstellung</Link>.
       </p>
 
       <h2>Aus dem Rundgang in die Akte</h2>

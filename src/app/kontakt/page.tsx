@@ -7,9 +7,9 @@ import FacadeFinder from "@/components/photos/FacadeFinder";
 import { IconMail, IconPhone, IconPin, IconCalendar } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt: Demo am laufenden Objekt",
+  title: "Kontakt: Demo anfragen",
   description:
-    "Termin in Grünwald oder per Video. Demo des Wohnungsfinders an einem laufenden Objekt. Antwort in einem Werktag.",
+    "Termin in Grünwald oder per Video. Wir zeigen den Wohnungsfinder an einem echten Projekt. Antwort in einem Werktag. info@flatplan.de",
   path: "/kontakt",
 });
 
@@ -24,11 +24,11 @@ export default function Kontakt() {
       />
       <PageHero
         eyebrow="Kontakt"
-        title="Demo am laufenden Objekt."
-        lead="Dreißig Minuten. Rendering und Wohnungsliste reichen, wenn Sie das eigene Haus besprechen wollen."
+        title="Demo anfragen."
+        lead="Etwa dreißig Minuten, in Grünwald oder per Video. Wir zeigen den Wohnungsfinder an einem echten Projekt. Die Wohnungsliste reicht, wenn Sie Ihr Vorhaben besprechen wollen."
         tone="sonne"
         illustration={<FacadeFinder showLegend={false} />}
-        measure={`${site.company.city} · Antwort in einem Werktag`}
+        measure={`${site.company.city} · ${site.company.email} · Antwort in einem Werktag`}
       />
 
       <section className="section bg-white">
@@ -41,7 +41,7 @@ export default function Kontakt() {
                 { icon: <IconPhone size={20} />, k: "Telefon", v: <a href={site.company.phoneHref}>{site.company.phone}</a> },
                 { icon: <IconMail size={20} />, k: "E-Mail", v: <a href={`mailto:${site.company.email}`}>{site.company.email}</a> },
                 { icon: <IconPin size={20} />, k: "Adresse", v: <span>{site.company.legalName}, {site.company.street}, {site.company.zip} {site.company.city}</span> },
-                { icon: <IconCalendar size={20} />, k: "Ablauf", v: <span>Nachricht · Demo am Objekt · Angebot nach Zahl der WE</span> },
+                { icon: <IconCalendar size={20} />, k: "Ablauf", v: <span>Nachricht · Demo · Angebot nach Zahl der WE</span> },
               ].map((row) => (
                 <li key={row.k} style={{ display: "grid", gridTemplateColumns: "1.5rem 1fr", gap: "0.85rem", alignItems: "start", marginBottom: "1.35rem", paddingBottom: "1.15rem", borderBottom: "1px solid var(--nebel)" }}>
                   <span style={{ color: "var(--blatt)", marginTop: 2 }}>{row.icon}</span>

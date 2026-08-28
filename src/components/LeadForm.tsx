@@ -39,8 +39,8 @@ export default function LeadForm() {
         <IconCheck size={40} style={{ color: "var(--blatt)", margin: "0 auto 1.25rem" }} />
         <h3>Anfrage angekommen.</h3>
         <p style={{ marginBottom: "1.5rem", fontFamily: "var(--font-serif)" }}>
-          Antwort in der Regel innerhalb eines Werktags, meist mit Terminvorschlag
-          am laufenden Objekt.
+          Antwort in der Regel innerhalb eines Werktags, meist mit einem
+          Terminvorschlag für die Demo.
         </p>
         <button className="btn btn-outline btn-sm" onClick={() => setStatus("idle")}>
           Weitere Nachricht
@@ -86,7 +86,7 @@ export default function LeadForm() {
       </div>
       <div className="form-field" style={{ marginBottom: "1.5rem" }}>
         <label htmlFor="lead-nachricht">Nachricht</label>
-          <textarea id="lead-nachricht" name="nachricht" rows={5} placeholder="Objekt, Lage, Zahl der WE, ob Renderings vorliegen." style={{ resize: "vertical" }} />
+          <textarea id="lead-nachricht" name="nachricht" rows={5} placeholder="Projekt, Lage, Zahl der Wohnungen. Material vorhanden — oder sollen wir Modelle, Renderings und Grundrisse machen?" style={{ resize: "vertical" }} />
       </div>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }} />
       {status === "error" && (

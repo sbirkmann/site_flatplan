@@ -7,9 +7,9 @@ import CtaBand from "@/components/ui/CtaBand";
 import { IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "CRM: onOffice, Propstack, Flowfact",
+  title: "Dashboard und CRM-Anbindung",
   description:
-    "Native Übergabe der Anfrage. Webhooks, REST lesend, OpenImmo, MCP. Zugangsdaten AES-256.",
+    "Dashboard zum Wohnungsfinder: Editor, Einstellungen, Auswertung. CRM wie onOffice, Propstack oder Flowfact ist optional. Webhooks, REST, OpenImmo.",
   path: "/funktionen/integrationen",
 });
 
@@ -24,21 +24,21 @@ export default function Integrationen() {
         ])}
       />
       <PageHero
-        eyebrow="CRM"
-        title="onOffice, Propstack, Flowfact."
-        lead="Anfrage mit WE, Merkliste, Besichtigungswunsch. Zugangsdaten verschlüsselt. Protokoll je Übergabe."
+        eyebrow="Dashboard"
+        title="Editor, Einstellungen, Auswertung."
+        lead="Wohnungen pflegen, den Finder einstellen, Zahlen lesen — im eigenen Dashboard. onOffice, Propstack oder Flowfact schließen wir an, wenn Sie es wollen. Es ist kein Pflichtteil."
         tone="licht"
         actions={
-          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
         }
       />
       <section className="section bg-dark border-b">
         <div className="container overlap-leads">
           <div>
-            <span className="eyebrow">Übergabe</span>
-            <h2>Die WE steht im Datensatz.</h2>
+            <span className="eyebrow">Betrieb</span>
+            <h2>Das Dashboard reicht für den Alltag.</h2>
             <p className="lead" style={{ margin: 0 }}>
-              onOffice, Propstack, Flowfact. Sonst Webhook, REST, OpenImmo.
+              Anfragen mit Wohnungsnummer, Status, Auswertung. CRM nur, wenn das Büro eines hat.
             </p>
           </div>
           <figure className="overlap-frame" style={{ margin: 0, padding: "0.55rem", background: "var(--papier)" }}>
@@ -49,10 +49,10 @@ export default function Integrationen() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Nativ", title: "Drei CRM", copy: "onOffice, Propstack, Flowfact. Verknüpfung der WE." },
-            { room: "Offen", title: "Webhook, REST, OpenImmo", copy: "JSON an eine URL. Lesende API. XML 1.2.7-angelehnt." },
-            { room: "Akte", title: "MCP, CSV, Sicherung", copy: "OAuth-MCP für den Chat. Export. Tägliches Backup." },
-            { room: "Zugang", title: "2FA, Rollen, Protokoll", copy: "TOTP, Betrachter bis Manager, DSGVO-Fristen." },
+            { room: "Editor", title: "Wohnungen und Inhalte", copy: "Einheiten anlegen, Status, Preise, Texte, Bilder. Rollen, wer darf." },
+            { room: "Konfig", title: "Finder einstellen", copy: "Ansichten, Domain, Gate, Texte. Pro Bauvorhaben ein Finder." },
+            { room: "Zahlen", title: "Statistiken und Berichte", copy: "Aufrufe, geöffnete Wohnungen, UTM. Ohne Cookie, ohne IP." },
+            { room: "CRM", title: "Anbindung optional", copy: "onOffice, Propstack, Flowfact. Sonst Webhook, REST, OpenImmo." },
           ].map((row) => (
             <div key={row.room} className="walk-row">
               <p className="room">{row.room}</p>

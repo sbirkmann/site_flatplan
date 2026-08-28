@@ -7,9 +7,9 @@ import CtaBand from "@/components/ui/CtaBand";
 import { IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Exposé, Preisliste, QR",
+  title: "Exposé, Preisliste, QR am Bauzaun",
   description:
-    "Exposé nach Gate, Druckansicht aus Live-Daten, CSV/Excel, QR je WE, Verfügbarkeits-Widget.",
+    "Exposé nach Gate, Druckansicht aus Live-Daten, CSV und Excel, QR-Code je Wohnung am Bauzaun. Dieselben Daten wie im Wohnungsfinder.",
   path: "/funktionen/pdf-expose",
 });
 
@@ -25,11 +25,11 @@ export default function PdfExpose() {
       />
       <PageHero
         eyebrow="Unterlagen"
-        title="Dieselben Daten wie in der Ansicht."
-        lead="PDF des Gestaltungsbüros oder Druck aus dem Finder. Gate davor. QR am Zaun in die WE."
+        title="Dieselben Daten wie im Finder."
+        lead="PDF aus der Gestaltung oder Druck aus den Live-Daten. Gate davor. QR am Zaun öffnet die Wohnung."
         tone="licht"
         actions={
-          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
         }
       />
 
@@ -44,9 +44,9 @@ export default function PdfExpose() {
         <div className="container">
           <div className="overlap-plate">
             <span className="eyebrow">Baustelle</span>
-            <h2>QR je Wohnung, am Brett.</h2>
+            <h2>QR-Code am Bauzaun, eine Wohnung pro Code.</h2>
             <p className="lead" style={{ marginBottom: 0 }}>
-              Scan öffnet die WE. UTM am Zaun.
+              Der Scan öffnet genau diese Wohnung. UTM am Link, damit Sie den Zaun zählen können.
             </p>
           </div>
         </div>
@@ -55,10 +55,10 @@ export default function PdfExpose() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Gate", title: "Download nach Mail", copy: "Felder, Double-Opt-in. Jeder Download eine Anfrage." },
-            { room: "Druck", title: "WE-Blatt aus Live-Daten", copy: "Preis, Fläche, Energie, Grundriss. Oder Ihr PDF unverändert." },
+            { room: "Gate", title: "Download nach Mail", copy: "Felder, Double-Opt-in. Jeder Download ist eine Anfrage." },
+            { room: "Druck", title: "Wohnungsblatt aus Live-Daten", copy: "Preis, Fläche, Energie, Grundriss. Oder Ihr PDF unverändert." },
             { room: "Liste", title: "CSV und Excel", copy: "Synchron mit Status im Finder." },
-            { room: "Zaun", title: "QR je Projekt und je WE", copy: "SVG. Widget „x von y frei“ ohne Preise." },
+            { room: "Zaun", title: "QR je Projekt und je Wohnung", copy: "Als SVG. Auf der Seite: „x von y frei“, ohne Preise." },
           ].map((row) => (
             <div key={row.room} className="walk-row">
               <p className="room">{row.room}</p>

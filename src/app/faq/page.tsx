@@ -6,9 +6,9 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBand from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
-  title: "FAQ: Technik, Einrichtung, Anfragen, Recht",
+  title: "FAQ zum Wohnungsfinder",
   description:
-    "Browser, Rendering, CRM, Gate, Cookie. Die Fragen, die vor der Einrichtung kommen.",
+    "Fragen zum Wohnungsfinder: Technik, Einrichtung, Anfragen, Datenschutz. Dashboard, Rendering, CRM optional, Exposé-Gate, Cookie.",
   path: "/faq",
 });
 
@@ -20,8 +20,8 @@ const groups: FaqGroup[] = [
     title: "Technik.",
     items: [
       {
-        q: "Was ist der Finder?",
-        a: "Ansicht aus der Rendering-Sequenz. Klick auf die Loggia öffnet die WE: Grundriss, 360°, Preis, Status. Browser, ohne App.",
+        q: "Was ist der Wohnungsfinder?",
+        a: "Die Ansicht für ein Bauvorhaben: Fassade, Grundriss, 360°, Preis, Status frei, reserviert oder verkauft. Daneben das Dashboard mit Editor, Einstellungen und Auswertung. Läuft im Browser, ohne App. Jedes Projekt hat seinen eigenen Finder.",
       },
       {
         q: "Brauchen Besucher eine App?",
@@ -29,11 +29,11 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Was kann die Ansicht zeigen?",
-        a: "Fassade mit Hotspots, Etage mit Pins, 360° mit verbundenen Standpunkten, Sonnenstand, Galerie, POI mit Gehminuten, Baufortschritt, Video.",
+        a: "Fassade mit Wohnungen, Etage mit Pins, 360° mit verbundenen Standpunkten, Sonnenstand, Galerie, POI mit Gehminuten, Baufortschritt, Video.",
       },
       {
         q: "Eigene Domain?",
-        a: "Ja. Domain oder Subdomain, etwa wohnen-am-park.de. Oder Link und Widget in der bestehenden Seite.",
+        a: "Ja. Domain oder Subdomain, etwa wohnen-am-park.de. Oder Einbettung in die bestehende Projektseite.",
       },
       {
         q: "Mehrsprachig?",
@@ -45,16 +45,16 @@ const groups: FaqGroup[] = [
     title: "Einrichtung.",
     items: [
       {
-        q: "Wie schnell ist ein Objekt online?",
-        a: "Liegen Sequenz, Grundrisse und Wohnungsliste vor: wenige Tage. Warteliste mit Countdown, falls der Start später liegt.",
+        q: "Wie schnell ist ein Projekt online?",
+        a: "Sobald Modell, Bilder, Grundrisse und Wohnungsliste stehen: wenige Tage. Modelle und Renderings machen wir. Grundrisse auch, wenn sie fehlen. Vorhandenes Material bereiten wir auf.",
       },
       {
         q: "Welche Unterlagen?",
-        a: "Renderings als Sequenz, Grundriss je Geschoss, Wohnungsliste (Fläche, Zimmer, Preis, Ausstattung, Energie). Exposé-PDF je WE, wenn vorhanden.",
+        a: "Zum Start die Wohnungsliste (Fläche, Zimmer, Preis, Ausstattung, Energie). Den Rest erstellen wir, oder Sie schicken vorhandenes Material. Exposé-PDF je Wohnung, wenn vorhanden.",
       },
       {
         q: "Wer pflegt danach?",
-        a: "Sie. Status, Preise, Bilder, Texte. Rollen je Projekt, Protokoll, Duplizieren, tägliche Sicherung.",
+        a: "Sie, im Dashboard. Status, Preise, Bilder, Texte. Rollen je Projekt, Protokoll, tägliche Sicherung.",
       },
     ],
   },
@@ -62,16 +62,16 @@ const groups: FaqGroup[] = [
     title: "Anfragen.",
     items: [
       {
-        q: "Welche CRM?",
-        a: "onOffice, Propstack, Flowfact — nativ, mit WE-Nummer. Daneben Webhook, lesende REST-API, OpenImmo-XML.",
+        q: "Brauchen wir ein CRM?",
+        a: "Nein. Anfragen liegen im Dashboard, mit Wohnungsnummer. onOffice, Propstack oder Flowfact schließen wir an, wenn Sie es wollen. Daneben Webhook, lesende REST-API, OpenImmo-XML.",
       },
       {
         q: "Woher kommt die Anfrage?",
-        a: "Formular mit Merkliste, Exposé-Gate, Suchagent, Preis-Alarm, Warteliste. Immer mit der WE.",
+        a: "Formular mit Merkliste, Exposé-Gate, Suchagent, Preis-Alarm, Warteliste. Immer mit der Wohnung.",
       },
       {
         q: "Was macht der Vertrieb danach?",
-        a: "Board Neu / in Arbeit / erledigt. A/B/C, Wiedervorlage, iCal, Textbaustein. Oder direkt das CRM.",
+        a: "Board im Dashboard: Neu / in Arbeit / erledigt. A/B/C, Wiedervorlage, iCal. Oder das CRM, falls angebunden.",
       },
     ],
   },
@@ -120,11 +120,11 @@ export default function FaqPage() {
       />
 
       <PageHero
-        eyebrow="Fragen aus dem Vorverkauf"
-        title="Was vor dem ersten Rendering geklärt sein will."
-        lead="Technik, Unterlagen, CRM, Cookie. Die Sätze, die am Telefon fallen."
+        eyebrow="FAQ"
+        title="Was vor dem ersten Projekt geklärt sein will."
+        lead="Technik, Unterlagen, Dashboard, Cookie. Die Fragen, die am Telefon fallen."
         tone="licht"
-        measure="Vier Räume"
+        measure="Vier Abschnitte"
       />
 
       {groups.map((group, i) => (
@@ -147,7 +147,7 @@ export default function FaqPage() {
       <section className="section bg-white border-b">
         <div className="container" style={{ maxWidth: "40rem" }}>
           <span className="eyebrow">Weiter</span>
-          <h2>Begriff, Funktion, Zahl.</h2>
+          <h2>Glossar, Funktionen, Preise.</h2>
           <p className="lead">
             <Link href="/wissen/glossar" style={{ fontWeight: 700, textDecoration: "underline" }}>Glossar</Link>
             {" · "}
@@ -158,7 +158,7 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <CtaBand title="Die fehlende Frage am Objekt." lead="Laufendes Haus, Bildschirm. Keine Folien." />
+      <CtaBand title="Noch eine Frage?" lead="Wir zeigen den Finder an einem echten Projekt. Bildschirm, keine Folien." />
     </main>
   );
 }

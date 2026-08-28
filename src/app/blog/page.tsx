@@ -36,8 +36,8 @@ export default function Blog() {
       <JsonLd data={[blogSchema, breadcrumbs([{ name: "Start", path: "/" }, { name: "Blog", path: "/blog" }])]} />
       <PageHero
         eyebrow="Artikel"
-        title="Texte aus dem Vorverkauf."
-        lead="Quote, Gate, CRM, Bauzaun. Kein Magazin."
+        title="Artikel zum Vorverkauf."
+        lead="Quote, Anfragen, Bauzaun, Datenschutz. Aus der Arbeit mit Bauträgern und Maklern — ohne Tutorial-Ton."
         tone="licht"
         measure={`${blogPosts.length} Artikel`}
       />
@@ -55,10 +55,10 @@ export default function Blog() {
           <p className="lead">
             Das{" "}
             <Link href="/wissen/glossar" style={{ fontWeight: 700, textDecoration: "underline" }}>Glossar</Link>
-            , wie am Tisch.
+            {" "}zum Vorverkauf, wie am Tisch.
           </p>
           <Link href="/kontakt" className="btn btn-outline">
-            Demo am Projekt <IconArrow size={16} />
+            Demo anfragen <IconArrow size={16} />
           </Link>
         </div>
       </section>

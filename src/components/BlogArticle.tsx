@@ -85,15 +85,15 @@ export default function BlogArticle({
         </section>
       )}
 
-      <section className="section bg-sonne">
+      <section className="section bg-dark">
         <div className="container" style={{ maxWidth: "40rem" }}>
-          <p className="measure" style={{ marginBottom: "1rem" }}>Grünwald</p>
-          <h2>Demo am laufenden Objekt.</h2>
-          <p className="lead" style={{ color: "var(--tinte)" }}>
-            Rendering und Wohnungsliste. Termin vor Ort oder per Video.
+          <p className="measure" style={{ marginBottom: "1rem", color: "var(--sonne)" }}>Grünwald</p>
+          <h2>Demo anfragen.</h2>
+          <p className="lead" style={{ color: "var(--text-on-dark-muted)" }}>
+            Wir zeigen den Wohnungsfinder an einem laufenden Projekt. Termin in Grünwald oder per Video.
           </p>
-          <Link href="/kontakt" className="btn btn-outline btn-lg">
-            Demo am Projekt <IconArrow size={18} />
+          <Link href="/kontakt" className="btn btn-primary btn-lg">
+            Demo anfragen <IconArrow size={18} />
           </Link>
         </div>
       </section>

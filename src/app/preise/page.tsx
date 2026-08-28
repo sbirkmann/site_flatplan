@@ -7,28 +7,28 @@ import CtaBand from "@/components/ui/CtaBand";
 import FacadeFinder from "@/components/photos/FacadeFinder";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Preise: Setup und Lizenz nach Einheiten",
+  title: "Preise für den Wohnungsfinder",
   description:
-    "Einmal Setup, monatliche Lizenz nach Zahl der WE. Haus, Quartier, mehrere Mandate. Updates in der Lizenz. Angebot nach Demo am Objekt.",
+    "Wohnungsfinder: einmal Setup, monatliche Lizenz nach Zahl der Wohneinheiten. Haus, Quartier oder mehrere Projekte für Maklermandate. Angebot nach der Demo.",
   path: "/preise",
 });
 
 const faqs = [
   {
     q: "Woraus setzen sich die Kosten zusammen?",
-    a: "Einmal Setup: Renderings verknüpfen, Grundrisse legen, Einheiten anlegen. Danach eine monatliche Lizenz für Hosting, Betrieb und Updates. Die Höhe folgt der Zahl der WE, der Bereiche und der Ansichten.",
+    a: "Einmal Setup: Modell, Renderings und Grundrisse — von uns erstellt oder aus Ihrem Material aufbereitet. Danach eine monatliche Lizenz für Hosting, Betrieb und Updates. Die Höhe folgt der Zahl der Wohneinheiten, der Häuser und der Ansichten.",
   },
   {
     q: "Was kostet ein Update extra?",
-    a: "Software, Sicherheit, Betrieb: in der Lizenz. Ein neues Rendering-Set nach Umplanung rechnen wir gesondert.",
+    a: "Software, Sicherheit und Betrieb liegen in der Lizenz. Ein neues Rendering-Set nach einer Umplanung rechnen wir gesondert.",
   },
   {
     q: "Was braucht es zum Start?",
-    a: "Renderings für die Fassade, Grundrisse je Etage, die Wohnungsliste. Fehlen die Bilder, beginnt die Einrichtung bei den Grundrissen.",
+    a: "Die Wohnungsliste (Flächen, Zimmer, Preise). Modelle, Renderings und Grundrisse erstellen wir. Haben Sie schon Material, schicken Sie es uns; oft müssen wir es aufbereiten.",
   },
   {
     q: "Wer pflegt Status und Preise?",
-    a: "Sie. Verfügbarkeit, Preise, Bilder, Dokumente in der Verwaltung. Rollen legen fest, wer darf.",
+    a: "Sie, im Dashboard. Verfügbarkeit, Preise, Bilder und Dokumente. Über Rollen legen Sie fest, wer darf. Statistiken und Auswertungen liegen dort ebenfalls.",
   },
 ];
 
@@ -45,26 +45,26 @@ const faqSchema = {
 const plans = [
   {
     name: "Haus",
-    meta: "bis 30 WE",
-    tag: "Objekt",
+    meta: "ein Finder, bis 30 WE",
+    tag: "Projekt",
     featured: false,
-    items: ["Fassade aus den Renderings", "Etagen mit Status", "Filter, Merkliste, Anfrage", "Exposé-Gate und QR", "Auswertung ohne Cookie"],
+    items: ["Fassade mit Wohnungen", "Etagen mit Status", "Dashboard: Editor und Auswertung", "Exposé-Gate und QR", "CRM-Anbindung optional"],
     cta: "Angebot Haus",
   },
   {
     name: "Quartier",
-    meta: "30 bis 500+ WE",
-    tag: "Areal",
+    meta: "ein Finder, 30 bis 500+ WE",
+    tag: "Bauvorhaben",
     featured: true,
-    items: ["wie Haus", "CRM: onOffice, Propstack, Flowfact", "360° und Sonnenstand", "mehrere Häuser und Ansichten", "Domain, OpenImmo, Webhooks"],
+    items: ["wie Haus", "Dashboard mit Editor und Auswertung", "360° und Sonnenstand", "mehrere Häuser in einem Finder", "CRM optional, Domain, OpenImmo"],
     cta: "Angebot Quartier",
   },
   {
     name: "Mandate",
-    meta: "mehrere Projekte",
+    meta: "ein Finder je Mandat",
     tag: "Büro",
     featured: false,
-    items: ["Hosting in Deutschland", "Marke je Mandant", "Read-only-API", "Rollen über Projekte"],
+    items: ["Hosting in Deutschland", "Marke je Mandant", "Read-only-API", "Rollen über die Projekte"],
     cta: "Gespräch zu Mandaten",
   },
 ];
@@ -75,11 +75,11 @@ export default function Preise() {
       <JsonLd data={[faqSchema, breadcrumbs([{ name: "Start", path: "/" }, { name: "Preise", path: "/preise" }])]} />
       <PageHero
         eyebrow="Preise"
-        title="Setup, dann Lizenz. Nach Zahl der WE."
-        lead="Die Zahl folgt Einheiten, Ansichten und ob CRM dazugehört. Updates in der Lizenz."
+        title="Setup einmal, Lizenz nach Zahl der Wohnungen."
+        lead="Die Zahl folgt Einheiten und Ansichten. CRM ist optional. Updates liegen in der Lizenz. Modelle, Renderings und bei Bedarf Grundrisse gehören zum Setup."
         tone="sonne"
         illustration={<FacadeFinder showLegend={false} />}
-        measure="Kalkulation nach WE · nicht nach Klicks"
+        measure="Kalkulation nach WE, nicht nach Klicks"
       />
 
       <section className="border-b">
@@ -128,9 +128,9 @@ export default function Preise() {
       </section>
 
       <CtaBand
-        title="Angebot nach der Demo am Objekt."
-        lead="Einheiten, Ansichten, ob CRM dazugehört. Dann eine Zahl."
-        cta="Demo am Projekt"
+        title="Angebot nach der Demo."
+        lead="Einheiten, Ansichten. CRM nur, wenn Sie es anbinden wollen. Dann eine Zahl."
+        cta="Demo anfragen"
         tone="tinte"
       />
     </main>

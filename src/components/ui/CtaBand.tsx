@@ -2,10 +2,10 @@ import Link from "next/link";
 import { IconArrow } from "@/components/icons";
 
 export default function CtaBand({
-  title = "Rendering, Grundrisse, Wohnungsliste.",
-  lead = "Termin in Grünwald oder per Video. Wir legen den Finder an einem laufenden Objekt auf.",
-  cta = "Demo am Projekt",
-  tone = "sonne",
+  title = "Wohnungsfinder an einem laufenden Projekt sehen.",
+  lead = "Dreißig Minuten, in Grünwald oder per Video. Modelle und Renderings von uns. Grundrisse, wenn sie fehlen.",
+  cta = "Demo anfragen",
+  tone = "tinte",
 }: {
   title?: string;
   lead?: string;
@@ -15,15 +15,15 @@ export default function CtaBand({
   const dark = tone === "tinte";
   return (
     <section className={dark ? "section bg-dark" : "section bg-sonne"}>
-      <div className="container" style={{ maxWidth: "40rem" }}>
-        <p className="measure" style={{ marginBottom: "1rem", color: dark ? "var(--sonne)" : "var(--tinte)" }}>
-          Termin in Grünwald.
+      <div className="container" style={{ maxWidth: "38rem" }}>
+        <p className="measure" style={{ marginBottom: "0.85rem", color: dark ? "var(--sonne)" : "var(--tinte)" }}>
+          Grünwald
         </p>
-        <h2 style={{ color: dark ? "#fff" : "var(--tinte)" }}>{title}</h2>
+        <h2 style={{ color: dark ? "#fff" : "var(--tinte)", maxWidth: "16ch" }}>{title}</h2>
         <p className="lead" style={{ color: dark ? "var(--text-on-dark-muted)" : "var(--graphit)", maxWidth: "34rem" }}>
           {lead}
         </p>
-        <Link href="/kontakt" className={dark ? "btn btn-primary btn-lg" : "btn btn-outline btn-lg"}>
+        <Link href="/kontakt" className="btn btn-primary btn-lg">
           {cta} <IconArrow size={18} />
         </Link>
       </div>

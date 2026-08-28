@@ -25,7 +25,7 @@ export default function Footer() {
               <li><Link href="/funktionen/3d-grundrisse">Wohnungsfinder</Link></li>
               <li><Link href="/funktionen/lead-generierung">Anfragen</Link></li>
               <li><Link href="/funktionen/pdf-expose">Exposé und QR</Link></li>
-              <li><Link href="/funktionen/integrationen">CRM</Link></li>
+              <li><Link href="/funktionen/integrationen">Dashboard und CRM</Link></li>
               <li><Link href="/preise">Preise</Link></li>
             </ul>
           </div>

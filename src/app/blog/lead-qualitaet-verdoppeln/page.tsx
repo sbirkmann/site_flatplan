@@ -25,9 +25,9 @@ export default function LeadQualitaetArticle() {
       <h2>Vor dem Formular</h2>
       <p>
         Wer die{" "}
-        <Link href="/funktionen/3d-grundrisse">Fassade gedreht</Link>, die
+        <Link href="/funktionen/3d-grundrisse">Fassade angesehen</Link>, die
         Etage gesehen, den Sonnenstand und den Standpunkt in der Wohnung
-        hat, fragt nicht blind an. Die Anfrage nennt die WE.
+        hat, fragt nicht blind an. Die Anfrage nennt die Wohnung.
       </p>
 
       <h2>Gate</h2>

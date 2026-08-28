@@ -9,7 +9,7 @@ import { IconArrow } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Wohnungsfinder für die Projektentwicklung",
   description:
-    "Quartier, Bauabschnitte, mehrere Häuser. Eine Datenpflege, mehrere Ansichten. OpenImmo und CRM.",
+    "Wohnungsfinder für Quartiere: mehrere Häuser, Bauabschnitte, eine Pflege. Status und Preise an einer Stelle. OpenImmo für Portale. Dashboard für Editor und Auswertung.",
   path: "/branchen/projektentwicklung",
 });
 
@@ -24,11 +24,11 @@ export default function ProjektentwicklungPage() {
       />
       <PageHero
         eyebrow="Projektentwicklung"
-        title="Quartier, Abschnitte, eine Pflege."
-        lead="Mehrere Häuser, mehrere Blickwinkel. Status und Preis an einer Stelle. Export nach OpenImmo."
+        title="Quartier und Abschnitte, eine Pflege."
+        lead="Mehrere Häuser, mehrere Blickwinkel. Status und Preis an einer Stelle. OpenImmo, wenn Portale dazugehören."
         tone="blatt"
         actions={
-          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
         }
       />
 
@@ -44,7 +44,7 @@ export default function ProjektentwicklungPage() {
           <p className="measure">Quartier · Abschnitte</p>
           <h2>Mehrere Häuser, eine Pflege.</h2>
           <p className="lead" style={{ margin: 0 }}>
-            Vogel, Straße, Hof. Dieselben WE, andere Kamera.
+            Vogel, Straße, Hof. Dieselben Wohnungen, andere Kamera. Ein Finder für das Bauvorhaben — oder getrennt je Abschnitt, wenn Sie so verkaufen.
           </p>
         </div>
       </section>
@@ -52,9 +52,9 @@ export default function ProjektentwicklungPage() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Areal", title: "Häuser und Ansichten", copy: "Vogel, Straße, Hof. Dieselben WE, andere Kamera." },
-            { room: "Abschnitt", title: "Nächster Baukörper", copy: "Projekt duplizieren. Preise und Status neu, Struktur bleibt." },
-            { room: "Akte", title: "Bank und Vertrieb", copy: "Preisliste, OpenImmo, Anfrage ins CRM." },
+            { room: "Areal", title: "Häuser und Ansichten", copy: "Vogel, Straße, Hof. Dieselben Wohnungen, andere Kamera." },
+            { room: "Abschnitt", title: "Nächster Baukörper", copy: "Struktur übernehmen, Preise und Status neu. Getrennte Finder, wenn Abschnitte getrennt vermarktet werden." },
+            { room: "Akte", title: "Bank und Vertrieb", copy: "Preisliste, Auswertung im Dashboard, OpenImmo. CRM nur auf Wunsch." },
           ].map((row) => (
             <div key={row.room} className="walk-row">
               <p className="room">{row.room}</p>

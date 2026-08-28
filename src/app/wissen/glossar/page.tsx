@@ -8,7 +8,7 @@ import CtaBand from "@/components/ui/CtaBand";
 export const metadata: Metadata = pageMetadata({
   title: "Glossar: WE, Gate, OpenImmo",
   description:
-    "Begriffe aus dem Vorverkauf. 360°, Gate, Quote, OpenImmo, UTM. Kurz, wie am Tisch.",
+    "Glossar zum Vorverkauf: WE, Gate, OpenImmo, Vorverkaufsquote, Wohnungsfinder, Dashboard. Kurz, wie am Tisch.",
   path: "/wissen/glossar",
 });
 
@@ -21,7 +21,7 @@ const groups: Group[] = [
     terms: [
       {
         term: "360°-Rundgang",
-        def: "Standpunkt in der Wohnung. Panorama, nächster Raum, Blick zur Loggia. Browser, ohne App. Neubau oft aus dem Studio, Bestand aus der Fotografie.",
+        def: "Standpunkt in der Wohnung. Panorama, nächster Raum, Blick zur Loggia. Browser, ohne App. Neubau oft aus unserem Modell, Bestand aus der Fotografie.",
       },
     ],
   },
@@ -40,6 +40,10 @@ const groups: Group[] = [
       {
         term: "Double-Opt-in",
         def: "Nach der Anfrage bestätigt die Mail. Nachweis für die DSGVO. Tippfehler und Wegwerf-Adressen fallen raus.",
+      },
+      {
+        term: "Dashboard",
+        def: "Die Verwaltung zum Finder: Editor für Wohnungen und Inhalte, Einstellungen, Statistiken und Berichte. CRM ist optional.",
       },
     ],
   },
@@ -145,7 +149,7 @@ const groups: Group[] = [
     terms: [
       {
         term: "Vorverkaufsquote",
-        def: "Anteil reserviert oder verkauft vor dem Baustart. Oft 30–50 Prozent für die Bank. Deshalb die Fassade, sobald die Renderings da sind.",
+        def: "Anteil reserviert oder verkauft vor dem Baustart. Oft 30–50 Prozent für die Bank. Deshalb der Finder, sobald Modell und Bilder stehen — die machen wir, oder wir bereiten Ihr Material auf.",
       },
     ],
   },
@@ -162,11 +166,11 @@ const groups: Group[] = [
       },
       {
         term: "Widget",
-        def: "iframe für die bestehende Seite. „x von y frei“, ohne Preise. Link in den Finder.",
+        def: "Kleine Einbettung in die bestehende Seite, etwa „x von y frei“, ohne Preise. Link in den Wohnungsfinder. Jedes Bauvorhaben hat seinen eigenen Finder.",
       },
       {
         term: "Wohnungsfinder",
-        def: "Fassade aus dem Rendering, Etage, 360°, Anfrage mit WE, Übergabe ins CRM. Auch Flatfinder genannt.",
+        def: "Fassade, Etage, 360°, Anfrage mit Wohnungsnummer. Ein Finder pro Projekt, plus Dashboard. CRM-Anbindung optional. Auch Flatfinder genannt.",
       },
     ],
   },
@@ -202,8 +206,8 @@ export default function GlossarPage() {
 
       <PageHero
         eyebrow="Glossar"
-        title="WE, Gate, OpenImmo."
-        lead="Begriffe aus dem Vorverkauf. Kurz, wie am Tisch."
+        title="Begriffe aus dem Vorverkauf."
+        lead="WE, Gate, OpenImmo, Quote, Dashboard. Kurz, wie am Tisch."
         tone="licht"
         measure={`${groups.reduce((n, g) => n + g.terms.length, 0)} Einträge`}
       />

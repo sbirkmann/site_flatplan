@@ -9,7 +9,7 @@ import FacadeFinder from "@/components/photos/FacadeFinder";
 export const metadata: Metadata = pageMetadata({
   title: "Über uns: Immowoo Group GmbH, Grünwald",
   description:
-    "Immowoo in Grünwald. Wohnungsfinder für den Neubauvertrieb. Software und Betrieb in Deutschland.",
+    "Immowoo in Grünwald baut den Wohnungsfinder für den Vorverkauf: Modelle, Renderings, bei Bedarf Grundrisse, Software und Betrieb in Deutschland.",
   path: "/ueber-uns",
 });
 
@@ -24,8 +24,8 @@ export default function UeberUns() {
       />
       <PageHero
         eyebrow={`${site.company.brand} · Grünwald`}
-        title="Software für den Vorverkauf. Kein Portal."
-        lead="Immowoo Group GmbH. Viewer, Anfragen, Schnittstellen. Hosting in Deutschland."
+        title="Software und Bilder für den Vorverkauf."
+        lead="Immowoo Group GmbH. Wir bauen Modelle und Renderings, bei Bedarf die Grundrisse, und den Wohnungsfinder dazu. Hosting in Deutschland."
         tone="blatt"
         illustration={<FacadeFinder showLegend={false} />}
         measure={`${site.company.street} · ${site.company.zip} ${site.company.city}`}
@@ -34,9 +34,9 @@ export default function UeberUns() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Software", title: "Viewer und Schnittstellen", copy: "Fassade, Panorama, Gate, CRM. Kein zugekauftes White-Label." },
-            { room: "Bild", title: "Ihre Renderings", copy: "Das Visualisierungsstudio liefert die Sequenz. Wir legen Hotspots und Etagen." },
-            { room: "Vertrieb", title: "Ablauf aus dem Büro", copy: "Status, Preis, Anfrage. Was Bauträger und Makler täglich brauchen." },
+            { room: "Bild", title: "Modell und Rendering", copy: "Wir erstellen die Modelle und die Bilder. Haben Sie schon Material, schicken Sie es uns — oft müssen wir es aufbereiten. Grundrisse machen wir bei Bedarf." },
+            { room: "Finder", title: "Ein Finder pro Projekt", copy: "Fassade, Panorama, Gate. Einbettung oder eigene Domain. Kein zugekauftes White-Label." },
+            { room: "Dashboard", title: "Editor und Auswertung", copy: "Wohnungen pflegen, Einstellungen, Zahlen. CRM nur, wenn Sie eines anbinden." },
             { room: "Betrieb", title: "Server in Deutschland", copy: "Messung ohne Cookie. Rollen, 2FA, Protokoll." },
           ].map((v) => (
             <div key={v.room} className="walk-row">
@@ -53,8 +53,8 @@ export default function UeberUns() {
           <span className="eyebrow">Auftrag</span>
           <h2>Warum der Finder existiert.</h2>
           <p className="lead">
-            Der Vertrieb läuft oft über PDF und Preisliste, während das Objekt
-            noch Zeichnung ist. Der Finder hängt die WE in die Ansicht.
+            Der Vertrieb läuft oft über PDF und Preisliste, während das Haus
+            noch Zeichnung ist. Der Wohnungsfinder hängt die Wohnung in die Ansicht.
           </p>
           <p>
             Projekte und Zahlen:{" "}

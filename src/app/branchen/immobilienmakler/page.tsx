@@ -9,7 +9,7 @@ import { IconArrow } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Wohnungsfinder für Makler",
   description:
-    "Neubau als Mandat: Ansicht, Anfrage mit WE, Übergabe ins CRM. Was das Büro dem Bauträger vorlegt.",
+    "Wohnungsfinder für Makler im Neubauvertrieb. Argument für den Alleinauftrag: Fassade, Grundriss, Anfrage mit Wohnungsnummer. Dashboard, optional onOffice. Marke des Bauträgers oder des Büros.",
   path: "/branchen/immobilienmakler",
 });
 
@@ -24,11 +24,11 @@ export default function ImmobilienmaklerPage() {
       />
       <PageHero
         eyebrow="Makler"
-        title="Das Mandat ist die Ansicht, nicht die Mappe."
-        lead="Bauträger vergleichen, wer den Vorverkauf führen kann. Der Finder ist die Fläche, die Sie mitbringen."
+        title="Was Sie dem Bauträger im Pitch vorlegen."
+        lead="Bauträger vergleichen, wer den Vorverkauf führen kann. Sie bringen den Wohnungsfinder mit — auf der Projektseite oder unter eigener Domain, in seiner Marke oder in Ihrer."
         tone="himmel"
         actions={
-          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
+          <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
         }
       />
 
@@ -41,7 +41,7 @@ export default function ImmobilienmaklerPage() {
             <span className="eyebrow">Mandat</span>
             <h2>Dieselbe Ansicht am Tisch und am Zaun.</h2>
             <p className="lead" style={{ margin: 0 }}>
-              Marke des Bauträgers oder des Büros. Domain je Objekt. Anfrage mit WE.
+              Jedes Projekt hat seinen eigenen Finder. Die Anfrage kommt mit Wohnungsnummer ins Dashboard.
             </p>
           </div>
         </div>
@@ -50,9 +50,9 @@ export default function ImmobilienmaklerPage() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Mandat", title: "Ein Objekt, ein Finder", copy: "Marke des Bauträgers oder des Büros. Domain je Projekt." },
-            { room: "Anfrage", title: "WE im Datensatz", copy: "Merkliste, Gate, onOffice, Propstack oder Flowfact." },
-            { room: "Büro", title: "Wenige Leute, klares Gerät", copy: "Kein zweites Portal. Dieselbe Ansicht am Tisch und am Bauzaun." },
+            { room: "Mandat", title: "Ein Projekt, ein Finder", copy: "Marke des Bauträgers oder des Büros. Eigene Domain je Projekt, wenn gewünscht." },
+            { room: "Anfrage", title: "Wohnung im Datensatz", copy: "Merkliste, Gate, Board im Dashboard. CRM nur, wenn das Büro eines nutzt." },
+            { room: "Büro", title: "Kein zweites Portal", copy: "Dieselbe Ansicht am Tisch und am Bauzaun. Wenige Leute, ein Gerät." },
           ].map((row) => (
             <div key={row.room} className="walk-row">
               <p className="room">{row.room}</p>

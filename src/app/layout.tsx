@@ -1,27 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
+import { Syne, Source_Sans_3, Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
-const display = Bricolage_Grotesque({
+const display = Syne({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const serif = Source_Serif_4({
-  variable: "--font-serif",
+const sans = Source_Sans_3({
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+const mono = Spline_Sans_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -37,12 +36,14 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: [
     "Wohnungsfinder",
-    "3D Wohnungsfinder",
+    "Vorverkauf",
     "Neubauvertrieb",
-    "Immobilien Vermarktung",
-    "Bauträger Software",
+    "3D Grundriss",
+    "Bauträger",
+    "Immobilienmakler",
     "interaktiver Grundriss",
-    "Wohnungsnavigator",
+    "360 Rundgang Neubau",
+    "onOffice",
   ],
   applicationName: site.name,
   verification: {
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f2f6f0",
+  themeColor: "#12151A",
 };
 
 const organizationSchema = {
@@ -99,7 +100,7 @@ export default function RootLayout({
     <html
       lang="de"
       data-scroll-behavior="smooth"
-      className={`${display.variable} ${serif.variable} ${mono.variable}`}
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
       <body className="antialiased" suppressHydrationWarning>

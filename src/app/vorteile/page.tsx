@@ -7,9 +7,9 @@ import CtaBand from "@/components/ui/CtaBand";
 import FacadeFinder from "@/components/photos/FacadeFinder";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Was der Finder im Vertrieb ersetzt",
+  title: "Wohnungsfinder im Neubauvertrieb",
   description:
-    "Ansicht statt PDF. Anfrage mit WE statt Portalformular. Übergabe nach onOffice, Propstack oder Flowfact. Messung ohne Cookie.",
+    "Was der Wohnungsfinder im Vorverkauf ändert: statt PDF-Versand Fassade mit Live-Status, Anfrage mit Wohnungsnummer, Dashboard statt Excel. CRM optional. Messung ohne Cookie.",
   path: "/vorteile",
 });
 
@@ -19,8 +19,8 @@ export default function VorteilePage() {
       <JsonLd data={breadcrumbs([{ name: "Start", path: "/" }, { name: "Im Vertrieb", path: "/vorteile" }])} />
       <PageHero
         eyebrow="Im Vertrieb"
-        title="Was der Finder ersetzt."
-        lead="PDF-Versand, veraltete Preisliste, Copy-Paste ins CRM. Der Finder hängt die WE in die Ansicht."
+        title="Was sich im Alltag ändert."
+        lead="Statt PDF per Mail und Preisliste von letzter Woche: der Wohnungsfinder auf der Projektseite und ein Dashboard für Status, Anfragen und Zahlen."
         tone="licht"
       />
 
@@ -31,9 +31,9 @@ export default function VorteilePage() {
           </div>
           <div className="overlap-plate">
             <span className="eyebrow">Ansicht</span>
-            <h2>Fassade, nicht PDF.</h2>
+            <h2>Statusfarbe in der Loggia.</h2>
             <p className="lead" style={{ margin: 0 }}>
-              Statusfarbe in der Loggia. Anfrage mit der WE, nicht mit Formulartext.
+              Die Anfrage enthält die Wohnungsnummer. Pflege und Auswertung im Dashboard.
             </p>
           </div>
         </div>
@@ -42,10 +42,10 @@ export default function VorteilePage() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Ansicht", title: "Rendering, sobald es da ist", copy: "Keine Musterwohnung nötig. Sequenz, Hotspots, Statusfarbe. Warteliste vor dem Start, wenn gewünscht." },
-            { room: "Anfrage", title: "WE, Merkliste, bestätigte Mail", copy: "Gate vor dem Exposé. Pflichtfelder, die Sie setzen. Suchagent und Preis-Alarm." },
-            { room: "CRM", title: "Übergabe ohne Abtippen", copy: "onOffice, Propstack, Flowfact. Webhook und OpenImmo, wo kein natives CRM." },
-            { room: "Messung", title: "Ohne Cookie, ohne IP", copy: "Aufrufe, geöffnete WE, UTM bis zur Anfrage. Wochenbericht." },
+            { room: "Ansicht", title: "Online, sobald Modell und Bilder da sind", copy: "Keine Musterwohnung nötig. Modelle und Renderings machen wir. Grundrisse auch, wenn sie fehlen." },
+            { room: "Anfrage", title: "Wohnung, Merkliste, bestätigte Mail", copy: "Gate vor dem Exposé. Pflichtfelder, die Sie setzen. Suchagent und Preis-Alarm." },
+            { room: "Dashboard", title: "Editor und Auswertung", copy: "Wohnungen pflegen, Einstellungen, Zahlen. CRM wie onOffice nur, wenn Sie es anbinden." },
+            { room: "Messung", title: "Ohne Cookie, ohne IP", copy: "Aufrufe, geöffnete Wohnungen, UTM bis zur Anfrage. Wochenbericht." },
           ].map((row) => (
             <div key={row.room} className="walk-row">
               <p className="room">{row.room}</p>
@@ -59,13 +59,13 @@ export default function VorteilePage() {
       <section className="section bg-soft border-b">
         <div className="container" style={{ maxWidth: "42rem" }}>
           <span className="eyebrow">Vergleich</span>
-          <h2>Preisliste und Finder.</h2>
+          <h2>Preisliste und Wohnungsfinder.</h2>
           <div className="walk">
             {[
-              { room: "Eindruck", title: "PDF per Mail", copy: "Finder: Fassade, Hotspot, 360°." },
-              { room: "Besichtigung", title: "Termin nach Rohbau", copy: "Finder: Browser, ab dem Rendering." },
-              { room: "Status", title: "Liste von letzter Woche", copy: "Finder: frei, reserviert, verkauft in der Ansicht." },
-              { room: "Nachfassen", title: "Excel-Wiedervorlage", copy: "Finder: Suchagent, Alarm, Auto-Antwort." },
+              { room: "Eindruck", title: "Heute oft PDF per Mail", copy: "Mit Finder: Fassade, Wohnung, 360°." },
+              { room: "Besichtigung", title: "Termin nach Rohbau", copy: "Mit Finder: Browser, ab dem Rendering." },
+              { room: "Status", title: "Liste von letzter Woche", copy: "Mit Finder: frei, reserviert, verkauft in der Ansicht." },
+              { room: "Nachfassen", title: "Excel-Wiedervorlage", copy: "Mit Finder: Suchagent, Alarm, Board im Dashboard." },
             ].map((row) => (
               <div key={row.room} className="walk-row">
                 <p className="room">{row.room}</p>

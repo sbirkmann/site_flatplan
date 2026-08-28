@@ -9,9 +9,9 @@ import LeadInboxMock from "@/components/illustrations/LeadInboxMock";
 import { IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Wohnungsfinder: Ansicht, Etage, Anfrage, CRM",
+  title: "Funktionen des Wohnungsfinders",
   description:
-    "Fassade aus dem Rendering, Etagengrundriss, 360°, Anfragen mit WE-Bezug, Übergabe nach onOffice, Propstack oder Flowfact. OpenImmo, Messung ohne Cookie.",
+    "Wohnungsfinder mit Fassade und Live-Status, Etagengrundriss, 360°-Rundgang und Sonnenstand. Dashboard mit Editor und Auswertung. CRM-Anbindung optional. Modelle und Renderings von Immowoo.",
   path: "/features",
 });
 
@@ -21,14 +21,14 @@ export default function Features() {
       <JsonLd data={breadcrumbs([{ name: "Start", path: "/" }, { name: "Funktionen", path: "/features" }])} />
       <PageHero
         eyebrow="Funktionen"
-        title="Ansicht, Etage, Anfrage, CRM."
-        lead="Ein Objekt. Ein Finder. Kein Werkzeugkasten aus fünf Systemen."
+        title="Was der Wohnungsfinder im Vorverkauf leistet."
+        lead="Auf der Projektseite oder unter eigener Domain. Im Dashboard pflegen Sie Wohnungen, Texte und Auswertungen. onOffice, Propstack oder Flowfact schließen wir an, wenn Sie ein CRM nutzen."
         tone="licht"
-        measure="Haus A · 48 WE · onOffice, Propstack, Flowfact"
+        measure="Haus A · 48 WE · Dashboard inklusive"
         actions={
           <>
-            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
-            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 650, textDecoration: "underline", textUnderlineOffset: 4 }}>Laufendes Objekt</a>
+            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
+            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 650, textDecoration: "underline", textUnderlineOffset: 4 }}>Projekt ansehen</a>
           </>
         }
       />
@@ -39,14 +39,14 @@ export default function Features() {
             <FacadeFinder />
           </div>
           <div className="overlap-plate">
-            <span className="eyebrow">Ansicht</span>
-            <h2>Rendering wird zur Fassade.</h2>
+            <span className="eyebrow">Fassade</span>
+            <h2>Wohnungen auf der Fassade auswählen.</h2>
             <p className="lead">
-              Drehbar, soweit die Bildsequenz reicht. WE als Hotspot. Etage,
-              360°, Sonnenstand. Eigene Domain, PWA.
+              Modelle und Renderings machen wir. Vorhandenes Material bereiten wir auf.
+              Ein Klick öffnet den Grundriss, den 360°-Rundgang und den Sonnenstand.
             </p>
             <Link href="/funktionen/3d-grundrisse" className="btn btn-outline">
-              Ansicht und Etage <IconArrow size={16} />
+              Zum Wohnungsfinder <IconArrow size={16} />
             </Link>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Features() {
           <h2>Schatten auf der Loggia.</h2>
           <p className="lead" style={{ margin: 0 }}>
             Regler über den Tag. Für die Frage nach Süd und Abendlicht, solange
-            draußen Baugrube ist.
+            draußen noch Baugrube ist.
           </p>
         </div>
       </section>
@@ -73,13 +73,14 @@ export default function Features() {
       <section className="section bg-dark border-b">
         <div className="container overlap-leads">
           <div>
-            <span className="eyebrow">Vorgang</span>
-            <h2>Anfrage mit WE, nicht mit Formulartext.</h2>
+            <span className="eyebrow">Anfragen</span>
+            <h2>Die Anfrage enthält die Wohnungsnummer.</h2>
             <p className="lead">
-              Gate, Suchagent, Preis-Alarm, Board A/B/C, QR am Zaun, Double-Opt-in.
+              Exposé-Gate, Suchagent, Preis-Alarm und Board im Dashboard. QR am
+              Bauzaun. Double-Opt-in, bevor das PDF rausgeht.
             </p>
             <Link href="/funktionen/lead-generierung" className="btn btn-primary">
-              Anfragen und Gate <IconArrow size={16} />
+              Anfragen und Exposé <IconArrow size={16} />
             </Link>
           </div>
           <LeadInboxMock />
@@ -98,14 +99,14 @@ export default function Features() {
             <figcaption>360° · Standpunkt Wohnen</figcaption>
           </figure>
           <div className="overlap-plate">
-            <span className="eyebrow">CRM</span>
-            <h2>onOffice, Propstack, Flowfact.</h2>
+            <span className="eyebrow">Dashboard</span>
+            <h2>Editor, Einstellungen, Auswertung.</h2>
             <p className="lead">
-              OpenImmo-Export. Webhook. REST lesend. MCP, wenn die Akte im Chat
-              geführt werden soll. Rollen, 2FA.
+              Wohnungen anlegen, Status setzen, Texte und Bilder pflegen.
+              Statistiken ohne Cookie. Ein CRM schließen wir an, wenn Sie eines nutzen.
             </p>
             <Link href="/funktionen/integrationen" className="btn btn-outline">
-              Schnittstellen <IconArrow size={16} />
+              Dashboard und CRM <IconArrow size={16} />
             </Link>
           </div>
         </div>
@@ -116,8 +117,8 @@ export default function Features() {
           <span className="eyebrow">Auswertung</span>
           <h2>Messung ohne Cookie, ohne IP.</h2>
           <p className="lead">
-            Welche WE geöffnet wird. Welcher UTM-Kanal den Namen liefert.
-            Wochenbericht, Read-only-Link.
+            Welche Wohnung geöffnet wird. Welcher Kanal die Anfrage liefert.
+            Wochenbericht, auch als Link zum Weiterreichen.
           </p>
           <div className="stat-line">
             <div><strong>0</strong><br /><span>Cookies</span></div>

@@ -10,7 +10,7 @@ import { IconArrow } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Ablauf im Neubauvertrieb",
   description:
-    "Rendering, Warteliste, Ansicht, Anfrage, CRM, Auswertung. Der Finder im Vorverkauf, Schritt für Schritt.",
+    "Wohnungsfinder im Vorverkauf, Schritt für Schritt: Modell und Rendering, Finder auf der Projektseite, Anfragen im Dashboard. CRM-Anbindung optional.",
   path: "/use-cases/neubauvertrieb",
 });
 
@@ -25,12 +25,12 @@ export default function NeubauvertriebPage() {
       />
       <PageHero
         eyebrow="Ablauf"
-        title="Vom Rendering bis zur Akte."
-        lead="Ansicht aus der Sequenz. Anfrage mit WE. Übergabe nach onOffice, Propstack oder Flowfact."
+        title="Vom Modell bis zur Anfrage."
+        lead="Wir bauen Modell und Renderings, bei Bedarf die Grundrisse. Daraus wird der Wohnungsfinder für dieses Bauvorhaben. Anfragen liegen im Dashboard. CRM ist optional."
         tone="licht"
         actions={
           <>
-            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo am Projekt <IconArrow size={18} /></Link>
+            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
             <Link href="/features" className="btn btn-outline btn-lg">Überblick</Link>
           </>
         }
@@ -42,9 +42,9 @@ export default function NeubauvertriebPage() {
           </div>
           <div className="overlap-plate">
             <span className="eyebrow">Ablauf</span>
-            <h2>Rendering, Liste, Ansicht.</h2>
+            <h2>Material, Finder, Dashboard.</h2>
             <p className="lead" style={{ margin: 0 }}>
-              Hotspots auf der Fassade. Anfrage mit WE. Dann das CRM.
+              Wohnungen auf der Fassade. Anfrage mit Wohnungsnummer. Status und Zahlen im Dashboard.
             </p>
           </div>
         </div>
@@ -52,11 +52,11 @@ export default function NeubauvertriebPage() {
       <section className="section bg-white border-b">
         <div className="container walk">
           {[
-            { room: "Unterlage", title: "Sequenz und Wohnungsliste", copy: "Hotspots auf der Fassade. Etage, Preis, Status aus Ihrer Liste." },
+            { room: "Material", title: "Modell, Rendering, Grundriss", copy: "Von uns, oder aus Ihrem Bestand — dann bereiten wir es auf." },
             { room: "Start", title: "Warteliste, falls der Start später liegt", copy: "Countdown, Double-Opt-in. Mail am Launch-Tag." },
-            { room: "Kanal", title: "UTM, QR, Inserat", copy: "Dieselbe WE, egal woher der Klick kommt." },
-            { room: "Anfrage", title: "Bezug zur Wohnung", copy: "Merkliste, Gate, Board. Dann CRM." },
-            { room: "Zahl", title: "Auswertung", copy: "Aufrufe, geöffnete WE, Conversion je UTM. Ohne Cookie." },
+            { room: "Kanal", title: "UTM, QR, Inserat", copy: "Dieselbe Wohnung, egal woher der Klick kommt." },
+            { room: "Anfrage", title: "Bezug zur Wohnung", copy: "Merkliste, Gate, Board im Dashboard. CRM nur auf Wunsch." },
+            { room: "Zahl", title: "Auswertung", copy: "Aufrufe, geöffnete Wohnungen, Conversion je UTM. Im Dashboard, ohne Cookie." },
           ].map((row) => (
             <div key={row.room} className="walk-row">
               <p className="room">{row.room}</p>

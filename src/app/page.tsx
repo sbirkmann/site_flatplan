@@ -8,15 +8,16 @@ import StatusMarquee from "@/components/illustrations/StatusMarquee";
 import FacadeFinder from "@/components/photos/FacadeFinder";
 import LeadInboxMock from "@/components/illustrations/LeadInboxMock";
 import CtaBand from "@/components/ui/CtaBand";
+import CustomerLogos from "@/components/CustomerLogos";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "flatplan.de | Wohnungsfinder für den Neubauvertrieb",
+    title: "flatplan.de | Wohnungsfinder für den Vorverkauf",
     description:
-      "Wohnungsfinder für Bauträger und Makler. Fassade aus dem Rendering, Etagengrundriss, 360°, Anfrage nach onOffice, Propstack oder Flowfact.",
+      "Wohnungsfinder für Bauträger und Makler: Wohnungen in der Fassade wählen, Status frei, reserviert oder verkauft, Grundriss und 360°. Anfrage mit Wohnungsnummer. Dashboard inklusive. Modelle und Renderings von Immowoo.",
     path: "/",
   }),
-  title: { absolute: "flatplan.de | Wohnungsfinder für den Neubauvertrieb" },
+  title: { absolute: "flatplan.de | Wohnungsfinder für den Vorverkauf" },
 };
 
 const softwareSchema = {
@@ -27,14 +28,14 @@ const softwareSchema = {
   operatingSystem: "Web",
   url: site.url,
   description:
-    "Wohnungsfinder für den Neubauvertrieb: drehbare Projektansicht, 360°-Rundgänge, Anfragen, CRM (onOffice, Propstack, Flowfact), OpenImmo.",
+    "Wohnungsfinder für den Vorverkauf: Fassade mit Live-Status, 3D-Grundrisse, 360°-Rundgänge, Anfragen mit Wohnungsnummer. Dashboard für Editor und Auswertung. CRM optional (onOffice, Propstack, Flowfact).",
   publisher: { "@id": `${site.url}/#organization` },
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/InStock",
     price: "0",
     priceCurrency: "EUR",
-    description: "Demo am laufenden Objekt",
+    description: "Kostenlose Demo",
   },
 };
 
@@ -54,19 +55,21 @@ export default function Home() {
 
       <section className="home-hero">
         <div className="home-hero-copy">
-          <span className="eyebrow">Fassade, nicht PDF.</span>
+          <span className="eyebrow">Bauträger · Makler · Vorverkauf</span>
           <h1>
-            Vertrieb
+            Wohnungsfinder
             <br />
-            über die Fassade.
+            für den Vorverkauf.
           </h1>
           <p className="lead">
-            Jede WE als Fläche auf dem Rendering. Grundriss, 360°, Preis, Status.
-            Anfrage nach onOffice, Propstack oder Flowfact.
+            Käufer klicken die Wohnung in der Fassade an: Grundriss, Preis,
+            frei oder verkauft. Die Anfrage kommt mit Wohnungsnummer. Modelle
+            und Renderings von uns; vorhandene Pläne bereiten wir auf.
+            Status und Anfragen liegen im Dashboard.
           </p>
           <div className="flex gap-4 flex-wrap items-center">
             <Link href="/kontakt" className="btn btn-primary btn-lg">
-              Demo am Projekt <IconArrow size={18} />
+              Demo anfragen <IconArrow size={18} />
             </Link>
             <a
               href={site.demoUrl}
@@ -74,29 +77,20 @@ export default function Home() {
               rel="noopener noreferrer"
               style={{ fontWeight: 650, textDecoration: "underline", textUnderlineOffset: 4 }}
             >
-              Laufendes Objekt
+              Projekt ansehen
             </a>
           </div>
-          <p className="home-hero-meta">Browser · Server in Deutschland · Einrichtung in Tagen</p>
+          <p className="home-hero-meta">Im Browser · Server in Deutschland · eigene Domain oder Einbettung</p>
         </div>
         <div className="home-hero-canvas">
-          <iframe src={site.demoUrl} title="Wohnungsfinder, laufendes Objekt" allow="fullscreen" />
-          <span className="home-hero-caption">Haus am Park · live</span>
+          <iframe src={site.demoUrl} title="Wohnungsfinder, Beispielprojekt" allow="fullscreen" />
+          <span className="home-hero-caption">Haus am Park · Beispiel</span>
         </div>
       </section>
 
       <StatusMarquee />
 
-      <section className="bg-white border-b">
-        <div className="container">
-          <p className="partner-line measure" style={{ margin: 0, fontSize: "0.95rem", letterSpacing: "0.02em", textTransform: "none" }}>
-            Projekte u. a. mit
-            <span className="name" style={{ color: "#c41e3a" }}>Sparkasse</span>
-            <span className="name">Zinn Architektur</span>
-            <span className="name">Investora</span>
-          </p>
-        </div>
-      </section>
+      <CustomerLogos />
 
       <section id="fassade" className="overlap-stage bg-himmel border-b">
         <div className="container overlap-fassade">
@@ -104,14 +98,14 @@ export default function Home() {
             <FacadeFinder />
           </div>
           <div className="overlap-plate">
-            <span className="eyebrow">Ansicht</span>
-            <h2>Status liegt auf der Loggia.</h2>
+            <span className="eyebrow">Fassade</span>
+            <h2>Jede Wohnung auf der Fassade. Status live.</h2>
             <p className="lead">
-              Gelb frei, blau reserviert, grau verkauft. Klick auf WE 2.03 öffnet
-              Fläche, Preis und Grundriss.
+              Frei, reserviert, verkauft — in der Ansicht, nicht in einer Liste
+              von letzter Woche. Ein Klick öffnet Grundriss, Fläche und Preis.
             </p>
             <Link href="/funktionen/3d-grundrisse" className="btn btn-outline">
-              Ansicht und Etage <IconArrow size={16} />
+              Zum Wohnungsfinder <IconArrow size={16} />
             </Link>
           </div>
         </div>
@@ -129,12 +123,12 @@ export default function Home() {
           <FacadeFinder selected="4.02" showLegend={false} />
         </div>
         <div className="overlap-plate">
-          <span className="eyebrow">Sonnenstand</span>
-          <h2>21. Juni, 18 Uhr, Süd.</h2>
-          <p className="lead" style={{ marginBottom: 0 }}>
-            Schatten über der Fassade. Nordwinkel hinterlegt. Für die Frage nach
-            dem Abendbalkon.
-          </p>
+            <span className="eyebrow">Sonnenstand</span>
+            <h2>Süd oder Abendlicht — am Schatten der Loggia.</h2>
+            <p className="lead" style={{ marginBottom: 0 }}>
+              Uhrzeit einstellen, Schatten auf der Fassade. Die Lagefrage,
+              bevor jemand die Baugrube betreten hat.
+            </p>
         </div>
       </section>
 
@@ -158,11 +152,15 @@ export default function Home() {
             />
           </figure>
           <div className="overlap-plate">
-            <span className="eyebrow">360°</span>
-            <h2>Standpunkt in der ungebauten Wohnung.</h2>
-            <p className="lead" style={{ marginBottom: 0 }}>
-              Panorama, nächster Raum, Blick zur Loggia. Solange die Musterwohnung fehlt.
+            <span className="eyebrow">360°-Rundgang</span>
+            <h2>Vom Klick auf die Fassade in die Wohnung.</h2>
+            <p className="lead">
+              Dieselbe WE wie auf dem Rendering: Wohnen, Küche, Loggia als
+              360° aus dem Modell. Solange es keine Musterwohnung gibt.
             </p>
+            <Link href="/use-cases/virtuelle-besichtigung" className="btn btn-outline">
+              Zum 360°-Rundgang <IconArrow size={16} />
+            </Link>
           </div>
         </div>
       </section>
@@ -170,14 +168,15 @@ export default function Home() {
       <section className="section bg-dark border-b">
         <div className="container overlap-leads">
           <div>
-            <span className="eyebrow">Vorgang</span>
-            <h2>Die Anfrage nennt die WE.</h2>
+            <span className="eyebrow">Anfragen</span>
+            <h2>Die Anfrage enthält die Wohnungsnummer.</h2>
             <p className="lead">
-              Exposé nach Double-Opt-in. Suchagent für 3 Zimmer Süd. Datensatz in
-              onOffice, Propstack oder Flowfact.
+              Exposé nach Double-Opt-in. Suchagent zum Beispiel für drei Zimmer
+              Süd. Die Anfragen liegen im Dashboard. Ein CRM schließen wir an,
+              wenn Sie eines nutzen — es ist kein Pflichtteil.
             </p>
             <Link href="/funktionen/lead-generierung" className="btn btn-primary">
-              Anfragen und Gate <IconArrow size={16} />
+              Anfragen und Exposé <IconArrow size={16} />
             </Link>
           </div>
           <div className="overlap-frame" style={{ background: "var(--papier)", color: "var(--tinte)", padding: "1.25rem 1.35rem 1.5rem" }}>
@@ -225,9 +224,10 @@ export default function Home() {
         <div className="container">
           <div className="overlap-plate">
             <span className="eyebrow">Baustelle</span>
-            <h2>QR je Wohnung, am Brett.</h2>
+            <h2>QR-Code am Bauzaun, eine Wohnung pro Code.</h2>
             <p className="lead">
-              Scan öffnet die WE. UTM am Zaun. Zählung, wer stehen bleibt.
+              Der Scan öffnet genau diese Wohnung. Mit UTM sehen Sie, welche
+              Anfragen vom Zaun kommen.
             </p>
             <Link href="/funktionen/pdf-expose" style={{ fontWeight: 700, textDecoration: "underline", textUnderlineOffset: 4 }}>
               Exposé, Preisliste, QR <IconArrow size={14} />
@@ -239,12 +239,12 @@ export default function Home() {
       <section className="section bg-blatt border-b">
         <div className="container">
           <span className="eyebrow">Ablauf</span>
-          <h2 style={{ maxWidth: "16ch", marginBottom: "2rem" }}>Ansicht, Wohnung, Vorgang.</h2>
+          <h2 style={{ maxWidth: "20ch", marginBottom: "0.5rem" }}>Vom Modell bis zur ersten Anfrage.</h2>
           <div className="walk">
             {[
-              { room: "Ansicht", title: "Fassade aus dem Rendering", copy: "Hotspots je WE. Statusfarbe in der Loggia. Mehrere Blickwinkel, wenn das Studio sie liefert." },
-              { room: "Wohnung", title: "Etage und Rundgang", copy: "Grundriss je Geschoss. Panorama, soweit vorhanden. Sonnenstand mit Nordwinkel." },
-              { room: "Vorgang", title: "Anfrage ins CRM", copy: "Gate, Suchagent, Termin. Übergabe nach onOffice, Propstack oder Flowfact." },
+              { room: "Material", title: "Modell, Rendering, Grundriss", copy: "Wir erstellen die 3D-Modelle und die Renderings. Grundrisse machen wir, wenn sie fehlen. Haben Sie schon Pläne oder Bilder, schicken Sie sie uns — oft müssen wir sie aufbereiten." },
+              { room: "Finder", title: "Projektseite oder eigene Domain", copy: "Wohnungen auf der Fassade, Statusfarben, Etage, 360°. Jedes Bauvorhaben bekommt seinen eigenen Wohnungsfinder — eingebettet oder unter eigener Adresse." },
+              { room: "Vertrieb", title: "Dashboard, Anfragen, Auswertung", copy: "Editor für Wohnungen, Einstellungen, Statistiken. CRM wie onOffice, Propstack oder Flowfact nur, wenn Sie es brauchen." },
             ].map((step) => (
               <div key={step.room} className="walk-row">
                 <p className="room">{step.room}</p>
@@ -258,7 +258,7 @@ export default function Home() {
 
       <section className="section bg-white border-b">
         <div className="container">
-          <p className="plan-rule" style={{ marginBottom: "1.75rem" }}>Texte aus dem Vorverkauf.</p>
+          <p className="plan-rule" style={{ marginBottom: "1.75rem" }}>Aus dem Vertrieb</p>
           <div className="blog-board">
             <Link href={`/blog/${featured.slug}`} className="blog-card blog-card--lead">
               <div className="blog-card-frame">
@@ -287,12 +287,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec-quote bg-sonne border-b">
+      <section className="sec-quote bg-dark border-b">
         <div className="container">
           <blockquote>
             Die Quote für die Bankfinanzierung stand nach drei Wochen. 48 WE in Riem, der Finder in der Ansicht.
           </blockquote>
-          <p className="measure" style={{ margin: 0, color: "var(--tinte)" }}>Thomas Z. · Zinn Architektur, München-Riem</p>
+          <p className="measure" style={{ margin: 0, color: "var(--text-on-dark-muted)" }}>Thomas Z. · Zinn Architektur, München-Riem</p>
         </div>
       </section>
 
@@ -300,18 +300,15 @@ export default function Home() {
         <div className="container">
           <div className="stat-line" style={{ color: "#fff" }}>
             <div><strong>Browser</strong><br /><span>ohne App</span></div>
-            <div><strong>3 CRM</strong><br /><span>onOffice · Propstack · Flowfact</span></div>
+            <div><strong>Dashboard</strong><br /><span>Editor · Auswertung</span></div>
+            <div><strong>CRM</strong><br /><span>Anbindung optional</span></div>
             <div><strong>ohne Cookie</strong><br /><span>Messung ohne Banner</span></div>
             <div><strong>QR je WE</strong><br /><span>Bauzaun in die Wohnung</span></div>
           </div>
         </div>
       </section>
 
-      <CtaBand
-        title="Rendering, Grundrisse, Wohnungsliste."
-        lead="Termin in Grünwald oder per Video. Wir legen den Finder an einem laufenden Objekt auf."
-        cta="Demo am Projekt"
-      />
+      <CtaBand />
     </main>
   );
 }
