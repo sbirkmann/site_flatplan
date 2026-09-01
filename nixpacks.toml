@@ -1,10 +1,12 @@
 [phases.setup]
-nixPkgs = ["nodejs_24"]
+nixPkgs = ["nodejs_22"]
 
 [phases.install]
 cmds = [
-  "npm install -g corepack@latest",
-  "corepack enable",
-  "corepack prepare pnpm@11.11.0 --activate",
+  "curl -fsSL https://nodejs.org/dist/v24.11.1/node-v24.11.1-linux-x64.tar.xz -o /tmp/node.tar.xz",
+  "sudo mkdir -p /opt/node && sudo tar -xJf /tmp/node.tar.xz -C /opt/node --strip-components=1",
+  "sudo ln -sf /opt/node/bin/node /usr/local/bin/node && sudo ln -sf /opt/node/bin/npm /usr/local/bin/npm && sudo ln -sf /opt/node/bin/npx /usr/local/bin/npx",
+  "sudo /opt/node/bin/npm install -g pnpm@11.11.0",
+  "sudo ln -sf /opt/node/bin/pnpm /usr/local/bin/pnpm",
   "pnpm i --frozen-lockfile"
 ]
