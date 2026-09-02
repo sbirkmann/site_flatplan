@@ -25,8 +25,8 @@ export default function PdfExpose() {
       />
       <PageHero
         eyebrow="Unterlagen"
-        title="Dieselben Daten wie im Finder."
-        lead="PDF aus der Gestaltung oder Druck aus den Live-Daten. Gate davor. QR am Zaun öffnet die Wohnung."
+        title="Exposé, Preisliste und QR aus denselben Daten."
+        lead="Entweder Sie liefern das gestaltete PDF, oder wir erzeugen das Wohnungsblatt aus den Live-Daten. Davor liegt das Exposé-Gate. Der QR-Code am Bauzaun öffnet genau die Wohnung, vor der jemand steht."
         tone="licht"
         actions={
           <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>

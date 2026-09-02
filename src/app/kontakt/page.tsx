@@ -24,7 +24,7 @@ export default function Kontakt() {
       />
       <PageHero
         eyebrow="Kontakt"
-        title="Demo anfragen."
+        title="Wir zeigen den Finder an einem echten Projekt."
         lead="Etwa dreißig Minuten, in Grünwald oder per Video. Wir zeigen den Wohnungsfinder an einem echten Projekt. Die Wohnungsliste reicht, wenn Sie Ihr Vorhaben besprechen wollen."
         tone="sonne"
         illustration={<FacadeFinder showLegend={false} />}
@@ -44,7 +44,7 @@ export default function Kontakt() {
                 { icon: <IconCalendar size={20} />, k: "Ablauf", v: <span>Nachricht · Demo · Angebot nach Zahl der WE</span> },
               ].map((row) => (
                 <li key={row.k} style={{ display: "grid", gridTemplateColumns: "1.5rem 1fr", gap: "0.85rem", alignItems: "start", marginBottom: "1.35rem", paddingBottom: "1.15rem", borderBottom: "1px solid var(--nebel)" }}>
-                  <span style={{ color: "var(--blatt)", marginTop: 2 }}>{row.icon}</span>
+                  <span style={{ color: "var(--sonne)", marginTop: 2 }}>{row.icon}</span>
                   <div>
                     <span className="measure" style={{ display: "block", marginBottom: "0.2rem" }}>{row.k}</span>
                     <span style={{ color: "var(--tinte)", fontWeight: 600 }}>{row.v}</span>

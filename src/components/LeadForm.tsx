@@ -36,7 +36,7 @@ export default function LeadForm() {
   if (status === "sent") {
     return (
       <div className="overlap-plate" style={{ textAlign: "left", padding: "2.25rem 1.75rem" }}>
-        <IconCheck size={40} style={{ color: "var(--blatt)", margin: "0 auto 1.25rem" }} />
+        <IconCheck size={40} style={{ color: "var(--sonne)", margin: "0 auto 1.25rem" }} />
         <h3>Anfrage angekommen.</h3>
         <p style={{ marginBottom: "1.5rem", fontFamily: "var(--font-serif)" }}>
           Antwort in der Regel innerhalb eines Werktags, meist mit einem
@@ -90,7 +90,7 @@ export default function LeadForm() {
       </div>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }} />
       {status === "error" && (
-        <p role="alert" style={{ color: "var(--koralle)", fontWeight: 650, marginBottom: "1rem" }}>{errorMsg}</p>
+        <p role="alert" style={{ color: "var(--sonne)", fontWeight: 600, marginBottom: "1rem" }}>{errorMsg}</p>
       )}
       <button type="submit" className="btn btn-primary btn-lg" disabled={status === "sending"} style={{ width: "100%" }}>
         {status === "sending" ? <><IconLoader size={18} /> Wird gesendet</> : <><IconSend size={18} /> Nachricht senden</>}

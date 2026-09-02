@@ -28,7 +28,7 @@ export default function Features() {
         actions={
           <>
             <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
-            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 650, textDecoration: "underline", textUnderlineOffset: 4 }}>Projekt ansehen</a>
+            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" className="link-arrow">Projekt ansehen</a>
           </>
         }
       />
@@ -62,22 +62,24 @@ export default function Features() {
         />
         <div className="overlap-plate">
           <p className="measure">Sonnenstand · Nordwinkel · 21. Juni</p>
-          <h2>Schatten auf der Loggia.</h2>
+          <h2>Wie viel Sonne die Loggia bekommt — für jeden Tag im Jahr.</h2>
           <p className="lead" style={{ margin: 0 }}>
-            Regler über den Tag. Für die Frage nach Süd und Abendlicht, solange
-            draußen noch Baugrube ist.
+            Ein Regler führt durch den Tagesverlauf und zeigt, wo der Schatten
+            steht. Beantwortet die Frage nach Süd und Abendlicht, solange
+            draußen noch die Baugrube liegt.
           </p>
         </div>
       </section>
 
-      <section className="section bg-dark border-b">
+      <section className="section bg-soft">
         <div className="container overlap-leads">
           <div>
             <span className="eyebrow">Anfragen</span>
             <h2>Die Anfrage enthält die Wohnungsnummer.</h2>
             <p className="lead">
-              Exposé-Gate, Suchagent, Preis-Alarm und Board im Dashboard. QR am
-              Bauzaun. Double-Opt-in, bevor das PDF rausgeht.
+              Exposé-Gate, Suchagent, Preis-Alarm und ein Board im Dashboard.
+              Der QR-Code am Bauzaun führt in dieselbe Wohnung. Das Exposé geht
+              erst nach bestätigter Mail raus.
             </p>
             <Link href="/funktionen/lead-generierung" className="btn btn-primary">
               Anfragen und Exposé <IconArrow size={16} />

@@ -24,8 +24,8 @@ export default function ProjektentwicklungPage() {
       />
       <PageHero
         eyebrow="Projektentwicklung"
-        title="Quartier und Abschnitte, eine Pflege."
-        lead="Mehrere Häuser, mehrere Blickwinkel. Status und Preis an einer Stelle. OpenImmo, wenn Portale dazugehören."
+        title="Mehrere Häuser, mehrere Abschnitte — an einer Stelle gepflegt."
+        lead="Ein Quartier hat mehrere Häuser und mehrere Bauabschnitte. Status und Preise pflegen Sie trotzdem nur an einer Stelle. Für Portale liefern wir OpenImmo-XML."
         tone="blatt"
         actions={
           <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
@@ -42,7 +42,7 @@ export default function ProjektentwicklungPage() {
         />
         <div className="overlap-plate">
           <p className="measure">Quartier · Abschnitte</p>
-          <h2>Mehrere Häuser, eine Pflege.</h2>
+          <h2>Ein Quartier, mehrere Kamerapositionen.</h2>
           <p className="lead" style={{ margin: 0 }}>
             Vogel, Straße, Hof. Dieselben Wohnungen, andere Kamera. Ein Finder für das Bauvorhaben — oder getrennt je Abschnitt, wenn Sie so verkaufen.
           </p>

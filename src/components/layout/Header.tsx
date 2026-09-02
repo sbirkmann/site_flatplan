@@ -129,7 +129,7 @@ export default function Header() {
       <header className={`global-header ${isScrolled ? "scrolled" : ""}`}>
         <div className="container global-header-container">
           <Link href="/" aria-label="flatplan.de – Startseite" className="brand-link">
-            <Logo height={26} dark />
+            <Logo height={26} />
           </Link>
 
           <nav className="global-desktop-nav" ref={navRef} aria-label="Hauptnavigation">

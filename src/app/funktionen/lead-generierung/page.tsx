@@ -51,7 +51,7 @@ export default function LeadGenerierung() {
         </div>
       </section>
 
-      <section className="section bg-dark border-b">
+      <section className="section bg-soft">
         <div className="container" style={{ maxWidth: "36rem" }}>
           <LeadInboxMock />
         </div>

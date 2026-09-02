@@ -73,14 +73,14 @@ export default function WohnungsfinderPage() {
 
       <PageHero
         eyebrow="Wohnungsfinder"
-        title="Fassade, Etage, Rundgang."
+        title="Von der Fassade in die Wohnung, in zwei Klicks."
         lead="Klick auf die Loggia öffnet die Wohnung: Grundriss, Preis, frei oder verkauft. Modelle und Renderings machen wir; vorhandenes Material bereiten wir auf. Grundrisse auch, wenn sie fehlen."
         tone="licht"
         illustration={<FacadeFinder />}
         actions={
           <>
             <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
-            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 650, textDecoration: "underline", textUnderlineOffset: 4 }}>Projekt ansehen</a>
+            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" className="link-arrow">Projekt ansehen</a>
           </>
         }
       />

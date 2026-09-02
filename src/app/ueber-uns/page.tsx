@@ -51,7 +51,7 @@ export default function UeberUns() {
       <section className="section bg-himmel border-b">
         <div className="container" style={{ maxWidth: "40rem" }}>
           <span className="eyebrow">Auftrag</span>
-          <h2>Warum der Finder existiert.</h2>
+          <h2>Warum wir den Finder gebaut haben.</h2>
           <p className="lead">
             Der Vertrieb läuft oft über PDF und Preisliste, während das Haus
             noch Zeichnung ist. Der Wohnungsfinder hängt die Wohnung in die Ansicht.

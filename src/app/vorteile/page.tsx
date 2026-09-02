@@ -19,8 +19,8 @@ export default function VorteilePage() {
       <JsonLd data={breadcrumbs([{ name: "Start", path: "/" }, { name: "Im Vertrieb", path: "/vorteile" }])} />
       <PageHero
         eyebrow="Im Vertrieb"
-        title="Was sich im Alltag ändert."
-        lead="Statt PDF per Mail und Preisliste von letzter Woche: der Wohnungsfinder auf der Projektseite und ein Dashboard für Status, Anfragen und Zahlen."
+        title="Der Vertrieb arbeitet mit Live-Daten statt mit PDF."
+        lead="Heute geht das PDF per Mail raus, und die Preisliste ist eine Woche alt. Mit dem Wohnungsfinder steht der aktuelle Stand auf der Projektseite, und Status, Anfragen und Zahlen liegen im Dashboard."
         tone="licht"
       />
 
@@ -31,7 +31,7 @@ export default function VorteilePage() {
           </div>
           <div className="overlap-plate">
             <span className="eyebrow">Ansicht</span>
-            <h2>Statusfarbe in der Loggia.</h2>
+            <h2>Frei, reserviert, verkauft — direkt auf der Fassade.</h2>
             <p className="lead" style={{ margin: 0 }}>
               Die Anfrage enthält die Wohnungsnummer. Pflege und Auswertung im Dashboard.
             </p>
@@ -57,9 +57,9 @@ export default function VorteilePage() {
       </section>
 
       <section className="section bg-soft border-b">
-        <div className="container" style={{ maxWidth: "42rem" }}>
+        <div className="container" style={{ maxWidth: "58rem" }}>
           <span className="eyebrow">Vergleich</span>
-          <h2>Preisliste und Wohnungsfinder.</h2>
+          <h2>Was der Finder ersetzt.</h2>
           <div className="walk">
             {[
               { room: "Eindruck", title: "Heute oft PDF per Mail", copy: "Mit Finder: Fassade, Wohnung, 360°." },

@@ -2,7 +2,7 @@ import Link from "next/link";
 import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { blogPosts, formatDate, type BlogPost } from "@/lib/blog";
 import { site } from "@/lib/site";
-import { IconArrow } from "@/components/icons";
+import CtaBand from "@/components/ui/CtaBand";
 
 export default function BlogArticle({
   post,
@@ -43,7 +43,7 @@ export default function BlogArticle({
 
       <section className="page-hero border-b" style={{ paddingBottom: 0 }}>
         <div className="container" style={{ maxWidth: "52rem" }}>
-          <Link href="/blog" className="measure" style={{ display: "inline-block", marginBottom: "1.5rem", color: "var(--blatt)" }}>
+          <Link href="/blog" className="measure" style={{ display: "inline-block", marginBottom: "1.5rem" }}>
             ← Artikel
           </Link>
           <span className="eyebrow">{post.tag}</span>
@@ -85,18 +85,7 @@ export default function BlogArticle({
         </section>
       )}
 
-      <section className="section bg-dark">
-        <div className="container" style={{ maxWidth: "40rem" }}>
-          <p className="measure" style={{ marginBottom: "1rem", color: "var(--sonne)" }}>Grünwald</p>
-          <h2>Demo anfragen.</h2>
-          <p className="lead" style={{ color: "var(--text-on-dark-muted)" }}>
-            Wir zeigen den Wohnungsfinder an einem laufenden Projekt. Termin in Grünwald oder per Video.
-          </p>
-          <Link href="/kontakt" className="btn btn-primary btn-lg">
-            Demo anfragen <IconArrow size={18} />
-          </Link>
-        </div>
-      </section>
+      <CtaBand />
     </main>
   );
 }

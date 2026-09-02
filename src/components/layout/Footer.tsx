@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="global-footer-grid">
           <div className="brand-col">
             <Link href="/" style={{ display: "inline-flex", marginBottom: "1.5rem" }}>
-              <Logo height={30} dark />
+              <Logo height={30} />
             </Link>
             <p className="global-footer-desc">
               Wohnungsfinder für den Vorverkauf. Immowoo Group GmbH, Grünwald.

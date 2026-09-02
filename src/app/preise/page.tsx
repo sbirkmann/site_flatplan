@@ -76,45 +76,38 @@ export default function Preise() {
       <PageHero
         eyebrow="Preise"
         title="Setup einmal, Lizenz nach Zahl der Wohnungen."
-        lead="Die Zahl folgt Einheiten und Ansichten. CRM ist optional. Updates liegen in der Lizenz. Modelle, Renderings und bei Bedarf Grundrisse gehören zum Setup."
+        lead="Die monatliche Lizenz richtet sich nach der Zahl der Wohneinheiten und der Ansichten. Modelle, Renderings und bei Bedarf die Grundrisse gehören zum einmaligen Setup. Updates sind in der Lizenz enthalten, eine CRM-Anbindung ist optional."
         tone="sonne"
         illustration={<FacadeFinder showLegend={false} />}
         measure="Kalkulation nach WE, nicht nach Klicks"
       />
 
-      <section className="border-b">
-        {plans.map((plan) => (
-          <div
-            key={plan.name}
-            style={{
-              background: plan.featured ? "var(--tinte)" : "var(--papier)",
-              color: plan.featured ? "#fff" : "var(--tinte)",
-              borderBottom: "1px solid var(--tinte)",
-            }}
-          >
-            <div className="container walk-row" style={{ borderTop: 0 }}>
-              <p className="room" style={{ color: plan.featured ? "var(--sonne)" : undefined }}>{plan.tag}</p>
-              <div>
-                <h3 style={{ color: "inherit" }}>{plan.name}</h3>
-                <p className="measure" style={{ color: plan.featured ? "var(--text-on-dark-muted)" : undefined, margin: "0.35rem 0 0" }}>{plan.meta}</p>
-              </div>
-              <div>
-                <p style={{ fontFamily: "var(--font-serif)", marginBottom: "1.25rem", color: plan.featured ? "var(--text-on-dark-muted)" : undefined }}>
-                  {plan.items.join("  ·  ")}
-                </p>
-                <Link href="/kontakt" className={plan.featured ? "btn btn-primary" : "btn btn-outline"}>
+      <section className="section bg-white">
+        <div className="container">
+          <div className="plan-grid">
+            {plans.map((plan) => (
+              <div key={plan.name} className={`plan${plan.featured ? " plan--featured" : ""}`}>
+                <p className="eyebrow">{plan.tag}</p>
+                <h3>{plan.name}</h3>
+                <p className="plan-meta">{plan.meta}</p>
+                <ul className="plan-items">
+                  {plan.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <Link href="/kontakt" className="link-arrow plan-cta">
                   {plan.cta}
                 </Link>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </section>
 
       <section className="section bg-white border-b">
         <div className="container max-w-3xl">
           <span className="eyebrow">Lizenz</span>
-          <h2 className="mb-8">Vier Punkte vor der Zahl.</h2>
+          <h2 className="mb-8">Woraus sich der Preis zusammensetzt.</h2>
           {faqs.map((f, i) => (
             <details key={f.q} className="faq-item" open={i === 0}>
               <summary>{f.q}</summary>
@@ -122,14 +115,14 @@ export default function Preise() {
             </details>
           ))}
           <p className="mt-8" style={{ fontSize: "0.9375rem" }}>
-            Mehr in den <Link href="/faq" style={{ color: "var(--blatt)", fontWeight: 650 }}>FAQ</Link>.
+            Mehr in den <Link href="/faq" className="link-arrow">FAQ</Link>.
           </p>
         </div>
       </section>
 
       <CtaBand
         title="Angebot nach der Demo."
-        lead="Einheiten, Ansichten. CRM nur, wenn Sie es anbinden wollen. Dann eine Zahl."
+        lead="Wir sehen uns Einheiten und Ansichten an, klären die CRM-Frage — und nennen Ihnen danach eine Zahl."
         cta="Demo anfragen"
         tone="tinte"
       />

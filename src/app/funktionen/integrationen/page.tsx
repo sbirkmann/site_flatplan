@@ -9,7 +9,7 @@ import { IconArrow } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Dashboard und CRM-Anbindung",
   description:
-    "Dashboard zum Wohnungsfinder: Editor, Einstellungen, Auswertung. CRM wie onOffice, Propstack oder Flowfact ist optional. Webhooks, REST, OpenImmo.",
+    "Dashboard zum Wohnungsfinder: Editor, Einstellungen und Auswertung an einer Stelle. CRM wie onOffice, Propstack oder Flowfact ist optional. Webhooks, REST, OpenImmo.",
   path: "/funktionen/integrationen",
 });
 
@@ -25,14 +25,14 @@ export default function Integrationen() {
       />
       <PageHero
         eyebrow="Dashboard"
-        title="Editor, Einstellungen, Auswertung."
+        title="Ein Dashboard für Wohnungen, Anfragen und Zahlen."
         lead="Wohnungen pflegen, den Finder einstellen, Zahlen lesen — im eigenen Dashboard. onOffice, Propstack oder Flowfact schließen wir an, wenn Sie es wollen. Es ist kein Pflichtteil."
         tone="licht"
         actions={
           <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
         }
       />
-      <section className="section bg-dark border-b">
+      <section className="section bg-soft">
         <div className="container overlap-leads">
           <div>
             <span className="eyebrow">Betrieb</span>

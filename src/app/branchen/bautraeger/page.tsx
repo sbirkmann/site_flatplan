@@ -26,7 +26,7 @@ export default function BautraegerPage() {
       <PageHero
         eyebrow="Bauträger"
         title="Vorverkauf, bevor der Rohbau steht."
-        lead="Die Bank will Quote. Käufer wollen die Wohnung sehen. Modelle und Renderings machen wir; Grundrisse auch, wenn sie fehlen. Jedes Bauvorhaben bekommt seinen eigenen Wohnungsfinder."
+        lead="Die Bank verlangt eine Vorverkaufsquote, die Käufer wollen die Wohnung sehen — beides, bevor der erste Stein liegt. Modelle und Renderings erstellen wir, die Grundrisse ebenfalls, wenn sie fehlen. Jedes Bauvorhaben bekommt seinen eigenen Wohnungsfinder."
         tone="licht"
         illustration={<FacadeFinder showLegend={false} />}
         actions={

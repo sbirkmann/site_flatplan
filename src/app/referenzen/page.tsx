@@ -19,8 +19,8 @@ export default function Referenzen() {
       <JsonLd data={breadcrumbs([{ name: "Start", path: "/" }, { name: "Referenzen", path: "/referenzen" }])} />
       <PageHero
         eyebrow="Referenzen"
-        title="Drei Vertriebe, drei Abläufe."
-        lead="Riem, Sparkasse, Maklerbüro. Was im Alltag liegt — ohne Kampagnenbilder."
+        title="Drei Projekte, drei Wege in den Vorverkauf."
+        lead="Ein Bauträger in München-Riem, ein Sparkassen-Vertrieb, ein Maklerbüro. Drei Projekte, wie sie im Alltag laufen — ohne Kampagnenbilder."
         tone="blatt"
         illustration={<FacadeFinder showLegend={false} />}
         measure="München-Riem · Sparkasse · München"

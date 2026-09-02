@@ -1,6 +1,6 @@
 export function LogoIcon({ size = 32, light = false }: { size?: number; light?: boolean }) {
-  const ink = light ? "#F5F3EF" : "#12151A";
-  const mark = light ? "#E24A1B" : "#E24A1B";
+  const ink = light ? "#F5F3EF" : "#16181C";
+  const mark = "#D8451A";
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="4" y="3" width="7" height="26" fill={ink} />

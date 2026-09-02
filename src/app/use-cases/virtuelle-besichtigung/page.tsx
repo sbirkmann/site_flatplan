@@ -24,7 +24,7 @@ export default function VirtuelleBesichtigungPage() {
       />
       <PageHero
         eyebrow="360°"
-        title="360° in der Wohnung — ohne Musterwohnung."
+        title="Die Wohnung begehen, bevor sie gebaut ist."
         lead="Wer auf der Fassade eine Wohnung wählt, geht weiter: Wohnen, Küche, Loggia. Die Panoramen kommen aus unserem Modell, solange der Rohbau fehlt."
         tone="himmel"
         actions={

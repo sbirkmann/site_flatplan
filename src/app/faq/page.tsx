@@ -122,7 +122,7 @@ export default function FaqPage() {
       <PageHero
         eyebrow="FAQ"
         title="Was vor dem ersten Projekt geklärt sein will."
-        lead="Technik, Unterlagen, Dashboard, Cookie. Die Fragen, die am Telefon fallen."
+        lead="Technik, Unterlagen, Dashboard und Datenschutz — die Fragen, die im ersten Gespräch kommen."
         tone="licht"
         measure="Vier Abschnitte"
       />
@@ -147,7 +147,7 @@ export default function FaqPage() {
       <section className="section bg-white border-b">
         <div className="container" style={{ maxWidth: "40rem" }}>
           <span className="eyebrow">Weiter</span>
-          <h2>Glossar, Funktionen, Preise.</h2>
+          <h2>Weiterlesen.</h2>
           <p className="lead">
             <Link href="/wissen/glossar" style={{ fontWeight: 700, textDecoration: "underline" }}>Glossar</Link>
             {" · "}

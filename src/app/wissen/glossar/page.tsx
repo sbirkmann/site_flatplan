@@ -220,7 +220,7 @@ export default function GlossarPage() {
               <dl style={{ margin: 0 }}>
                 {group.terms.map((t) => (
                   <div key={t.term} style={{ borderTop: "1px solid var(--tinte)", padding: "1.2rem 0 1.35rem" }}>
-                    <dt style={{ fontWeight: 650, letterSpacing: "-0.02em", marginBottom: "0.4rem" }}>
+                    <dt style={{ fontWeight: 600, letterSpacing: "-0.02em", marginBottom: "0.4rem" }}>
                       {t.term}
                     </dt>
                     <dd style={{ margin: 0, fontFamily: "var(--font-serif)", color: "var(--graphit)", maxWidth: "40rem" }}>
