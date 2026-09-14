@@ -48,6 +48,14 @@ export default function Impressum() {
               Registernummer: HRB 314765
             </p>
 
+            <h2>Umsatzsteuer-ID</h2>
+            <p>
+              Umsatzsteuer-Identifikationsnummer gemäß § 27 a
+              Umsatzsteuergesetz:
+              <br />
+              DE259972646
+            </p>
+
             <h2>Haftung für Inhalte</h2>
             <p>
               Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene
