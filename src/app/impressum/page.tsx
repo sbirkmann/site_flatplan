@@ -56,6 +56,15 @@ export default function Impressum() {
               DE259972646
             </p>
 
+            <h2>Erlaubnis nach § 34c GewO</h2>
+            <p>
+              Wir verfügen über eine Erlaubnis nach § 34c Gewerbeordnung (Immobilienmakler).
+              <br />
+              Zuständige Aufsichtsbehörde: Landratsamt München.
+              <br />
+              Zuständige Industrie- und Handelskammer: IHK für München und Oberbayern.
+            </p>
+
             <h2>Haftung für Inhalte</h2>
             <p>
               Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene
