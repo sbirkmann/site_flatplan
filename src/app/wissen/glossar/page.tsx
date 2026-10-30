@@ -223,7 +223,7 @@ export default function GlossarPage() {
                     <dt style={{ fontWeight: 600, letterSpacing: "-0.02em", marginBottom: "0.4rem" }}>
                       {t.term}
                     </dt>
-                    <dd style={{ margin: 0, fontFamily: "var(--font-serif)", color: "var(--graphit)", maxWidth: "40rem" }}>
+                    <dd style={{ margin: 0, fontFamily: "var(--font-sans)", color: "var(--tinte-70)", maxWidth: "40rem" }}>
                       {t.def}
                     </dd>
                   </div>

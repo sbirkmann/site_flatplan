@@ -3,13 +3,12 @@ import LeadForm from "@/components/LeadForm";
 import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { pageMetadata, site } from "@/lib/site";
 import PageHero from "@/components/ui/PageHero";
-import FacadeFinder from "@/components/photos/FacadeFinder";
-import { IconMail, IconPhone, IconPin, IconCalendar } from "@/components/icons";
+import SheetHead from "@/components/plan/SheetHead";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt: Demo anfragen",
+  title: "Kontakt: Demo des Wohnungsfinders anfragen",
   description:
-    "Termin in Grünwald oder per Video. Wir zeigen den Wohnungsfinder an einem echten Projekt. Antwort in einem Werktag. info@flatplan.de",
+    "Demo-Termin in Grünwald oder per Video: Wir zeigen den Wohnungsfinder an einem echten Projekt. Antwort in einem Werktag. info@flatplan.de · +49 931 30194458.",
   path: "/kontakt",
 });
 
@@ -24,31 +23,27 @@ export default function Kontakt() {
       />
       <PageHero
         eyebrow="Kontakt"
+        blatt="K-01"
         title="Wir zeigen den Finder an einem echten Projekt."
-        lead="Etwa dreißig Minuten, in Grünwald oder per Video. Wir zeigen den Wohnungsfinder an einem echten Projekt. Die Wohnungsliste reicht, wenn Sie Ihr Vorhaben besprechen wollen."
-        tone="sonne"
-        illustration={<FacadeFinder showLegend={false} />}
+        lead="Etwa dreißig Minuten, in Grünwald oder per Video — am Bildschirm, nicht an Folien. Die Wohnungsliste reicht, wenn Sie Ihr Vorhaben besprechen wollen."
         measure={`${site.company.city} · ${site.company.email} · Antwort in einem Werktag`}
       />
 
-      <section className="section bg-white">
+      <section className="section">
         <div className="container grid grid-2" style={{ alignItems: "start", gap: "3.5rem" }}>
           <div>
-            <span className="eyebrow">Büro</span>
+            <SheetHead blatt="K-02" titel="Plankopf" />
             <h2>Telefon, Mail, Formular.</h2>
             <ul style={{ listStyle: "none", padding: 0, marginTop: "2rem" }}>
               {[
-                { icon: <IconPhone size={20} />, k: "Telefon", v: <a href={site.company.phoneHref}>{site.company.phone}</a> },
-                { icon: <IconMail size={20} />, k: "E-Mail", v: <a href={`mailto:${site.company.email}`}>{site.company.email}</a> },
-                { icon: <IconPin size={20} />, k: "Adresse", v: <span>{site.company.legalName}, {site.company.street}, {site.company.zip} {site.company.city}</span> },
-                { icon: <IconCalendar size={20} />, k: "Ablauf", v: <span>Nachricht · Demo · Angebot nach Zahl der WE</span> },
+                { k: "Telefon", v: <a href={site.company.phoneHref}>{site.company.phone}</a> },
+                { k: "E-Mail", v: <a href={`mailto:${site.company.email}`}>{site.company.email}</a> },
+                { k: "Adresse", v: <span>{site.company.legalName}, {site.company.street}, {site.company.zip} {site.company.city}</span> },
+                { k: "Ablauf", v: <span>Nachricht · Demo · Angebot nach Zahl der Wohneinheiten</span> },
               ].map((row) => (
-                <li key={row.k} style={{ display: "grid", gridTemplateColumns: "1.5rem 1fr", gap: "0.85rem", alignItems: "start", marginBottom: "1.35rem", paddingBottom: "1.15rem", borderBottom: "1px solid var(--nebel)" }}>
-                  <span style={{ color: "var(--sonne)", marginTop: 2 }}>{row.icon}</span>
-                  <div>
-                    <span className="measure" style={{ display: "block", marginBottom: "0.2rem" }}>{row.k}</span>
-                    <span style={{ color: "var(--tinte)", fontWeight: 600 }}>{row.v}</span>
-                  </div>
+                <li key={row.k} style={{ marginBottom: "1.35rem", paddingBottom: "1.15rem", borderBottom: "1px solid var(--linie)" }}>
+                  <span className="mono" style={{ display: "block", marginBottom: "0.25rem", color: "var(--rot)" }}>{row.k}</span>
+                  <span style={{ color: "var(--tinte)", fontWeight: 600, fontSize: "1.1rem" }}>{row.v}</span>
                 </li>
               ))}
             </ul>

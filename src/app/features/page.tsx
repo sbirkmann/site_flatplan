@@ -4,14 +4,18 @@ import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { pageMetadata, site } from "@/lib/site";
 import PageHero from "@/components/ui/PageHero";
 import CtaBand from "@/components/ui/CtaBand";
-import FacadeFinder from "@/components/photos/FacadeFinder";
+import PlanFinder from "@/components/plan/PlanFinder";
+import Datenfluss from "@/components/plan/Datenfluss";
+import StatusKreislauf from "@/components/plan/StatusKreislauf";
+import SheetHead from "@/components/plan/SheetHead";
+import ShotSlot from "@/components/plan/ShotSlot";
 import LeadInboxMock from "@/components/illustrations/LeadInboxMock";
 import { IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
   title: "Funktionen des Wohnungsfinders",
   description:
-    "Wohnungsfinder mit Fassade und Live-Status, Etagengrundriss, 360°-Rundgang und Sonnenstand. Dashboard mit Editor und Auswertung. CRM-Anbindung optional. Modelle und Renderings von Immowoo.",
+    "Interaktiver Wohnungsfinder: Fassade mit Live-Status, 3D-Grundriss, 360°-Rundgang und Sonnenstands-Simulation. Dashboard mit Editor, Statistik ohne Cookie-Banner, CRM-Anbindung optional. Modelle und Renderings von Immowoo.",
   path: "/features",
 });
 
@@ -21,111 +25,132 @@ export default function Features() {
       <JsonLd data={breadcrumbs([{ name: "Start", path: "/" }, { name: "Funktionen", path: "/features" }])} />
       <PageHero
         eyebrow="Funktionen"
+        blatt="F-00"
         title="Was der Wohnungsfinder im Vorverkauf leistet."
-        lead="Auf der Projektseite oder unter eigener Domain. Im Dashboard pflegen Sie Wohnungen, Texte und Auswertungen. onOffice, Propstack oder Flowfact schließen wir an, wenn Sie ein CRM nutzen."
-        tone="licht"
+        lead="Auf Ihrer Projektseite oder unter eigener Domain: die Fassade als klickbarer Plan, jede Wohnung mit Grundriss, Preis und Live-Status. Im Dashboard pflegen Sie Wohnungen, Preise und Auswertungen — onOffice, Propstack oder Flowfact schließen wir an, wenn Sie ein CRM nutzen."
         measure="Haus A · 48 WE · Dashboard inklusive"
         actions={
           <>
-            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
-            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" className="link-arrow">Projekt ansehen</a>
+            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={16} /></Link>
+            <a href={site.demoUrl} target="_blank" rel="noopener noreferrer" className="link-arrow">Live-Projekt öffnen</a>
           </>
         }
       />
 
-      <section className="overlap-stage bg-himmel border-b">
-        <div className="container overlap-fassade">
-          <div className="overlap-frame">
-            <FacadeFinder />
-          </div>
-          <div className="overlap-plate">
-            <span className="eyebrow">Fassade</span>
-            <h2>Wohnungen auf der Fassade auswählen.</h2>
-            <p className="lead">
-              Modelle und Renderings machen wir. Vorhandenes Material bereiten wir auf.
-              Ein Klick öffnet den Grundriss, den 360°-Rundgang und den Sonnenstand.
-            </p>
-            <Link href="/funktionen/3d-grundrisse" className="btn btn-outline">
-              Zum Wohnungsfinder <IconArrow size={16} />
-            </Link>
+      <section className="section border-b">
+        <div className="container">
+          <SheetHead blatt="F-01" titel="Fassade und Grundriss" />
+          <div className="overlap-fassade" style={{ padding: 0 }}>
+            <PlanFinder caption="Beispiel · Haus am Park · 20 WE" />
+            <div className="overlap-plate">
+              <h2>Wohnungen auf der Fassade auswählen.</h2>
+              <p className="lead">
+                Die Ansicht ist der Plan: Jede Loggia trägt eine anklickbare
+                Einheit. Ein Klick öffnet Grundriss, Fläche, Kaufpreis, den
+                360°-Rundgang und den Sonnenstand dieser Wohnung.
+              </p>
+              <p style={{ color: "var(--tinte-70)" }}>
+                Modelle und Renderings erstellen wir von Immowoo selbst;
+                vorhandenes Material — Pläne, Bilder, CAD — bereiten wir auf.
+                Etagengrundrisse ergänzen die Fassade für Einheiten, die sich
+                nicht in der Ansicht zeigen lassen.
+              </p>
+              <Link href="/funktionen/3d-grundrisse" className="link-arrow">
+                Zum Wohnungsfinder <IconArrow size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="overlap-licht border-b">
+      <section className="bg-soft border-b">
         <img
           className="overlap-licht-bleed"
           src="/photos/neubau-abendlicht.jpg"
-          alt="Südfassade im Abendlicht"
+          alt="Südfassade im Abendlicht — die Sonnenstands-Simulation zeigt Schattenwurf je Uhrzeit und Jahreszeit"
           width={1536}
           height={1024}
         />
-        <div className="overlap-plate">
-          <p className="measure">Sonnenstand · Nordwinkel · 21. Juni</p>
-          <h2>Wie viel Sonne die Loggia bekommt — für jeden Tag im Jahr.</h2>
-          <p className="lead" style={{ margin: 0 }}>
-            Ein Regler führt durch den Tagesverlauf und zeigt, wo der Schatten
-            steht. Beantwortet die Frage nach Süd und Abendlicht, solange
-            draußen noch die Baugrube liegt.
-          </p>
-        </div>
-      </section>
-
-      <section className="section bg-soft">
-        <div className="container overlap-leads">
-          <div>
-            <span className="eyebrow">Anfragen</span>
-            <h2>Die Anfrage enthält die Wohnungsnummer.</h2>
-            <p className="lead">
-              Exposé-Gate, Suchagent, Preis-Alarm und ein Board im Dashboard.
-              Der QR-Code am Bauzaun führt in dieselbe Wohnung. Das Exposé geht
-              erst nach bestätigter Mail raus.
+        <div className="container section-sm">
+          <SheetHead blatt="F-02" titel="Sonnenstands-Simulation" />
+          <div style={{ maxWidth: "42rem" }}>
+            <h2>Wie viel Sonne die Loggia bekommt — für jeden Tag im Jahr.</h2>
+            <p className="lead" style={{ marginBottom: 0 }}>
+              Ein Regler führt durch den Tagesverlauf, ein zweiter durch das
+              Jahr. Der Schattenwurf steht auf der Fassade, bevor draußen mehr
+              als die Baugrube liegt. Die Frage „Süd oder West?“ beantwortet
+              sich im Verkaufsgespräch von selbst.
             </p>
-            <Link href="/funktionen/lead-generierung" className="btn btn-primary">
-              Anfragen und Exposé <IconArrow size={16} />
-            </Link>
-          </div>
-          <LeadInboxMock />
-        </div>
-      </section>
-
-      <section className="overlap-stage bg-white border-b">
-        <div className="container overlap-interior">
-          <figure className="photo-frame overlap-interior-main">
-            <img
-              src="/photos/neubau-wohnen.jpg"
-              alt="Wohnzimmer mit Süd-Loggia"
-              width={1536}
-              height={1024}
-            />
-            <figcaption>360° · Standpunkt Wohnen</figcaption>
-          </figure>
-          <div className="overlap-plate">
-            <span className="eyebrow">Dashboard</span>
-            <h2>Editor, Einstellungen, Auswertung.</h2>
-            <p className="lead">
-              Wohnungen anlegen, Status setzen, Texte und Bilder pflegen.
-              Statistiken ohne Cookie. Ein CRM schließen wir an, wenn Sie eines nutzen.
-            </p>
-            <Link href="/funktionen/integrationen" className="btn btn-outline">
-              Dashboard und CRM <IconArrow size={16} />
-            </Link>
           </div>
         </div>
       </section>
 
-      <section className="section bg-blatt border-b">
-        <div className="container" style={{ maxWidth: "40rem" }}>
-          <span className="eyebrow">Auswertung</span>
-          <h2>Messung ohne Cookie, ohne IP.</h2>
-          <p className="lead">
-            Welche Wohnung geöffnet wird. Welcher Kanal die Anfrage liefert.
-            Wochenbericht, auch als Link zum Weiterreichen.
-          </p>
-          <div className="stat-line">
-            <div><strong>0</strong><br /><span>Cookies</span></div>
-            <div><strong>UTM</strong><br /><span>bis zur Anfrage</span></div>
-            <div><strong>Live</strong><br /><span>Aufrufe Haus A</span></div>
+      <section className="section border-b">
+        <div className="container">
+          <SheetHead blatt="F-03" titel="Anfragen mit Wohnungsnummer" />
+          <div className="overlap-leads" style={{ padding: 0 }}>
+            <div className="overlap-plate">
+              <h2>Die Anfrage enthält die Wohnungsnummer.</h2>
+              <p className="lead">
+                Exposé-Gate mit Double-Opt-in, Suchagent für vergebene
+                Wunschwohnungen, Preis-Alarm bei Änderungen — und ein Board im
+                Dashboard, auf dem jede Anfrage ihrer Einheit zugeordnet ist.
+              </p>
+              <p style={{ color: "var(--tinte-70)" }}>
+                Der QR-Code am Bauzaun führt in dieselbe Wohnung. UTM-Parameter
+                verraten Ihnen später, welcher Kanal — Zaun, Anzeige,
+                Newsletter — die Anfrage geliefert hat.
+              </p>
+              <Link href="/funktionen/lead-generierung" className="link-arrow">
+                Anfragen und Exposé <IconArrow size={14} />
+              </Link>
+            </div>
+            <LeadInboxMock />
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-soft border-b">
+        <div className="container">
+          <SheetHead blatt="F-04" titel="Dashboard" />
+          <div className="overlap-interior" style={{ padding: 0 }}>
+            <div className="overlap-plate">
+              <h2>Editor, Einstellungen, Auswertung.</h2>
+              <p className="lead">
+                Wohnungen anlegen, Status setzen, Texte und Bilder pflegen,
+                Rollen für das Team. Statistiken laufen ohne Cookie und ohne
+                IP-Adresse — es gibt nichts, wofür man einen Banner bräuchte.
+              </p>
+              <Link href="/funktionen/integrationen" className="link-arrow">
+                Dashboard und CRM <IconArrow size={14} />
+              </Link>
+            </div>
+            <ShotSlot label="Dashboard · Editor" note="Screenshot folgt — Platzhalter" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section border-b">
+        <div className="container">
+          <SheetHead blatt="F-05" titel="Statuslogik" />
+          <div className="plan-split">
+            <div>
+              <h2>Drei Zustände, ein Klick.</h2>
+              <p className="lead">
+                Frei, reserviert, verkauft — mit Rückweg bei Storno. Der Stand
+                gilt sofort auf Fassade, Etagenplan, Preisliste, Exposé und im
+                OpenImmo-Export an die Portale.
+              </p>
+              <div className="stat-line" style={{ marginTop: "2rem", marginBottom: 0 }}>
+                <div><strong>0</strong><br /><span>Cookies</span></div>
+                <div><strong>UTM</strong><br /><span>bis zur Anfrage</span></div>
+                <div><strong>Live</strong><br /><span>alle Kanäle</span></div>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: "1.5rem" }}>
+              <StatusKreislauf />
+              <Datenfluss />
+            </div>
           </div>
         </div>
       </section>

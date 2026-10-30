@@ -83,23 +83,17 @@ function Dropdown({ name, label, items, openDropdown, setOpenDropdown, active }:
 }
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
     setMobileMenuOpen(false);
     setOpenDropdown(null);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!openDropdown) return;
@@ -126,7 +120,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`global-header ${isScrolled ? "scrolled" : ""}`}>
+      <header className="global-header">
         <div className="container global-header-container">
           <Link href="/" aria-label="flatplan.de – Startseite" className="brand-link">
             <Logo height={26} />
@@ -142,6 +136,11 @@ export default function Header() {
           </nav>
 
           <div className="global-cta">
+            <div className="header-blatt">
+              Werkplan Vorverkauf
+              <br />
+              Blatt 01 · M 1:500
+            </div>
             <Link href="/kontakt" className="header-cta">Demo anfragen</Link>
             <button
               className="global-mobile-toggle"
@@ -177,6 +176,7 @@ export default function Header() {
               ))}
             </div>
             <div className="mobile-menu-group">
+              <div className="mobile-menu-label">Blatt</div>
               <Link href="/preise"><strong>Preise</strong></Link>
               <Link href="/referenzen"><strong>Referenzen</strong></Link>
               <Link href="/blog"><strong>Blog</strong></Link>

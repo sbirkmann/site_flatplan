@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { IconMail, IconPhone, IconPin } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export default function Footer() {
@@ -13,8 +12,12 @@ export default function Footer() {
               <Logo height={30} />
             </Link>
             <p className="global-footer-desc">
-              Wohnungsfinder für den Vorverkauf. Immowoo Group GmbH, Grünwald.
+              Der Wohnungsfinder für den Neubau-Vorverkauf. Ein Produkt der
+              {" "}{site.company.legalName}, {site.company.city}. Hosting und
               Server in Deutschland.
+            </p>
+            <p className="mono" style={{ marginTop: "1rem" }}>
+              RW 48.08 · HW 11.55 · Blatt 99
             </p>
           </div>
 
@@ -31,7 +34,7 @@ export default function Footer() {
           </div>
 
           <div className="links-col">
-            <h3>Büro</h3>
+            <h3>Projekt</h3>
             <ul className="global-footer-links">
               <li><Link href="/branchen/bautraeger">Bauträger</Link></li>
               <li><Link href="/branchen/immobilienmakler">Makler</Link></li>
@@ -45,32 +48,23 @@ export default function Footer() {
           </div>
 
           <div className="links-col">
-            <h3>Kontakt</h3>
+            <h3>Plankopf</h3>
             <address style={{ fontStyle: "normal" }}>
               <ul className="global-footer-links">
-                <li style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start" }}>
-                  <IconPin size={17} style={{ color: "var(--sonne)", flexShrink: 0, marginTop: 3 }} />
-                  <span className="global-foot-addr">
-                    {site.company.legalName}<br />
-                    {site.company.street}<br />
-                    {site.company.zip} {site.company.city}
-                  </span>
+                <li className="global-foot-addr">
+                  {site.company.legalName}<br />
+                  {site.company.street}<br />
+                  {site.company.zip} {site.company.city}
                 </li>
-                <li style={{ display: "flex", gap: "0.625rem", alignItems: "center" }}>
-                  <IconMail size={17} style={{ color: "var(--sonne)", flexShrink: 0 }} />
-                  <a href={`mailto:${site.company.email}`}>{site.company.email}</a>
-                </li>
-                <li style={{ display: "flex", gap: "0.625rem", alignItems: "center" }}>
-                  <IconPhone size={17} style={{ color: "var(--sonne)", flexShrink: 0 }} />
-                  <a href={site.company.phoneHref}>{site.company.phone}</a>
-                </li>
+                <li><a href={`mailto:${site.company.email}`}>{site.company.email}</a></li>
+                <li><a href={site.company.phoneHref}>{site.company.phone}</a></li>
               </ul>
             </address>
           </div>
         </div>
 
         <div className="global-footer-bottom">
-          <div>&copy; {new Date().getFullYear()} flatplan.de · {site.company.brand}</div>
+          <div>&copy; {new Date().getFullYear()} flatplan.de · {site.company.brand} · Maßstab 1:1</div>
           <div className="global-legal-links">
             <Link href="/impressum">Impressum</Link>
             <Link href="/datenschutz">Datenschutz</Link>

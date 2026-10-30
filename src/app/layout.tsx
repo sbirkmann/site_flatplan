@@ -1,29 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Source_Sans_3, Spline_Sans_Mono } from "next/font/google";
+import { Barlow_Condensed, Barlow, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
-const display = Syne({
+const display = Barlow_Condensed({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const sans = Source_Sans_3({
+const sans = Barlow({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const mono = Spline_Sans_Mono({
+const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -36,14 +36,17 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: [
     "Wohnungsfinder",
-    "Vorverkauf",
-    "Neubauvertrieb",
-    "3D Grundriss",
-    "Bauträger",
-    "Immobilienmakler",
-    "interaktiver Grundriss",
-    "360 Rundgang Neubau",
-    "onOffice",
+    "interaktive Fassade",
+    "Neubau Vorverkauf Software",
+    "Bauträger Vertriebssoftware",
+    "digitaler Neubauvertrieb",
+    "Vorverkaufsquote",
+    "3D Grundriss online",
+    "virtueller Rundgang Neubau",
+    "Reservierungsmanagement Immobilien",
+    "Exposé Generator",
+    "OpenImmo Schnittstelle",
+    "QR Code Bauzaun",
   ],
   applicationName: site.name,
   verification: {
@@ -58,7 +61,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#12151A",
+  themeColor: "#faf9f4",
 };
 
 const organizationSchema = {

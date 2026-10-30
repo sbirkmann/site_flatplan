@@ -43,22 +43,26 @@ export default function BlogArticle({
 
       <section className="page-hero border-b" style={{ paddingBottom: 0 }}>
         <div className="container" style={{ maxWidth: "52rem" }}>
-          <Link href="/blog" className="measure" style={{ display: "inline-block", marginBottom: "1.5rem" }}>
-            ← Artikel
-          </Link>
-          <span className="eyebrow">{post.tag}</span>
+          <div className="sheet-head" aria-hidden="true">
+            <span>
+              <Link href="/blog" style={{ color: "inherit" }}>← Blog</Link>
+              {" · "}{post.tag} · {formatDate(post.date)} · {post.readingMinutes} Min.
+            </span>
+            <span className="sheet-blatt">Artikel</span>
+          </div>
           <h1 style={{ maxWidth: "18ch" }}>{post.title}</h1>
           <p className="lead" style={{ maxWidth: "38rem" }}>{post.description}</p>
-          <p className="measure" style={{ marginBottom: "1.75rem" }}>
-            {formatDate(post.date)}  ·  {post.readingMinutes} Min.
-          </p>
-          <figure className="overlap-frame" style={{ margin: 0, padding: "0.55rem" }}>
+          <figure className="photo-frame" style={{ margin: "2rem 0 0" }}>
             <img src={post.image} alt={post.imageAlt} width={1200} height={750} style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", display: "block" }} />
+            <figcaption>
+              <span>{post.tag}</span>
+              <span>{formatDate(post.date)}</span>
+            </figcaption>
           </figure>
         </div>
       </section>
 
-      <article className="section bg-white border-b">
+      <article className="section border-b">
         <div className="container" style={{ maxWidth: "52rem" }}>
           <div className="prose" style={{ margin: 0, maxWidth: "66ch" }}>{children}</div>
         </div>
@@ -67,7 +71,11 @@ export default function BlogArticle({
       {relatedPosts.length > 0 && (
         <section className="section bg-soft border-b">
           <div className="container">
-            <p className="plan-rule mb-8">Weitere Artikel</p>
+            <div className="sheet-head" aria-hidden="true">
+              <span>flatplan.de — Weiterlesen</span>
+              <span className="sheet-blatt">Anhang</span>
+            </div>
+            <h2 className="mb-8">Weitere Artikel.</h2>
             <div className="blog-board blog-board--related">
               {relatedPosts.map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}`} className="blog-card">
@@ -75,7 +83,7 @@ export default function BlogArticle({
                     <img src={p.image} alt={p.imageAlt} width={1200} height={750} />
                   </div>
                   <div className="blog-card-plate">
-                    <span className="measure">{p.tag} · {formatDate(p.date)}</span>
+                    <span className="mono">{p.tag} · {formatDate(p.date)}</span>
                     <strong>{p.title}</strong>
                   </div>
                 </Link>

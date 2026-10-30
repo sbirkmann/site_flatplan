@@ -36,25 +36,24 @@ export default function Blog() {
       <JsonLd data={[blogSchema, breadcrumbs([{ name: "Start", path: "/" }, { name: "Blog", path: "/blog" }])]} />
       <PageHero
         eyebrow="Artikel"
+        blatt="W-01"
         title="Artikel zum Vorverkauf."
         lead="Quote, Anfragen, Bauzaun, Datenschutz. Aus der Arbeit mit Bauträgern und Maklern — ohne Tutorial-Ton."
-        tone="licht"
         measure={`${blogPosts.length} Artikel`}
       />
 
-      <section className="section bg-white border-b" style={{ paddingTop: "3rem" }}>
+      <section className="section border-b" style={{ paddingTop: "3rem" }}>
         <div className="container">
           <BlogIndex />
         </div>
       </section>
 
-      <section className="section bg-blatt border-b">
+      <section className="section bg-soft border-b">
         <div className="container" style={{ maxWidth: "40rem" }}>
-          <span className="eyebrow">Begriff</span>
           <h2>WE, Gate, OpenImmo.</h2>
           <p className="lead">
             Das{" "}
-            <Link href="/wissen/glossar" style={{ fontWeight: 700, textDecoration: "underline" }}>Glossar</Link>
+            <Link href="/wissen/glossar" style={{ fontWeight: 700 }}>Glossar</Link>
             {" "}zum Vorverkauf, wie am Tisch.
           </p>
           <Link href="/kontakt" className="btn btn-outline">

@@ -4,13 +4,15 @@ import JsonLd, { breadcrumbs } from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/site";
 import PageHero from "@/components/ui/PageHero";
 import CtaBand from "@/components/ui/CtaBand";
-import FacadeFinder from "@/components/photos/FacadeFinder";
+import PlanFinder from "@/components/plan/PlanFinder";
+import AblaufPlan from "@/components/plan/AblaufPlan";
+import SheetHead from "@/components/plan/SheetHead";
 import { IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Ablauf im Neubauvertrieb",
+  title: "Ablauf im Neubauvertrieb mit Wohnungsfinder",
   description:
-    "Wohnungsfinder im Vorverkauf, Schritt für Schritt: Modell und Rendering, Finder auf der Projektseite, Anfragen im Dashboard. CRM-Anbindung optional.",
+    "Der Wohnungsfinder im Vorverkauf, Schritt für Schritt: 3D-Modell und Renderings, Finder auf der Projektseite oder eigener Domain, Anfragen mit Wohnungsnummer im Dashboard. CRM-Anbindung optional.",
   path: "/use-cases/neubauvertrieb",
 });
 
@@ -25,45 +27,44 @@ export default function NeubauvertriebPage() {
       />
       <PageHero
         eyebrow="Ablauf"
+        blatt="A-01"
         title="Vom Modell bis zur Anfrage."
-        lead="Wir bauen Modell und Renderings, bei Bedarf die Grundrisse. Daraus wird der Wohnungsfinder für dieses Bauvorhaben. Anfragen liegen im Dashboard. CRM ist optional."
-        tone="licht"
+        lead="Wir bauen 3D-Modell und Renderings, bei Bedarf die Grundrisse. Daraus wird der Wohnungsfinder für dieses Bauvorhaben — auf Ihrer Projektseite oder unter eigener Domain. Anfragen liegen im Dashboard, ein CRM ist optional."
+        illustration={<PlanFinder />}
         actions={
           <>
-            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={18} /></Link>
-            <Link href="/features" className="btn btn-outline btn-lg">Überblick</Link>
+            <Link href="/kontakt" className="btn btn-primary btn-lg">Demo anfragen <IconArrow size={16} /></Link>
+            <Link href="/features" className="link-arrow">Funktionsüberblick</Link>
           </>
         }
       />
-      <section className="overlap-stage bg-himmel border-b">
-        <div className="container overlap-fassade">
-          <div className="overlap-frame">
-            <FacadeFinder showLegend={false} />
-          </div>
-          <div className="overlap-plate">
-            <span className="eyebrow">Ablauf</span>
-            <h2>Material, Finder, Dashboard.</h2>
-            <p className="lead" style={{ margin: 0 }}>
-              Wohnungen auf der Fassade. Anfrage mit Wohnungsnummer. Status und Zahlen im Dashboard.
-            </p>
-          </div>
+
+      <section className="section bg-soft border-b">
+        <div className="container">
+          <SheetHead blatt="A-02" titel="Ablaufplan" />
+          <h2 className="mb-8">Drei Stationen, drei Wochen.</h2>
+          <AblaufPlan />
         </div>
       </section>
-      <section className="section bg-white border-b">
-        <div className="container walk">
-          {[
-            { room: "Material", title: "Modell, Rendering, Grundriss", copy: "Von uns, oder aus Ihrem Bestand — dann bereiten wir es auf." },
-            { room: "Start", title: "Warteliste, falls der Start später liegt", copy: "Countdown, Double-Opt-in. Mail am Launch-Tag." },
-            { room: "Kanal", title: "UTM, QR, Inserat", copy: "Dieselbe Wohnung, egal woher der Klick kommt." },
-            { room: "Anfrage", title: "Bezug zur Wohnung", copy: "Merkliste, Gate, Board im Dashboard. CRM nur auf Wunsch." },
-            { room: "Zahl", title: "Auswertung", copy: "Aufrufe, geöffnete Wohnungen, Conversion je UTM. Im Dashboard, ohne Cookie." },
-          ].map((row) => (
-            <div key={row.room} className="walk-row">
-              <p className="room">{row.room}</p>
-              <h3>{row.title}</h3>
-              <p>{row.copy}</p>
-            </div>
-          ))}
+
+      <section className="section border-b">
+        <div className="container">
+          <SheetHead blatt="A-03" titel="Der Weg einer Anfrage" />
+          <div className="walk">
+            {[
+              { room: "Material", title: "Modell, Rendering, Grundriss", copy: "Von uns erstellt oder aus Ihrem Bestand aufbereitet. Pläne, CAD, Fotos — wir sagen Ihnen nach der ersten Sichtung ehrlich, was verwertbar ist." },
+              { room: "Start", title: "Warteliste, falls der Start später liegt", copy: "Countdown und Double-Opt-in auf der Projektseite. Am Launch-Tag geht die Mail an eine bestätigte Liste, nicht in die Leere." },
+              { room: "Kanal", title: "UTM, QR, Inserat", copy: "Bauzaun, Anzeige, Newsletter, Portal: Dieselbe Wohnung, egal woher der Klick kommt. Der Kanal steht an der Anfrage." },
+              { room: "Anfrage", title: "Bezug zur Wohnung", copy: "Merkliste, Exposé-Gate, Board im Dashboard. Jede Anfrage trägt die Wohnungsnummer — CRM nur, wenn Sie eines anbinden." },
+              { room: "Zahl", title: "Auswertung ohne Cookie", copy: "Aufrufe, geöffnete Wohnungen, Anfragen je UTM-Kanal. Im Dashboard, als Wochenbericht, ohne Banner und ohne IP-Speicherung." },
+            ].map((row) => (
+              <div key={row.room} className="walk-row">
+                <p className="room">{row.room}</p>
+                <h3>{row.title}</h3>
+                <p>{row.copy}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <CtaBand />

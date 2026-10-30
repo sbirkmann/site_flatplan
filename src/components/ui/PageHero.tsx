@@ -1,48 +1,43 @@
 import type { ReactNode } from "react";
 
-type Tone = "licht" | "sonne" | "himmel" | "blatt" | "koralle" | "papier";
-
-const toneClass: Record<Tone, string> = {
-  licht: "bg-soft",
-  sonne: "bg-sonne",
-  himmel: "bg-himmel",
-  blatt: "bg-blatt",
-  koralle: "bg-koralle",
-  papier: "bg-white",
-};
-
+/** Seitenkopf im Planstil: Blatt-Streifen statt Eyebrow, optional Planfeld rechts. */
 export default function PageHero({
   eyebrow,
   title,
   lead,
   actions,
   illustration,
-  tone = "licht",
+  blatt,
   measure,
 }: {
+  /** Wird als Blatt-Metazeile gerendert, nicht als Kicker. */
   eyebrow: string;
   title: string;
   lead: ReactNode;
   actions?: ReactNode;
   illustration?: ReactNode;
-  tone?: Tone;
+  blatt?: string;
   measure?: string;
+  tone?: string;
 }) {
   return (
-    <section className={`page-hero border-b ${toneClass[tone]}`}>
-      <div className={`container ${illustration ? "page-hero-split" : ""}`}>
-        <div className="page-hero-copy animate-up">
-          <span className="eyebrow">{eyebrow}</span>
-          <h1>{title}</h1>
-          <p className="lead" style={{ marginBottom: actions ? "1.5rem" : 0 }}>{lead}</p>
-          {actions && <div className="flex gap-4 flex-wrap items-center">{actions}</div>}
-          {measure && <p className="measure" style={{ marginTop: "1.15rem", marginBottom: 0 }}>{measure}</p>}
+    <section className="page-hero border-b">
+      <div className="container">
+        <div className="sheet-head" aria-hidden="true">
+          <span>flatplan.de — {eyebrow}</span>
+          <span className="sheet-blatt">Blatt {blatt ?? "—"}</span>
         </div>
-        {illustration && (
-          <div className="page-hero-visual overlap-frame animate-up delay-200">
-            {illustration}
+        <div className={illustration ? "page-hero-split" : undefined}>
+          <div className="page-hero-copy">
+            <h1>{title}</h1>
+            <p className="lead" style={{ marginBottom: actions ? "1.75rem" : 0 }}>{lead}</p>
+            {actions && <div className="flex gap-4 flex-wrap items-center">{actions}</div>}
+            {measure && (
+              <p className="mono" style={{ marginTop: "1.5rem", marginBottom: 0 }}>{measure}</p>
+            )}
           </div>
-        )}
+          {illustration && <div className="plan-field">{illustration}</div>}
+        </div>
       </div>
     </section>
   );
