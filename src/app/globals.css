@@ -1533,3 +1533,48 @@ p {
   color: var(--tinte-55);
 }
 .partner-logos-item { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+/* Demo-Startfläche (Click-to-load) */
+.demo-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0;
+  cursor: pointer;
+  background:
+    repeating-linear-gradient(45deg, var(--tinte-40) 0, var(--tinte-40) 1px, transparent 1px, transparent 14px),
+    var(--papier-dunkel);
+  font-family: inherit;
+}
+.demo-start-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--rot);
+  border: 2px solid var(--rot);
+  background: var(--papier);
+  padding: 0.8rem 1.6rem;
+  transform: rotate(-1.5deg);
+  border-radius: var(--radius);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.demo-start:hover .demo-start-stamp {
+  background: var(--rot);
+  color: var(--papier);
+  transform: rotate(0deg);
+}
+.demo-start-note {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--tinte-55);
+  background: var(--papier);
+  padding: 0.3rem 0.7rem;
+}
